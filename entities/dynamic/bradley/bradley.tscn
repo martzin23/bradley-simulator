@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://bg5kpojeurmjn"]
+
+[ext_resource type="Script" uid="uid://cipb3n4ju275h" path="res://entities/dynamic/bradley/movement.gd" id="1_rd4cu"]
+[ext_resource type="PackedScene" uid="uid://cajcmxav6ftbm" path="res://entities/dynamic/bradley/model.blend" id="1_wiani"]
+[ext_resource type="Script" uid="uid://w66wgf3yab1p" path="res://entities/dynamic/bradley/turret.gd" id="3_fc11s"]
+[ext_resource type="Script" uid="uid://cun6jrb3ayapc" path="res://entities/dynamic/bradley/camera.gd" id="3_hovhb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wiani"]
+size = Vector3(1, 0.57910156, 2.4296875)
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_hovhb"]
+
+[node name="Bradley" type="VehicleBody3D"]
+mass = 25000.0
+script = ExtResource("1_rd4cu")
+
+[node name="Model" parent="." instance=ExtResource("1_wiani")]
+script = ExtResource("3_fc11s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49560547, -0.00390625)
+shape = SubResource("BoxShape3D_wiani")
+
+[node name="WheelFrontLeft" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.19400531, 0.951)
+use_as_traction = true
+use_as_steering = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.25
+wheel_rest_length = 0.05
+suspension_stiffness = 50.0
+suspension_max_force = 600000.0
+
+[node name="WheelBackLeft" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.19400531, -1.097)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.25
+wheel_rest_length = 0.05
+suspension_stiffness = 50.0
+suspension_max_force = 600000.0
+
+[node name="WheelBackRight" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.1943475, -1.0965887)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.25
+wheel_rest_length = 0.05
+suspension_stiffness = 50.0
+suspension_max_force = 600000.0
+
+[node name="WheelFrontRight" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.1943475, 0.9511332)
+use_as_traction = true
+use_as_steering = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.25
+wheel_rest_length = 0.05
+suspension_stiffness = 50.0
+suspension_max_force = 600000.0
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.86881423, 0)
+shape = SubResource("SeparationRayShape3D_hovhb")
+spring_length = 3.0
+script = ExtResource("3_hovhb")
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+fov = 60.0
