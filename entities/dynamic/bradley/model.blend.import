@@ -39,15 +39,25 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"body": {
+"Body": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://materials/white.tres",
-"use_external/path": "uid://o40ki73usl3k"
+"use_external/fallback_path": "res://materials/bradley_body.tres",
+"use_external/path": "uid://b3mdrhklusmfq"
 },
-"tracks": {
+"Material": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://materials/white.tres",
-"use_external/path": "uid://o40ki73usl3k"
+"use_external/fallback_path": "res://materials/placeholder.tres",
+"use_external/path": "uid://cl4rjl8ttyplk"
+},
+"Tracks_L": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://materials/bradley_tracks_left.tres",
+"use_external/path": "uid://td775hcub6d0"
+},
+"Tracks_R": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://materials/bradley_tracks_right.tres",
+"use_external/path": "uid://dw438qaqwht2s"
 }
 }
 }

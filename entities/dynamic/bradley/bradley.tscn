@@ -6,65 +6,392 @@
 [ext_resource type="Script" uid="uid://cun6jrb3ayapc" path="res://entities/dynamic/bradley/camera.gd" id="3_hovhb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wiani"]
-size = Vector3(1, 0.57910156, 2.4296875)
+size = Vector3(3.4267578, 2.2097778, 5.538727)
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_hovhb"]
 
-[node name="Bradley" type="VehicleBody3D"]
-mass = 25000.0
+[node name="Bradley" type="VehicleBody3D" node_paths=PackedStringArray("wheels_right", "wheels_left", "track_model")]
+mass = 1000.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 1, 0)
 script = ExtResource("1_rd4cu")
+wheels_right = [NodePath("VehicleWheelR0"), NodePath("VehicleWheelR1"), NodePath("VehicleWheelR2"), NodePath("VehicleWheelR3"), NodePath("VehicleWheelR4"), NodePath("VehicleWheelR5"), NodePath("VehicleWheelR6"), NodePath("VehicleWheelR7")]
+wheels_left = [NodePath("VehicleWheelL0"), NodePath("VehicleWheelL1"), NodePath("VehicleWheelL2"), NodePath("VehicleWheelL3"), NodePath("VehicleWheelL4"), NodePath("VehicleWheelL5"), NodePath("VehicleWheelL6"), NodePath("VehicleWheelL7")]
+track_model = NodePath("Model/Bradley/Body/Armature/Skeleton3D/Tracks")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0191774, 0.10050964)
+shape = SubResource("BoxShape3D_wiani")
+
+[node name="CameraInterior" type="Camera3D" parent="."]
+transform = Transform3D(-1, 1.3877788e-17, -8.742791e-08, 1.3877788e-17, 1, 0, 8.742791e-08, -1.2133059e-24, -1, -0.5563892, 2.2746825, -0.7663704)
+fov = 60.0
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2.7990654, 0)
+shape = SubResource("SeparationRayShape3D_hovhb")
+spring_length = 10.0
+script = ExtResource("3_hovhb")
+
+[node name="CameraExterior" type="Camera3D" parent="SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+current = true
+fov = 60.0
 
 [node name="Model" parent="." instance=ExtResource("1_wiani")]
 script = ExtResource("3_fc11s")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49560547, -0.00390625)
-shape = SubResource("BoxShape3D_wiani")
+[node name="Skeleton3D" parent="Model/Bradley/Body/Armature" index="0"]
+transform = Transform3D(1, -1.6543587e-24, 0, 1.3314212e-31, 1, 0, 0, -1.6940659e-21, 1, 0, 0, 0)
+bones/0/position = Vector3(1.2847859, 0.37647298, 1.8621279)
+bones/0/rotation = Quaternion(1.5457403e-21, -2.9103785e-11, -9.4555e-12, 1)
+bones/0/scale = Vector3(1, 1.0000001, 1)
+bones/1/position = Vector3(1.2845383, 0.37647256, 1.1444826)
+bones/1/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
+bones/2/position = Vector3(1.2842578, 0.37647197, 0.33083504)
+bones/2/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
+bones/3/position = Vector3(1.2839273, 0.3764715, -0.6276339)
+bones/3/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
+bones/4/position = Vector3(1.2836798, 0.37647113, -1.3452796)
+bones/4/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
+bones/5/position = Vector3(1.2834275, 0.37647054, -2.0767736)
+bones/5/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
+bones/6/position = Vector3(-1.2813473, 0.37647298, 1.8630126)
+bones/6/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
+bones/7/position = Vector3(-1.2815949, 0.37647265, 1.1453675)
+bones/7/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
+bones/8/position = Vector3(-1.2818754, 0.3764722, 0.33171996)
+bones/8/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
+bones/9/position = Vector3(-1.2822058, 0.37647173, -0.62674904)
+bones/9/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
+bones/10/position = Vector3(-1.2824533, 0.37647137, -1.3443943)
+bones/10/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
+bones/11/position = Vector3(-1.2827055, 0.376471, -2.0758886)
+bones/11/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
 
-[node name="WheelFrontLeft" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.19400531, 0.951)
-use_as_traction = true
-use_as_steering = true
-wheel_roll_influence = 1.0
-wheel_radius = 0.25
-wheel_rest_length = 0.05
-suspension_stiffness = 50.0
-suspension_max_force = 600000.0
+[node name="Turret" parent="Model/Bradley/Body" index="4"]
+transform = Transform3D(1, 2.474475e-11, -1.0816275e-18, 0, -4.3711385e-08, -1, -2.4744751e-11, 0.99999994, -4.371139e-08, -0.16112022, 0.4341591, 2.0599253)
 
-[node name="WheelBackLeft" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.19400531, -1.097)
-use_as_traction = true
-wheel_roll_influence = 1.0
-wheel_radius = 0.25
-wheel_rest_length = 0.05
-suspension_stiffness = 50.0
-suspension_max_force = 600000.0
-
-[node name="WheelBackRight" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.1943475, -1.0965887)
-use_as_traction = true
-wheel_roll_influence = 1.0
-wheel_radius = 0.25
-wheel_rest_length = 0.05
-suspension_stiffness = 50.0
-suspension_max_force = 600000.0
-
-[node name="WheelFrontRight" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.1943475, 0.9511332)
-use_as_traction = true
-use_as_steering = true
-wheel_roll_influence = 1.0
-wheel_radius = 0.25
-wheel_rest_length = 0.05
-suspension_stiffness = 50.0
-suspension_max_force = 600000.0
-
-[node name="SpringArm3D" type="SpringArm3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.86881423, 0)
-shape = SubResource("SeparationRayShape3D_hovhb")
-spring_length = 3.0
-script = ExtResource("3_hovhb")
-
-[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+[node name="CameraBarrel" type="Camera3D" parent="Model/Bradley/Body/Turret/Barrel" index="0"]
+transform = Transform3D(-0.99999994, 2.9103806e-11, 0.00034474762, 1.682301e-10, 1.0000001, 4.331258e-07, -0.00034474762, 4.3312585e-07, -0.99999994, 0.014695793, 0.15750933, 0.5689497)
 fov = 60.0
+
+[node name="BoneAttachments" type="Node3D" parent="."]
+
+[node name="BoneAttachmentL1" type="BoneAttachment3D" parent="BoneAttachments"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2838664, 0.37569445, 1.9093287)
+bone_name = "L1"
+bone_idx = 0
+override_pose = true
+use_external_skeleton = true
+external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+
+[node name="BoneAttachmentL2" type="BoneAttachment3D" parent="BoneAttachments"]
+transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, 1.2836188, 0.37569404, 1.1916834)
+bone_name = "L2"
+bone_idx = 1
+override_pose = true
+use_external_skeleton = true
+external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+
+[node name="BoneAttachmentL3" type="BoneAttachment3D" parent="BoneAttachments"]
+transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, 1.2833383, 0.37569344, 0.37803584)
+bone_name = "L3"
+bone_idx = 2
+override_pose = true
+use_external_skeleton = true
+external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+
+[node name="BoneAttachmentL4" type="BoneAttachment3D" parent="BoneAttachments"]
+transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, 1.2830079, 0.37569296, -0.58043313)
+bone_name = "L4"
+bone_idx = 3
+override_pose = true
+use_external_skeleton = true
+external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+
+[node name="BoneAttachmentL5" type="BoneAttachment3D" parent="BoneAttachments"]
+transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, 1.2827604, 0.3756926, -1.2980788)
+bone_name = "L5"
+bone_idx = 4
+override_pose = true
+use_external_skeleton = true
+external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+
+[node name="BoneAttachmentL6" type="BoneAttachment3D" parent="BoneAttachments"]
+transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, 1.282508, 0.375692, -2.0295727)
+bone_name = "L6"
+bone_idx = 5
+override_pose = true
+use_external_skeleton = true
+external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+
+[node name="BoneAttachmentR1" type="BoneAttachment3D" parent="BoneAttachments"]
+transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, -1.2822667, 0.37569445, 1.9102134)
+bone_name = "R1"
+bone_idx = 6
+override_pose = true
+use_external_skeleton = true
+external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+
+[node name="BoneAttachmentR2" type="BoneAttachment3D" parent="BoneAttachments"]
+transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, -1.2825143, 0.37569413, 1.1925683)
+bone_name = "R2"
+bone_idx = 7
+override_pose = true
+use_external_skeleton = true
+external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+
+[node name="BoneAttachmentR3" type="BoneAttachment3D" parent="BoneAttachments"]
+transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, -1.2827948, 0.37569368, 0.37892076)
+bone_name = "R3"
+bone_idx = 8
+override_pose = true
+use_external_skeleton = true
+external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+
+[node name="BoneAttachmentR4" type="BoneAttachment3D" parent="BoneAttachments"]
+transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, -1.2831253, 0.3756932, -0.57954824)
+bone_name = "R4"
+bone_idx = 9
+override_pose = true
+use_external_skeleton = true
+external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+
+[node name="BoneAttachmentR5" type="BoneAttachment3D" parent="BoneAttachments"]
+transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, -1.2833728, 0.37569284, -1.2971935)
+bone_name = "R5"
+bone_idx = 10
+override_pose = true
+use_external_skeleton = true
+external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+
+[node name="BoneAttachmentR6" type="BoneAttachment3D" parent="BoneAttachments"]
+transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, -1.283625, 0.3756925, -2.0286877)
+bone_name = "R6"
+bone_idx = 11
+override_pose = true
+use_external_skeleton = true
+external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+
+[node name="VehicleWheelL0" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.282, 0.8988036, 2.7715101)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.6
+wheel_rest_length = 0.0
+suspension_travel = 0.0
+suspension_stiffness = 25.0
+suspension_max_force = 5000.0
+
+[node name="VehicleWheelL1" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2838664, 0.37569445, 1.9093287)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.45
+wheel_rest_length = 0.0
+suspension_travel = 1.0
+suspension_stiffness = 15.0
+suspension_max_force = 5000.0
+
+[node name="RemoteTransformL1" type="RemoteTransform3D" parent="VehicleWheelL1"]
+remote_path = NodePath("../../BoneAttachments/BoneAttachmentL1")
+update_rotation = false
+update_scale = false
+
+[node name="VehicleWheelL2" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2836188, 0.37569404, 1.1916834)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.45
+wheel_rest_length = 0.0
+suspension_travel = 1.0
+suspension_stiffness = 15.0
+suspension_max_force = 5000.0
+
+[node name="RemoteTransformL2" type="RemoteTransform3D" parent="VehicleWheelL2"]
+remote_path = NodePath("../../BoneAttachments/BoneAttachmentL2")
+update_rotation = false
+update_scale = false
+
+[node name="VehicleWheelL3" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2833383, 0.37569344, 0.37803584)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.45
+wheel_rest_length = 0.0
+suspension_travel = 1.0
+suspension_stiffness = 15.0
+suspension_max_force = 5000.0
+
+[node name="RemoteTransformL3" type="RemoteTransform3D" parent="VehicleWheelL3"]
+remote_path = NodePath("../../BoneAttachments/BoneAttachmentL3")
+update_rotation = false
+update_scale = false
+
+[node name="VehicleWheelL4" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2830079, 0.37569296, -0.58043313)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.45
+wheel_rest_length = 0.0
+suspension_travel = 1.0
+suspension_stiffness = 15.0
+suspension_max_force = 5000.0
+
+[node name="RemoteTransformL4" type="RemoteTransform3D" parent="VehicleWheelL4"]
+remote_path = NodePath("../../BoneAttachments/BoneAttachmentL4")
+update_rotation = false
+update_scale = false
+
+[node name="VehicleWheelL5" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2827604, 0.3756926, -1.2980788)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.45
+wheel_rest_length = 0.0
+suspension_travel = 1.0
+suspension_stiffness = 15.0
+suspension_max_force = 5000.0
+
+[node name="RemoteTransformL5" type="RemoteTransform3D" parent="VehicleWheelL5"]
+remote_path = NodePath("../../BoneAttachments/BoneAttachmentL5")
+update_rotation = false
+update_scale = false
+
+[node name="VehicleWheelL6" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.282508, 0.375692, -2.0295727)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.45
+wheel_rest_length = 0.0
+suspension_travel = 1.0
+suspension_stiffness = 15.0
+suspension_max_force = 5000.0
+
+[node name="RemoteTransformL6" type="RemoteTransform3D" parent="VehicleWheelL6"]
+remote_path = NodePath("../../BoneAttachments/BoneAttachmentL6")
+update_rotation = false
+update_scale = false
+
+[node name="VehicleWheelL7" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.282, 0.88385785, -2.6651626)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.6
+wheel_rest_length = 0.0
+suspension_travel = 0.0
+suspension_stiffness = 25.0
+suspension_max_force = 5000.0
+
+[node name="VehicleWheelR0" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.282, 0.8988036, 2.7715101)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.6
+wheel_rest_length = 0.0
+suspension_travel = 0.0
+suspension_stiffness = 25.0
+suspension_max_force = 5000.0
+
+[node name="VehicleWheelR1" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2822667, 0.37569445, 1.9102134)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.45
+wheel_rest_length = 0.0
+suspension_travel = 1.0
+suspension_stiffness = 15.0
+suspension_max_force = 5000.0
+
+[node name="RemoteTransformR1" type="RemoteTransform3D" parent="VehicleWheelR1"]
+remote_path = NodePath("../../BoneAttachments/BoneAttachmentR1")
+update_rotation = false
+update_scale = false
+
+[node name="VehicleWheelR2" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2825143, 0.37569413, 1.1925683)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.45
+wheel_rest_length = 0.0
+suspension_travel = 1.0
+suspension_stiffness = 15.0
+suspension_max_force = 5000.0
+
+[node name="RemoteTransformR2" type="RemoteTransform3D" parent="VehicleWheelR2"]
+remote_path = NodePath("../../BoneAttachments/BoneAttachmentR2")
+update_rotation = false
+update_scale = false
+
+[node name="VehicleWheelR3" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2827948, 0.37569368, 0.37892076)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.45
+wheel_rest_length = 0.0
+suspension_travel = 1.0
+suspension_stiffness = 15.0
+suspension_max_force = 5000.0
+
+[node name="RemoteTransformR3" type="RemoteTransform3D" parent="VehicleWheelR3"]
+remote_path = NodePath("../../BoneAttachments/BoneAttachmentR3")
+update_rotation = false
+update_scale = false
+
+[node name="VehicleWheelR4" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2831253, 0.3756932, -0.57954824)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.45
+wheel_rest_length = 0.0
+suspension_travel = 1.0
+suspension_stiffness = 15.0
+suspension_max_force = 5000.0
+
+[node name="RemoteTransformR4" type="RemoteTransform3D" parent="VehicleWheelR4"]
+remote_path = NodePath("../../BoneAttachments/BoneAttachmentR4")
+update_rotation = false
+update_scale = false
+
+[node name="VehicleWheelR5" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2833728, 0.37569284, -1.2971935)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.45
+wheel_rest_length = 0.0
+suspension_travel = 1.0
+suspension_stiffness = 15.0
+suspension_max_force = 5000.0
+
+[node name="RemoteTransformR5" type="RemoteTransform3D" parent="VehicleWheelR5"]
+remote_path = NodePath("../../BoneAttachments/BoneAttachmentR5")
+update_rotation = false
+update_scale = false
+
+[node name="VehicleWheelR6" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.283625, 0.3756925, -2.0286877)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.45
+wheel_rest_length = 0.0
+suspension_travel = 1.0
+suspension_stiffness = 15.0
+suspension_max_force = 5000.0
+
+[node name="RemoteTransformR6" type="RemoteTransform3D" parent="VehicleWheelR6"]
+remote_path = NodePath("../../BoneAttachments/BoneAttachmentR6")
+update_rotation = false
+update_scale = false
+
+[node name="VehicleWheelR7" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.282, 0.88385785, -2.6651626)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.6
+wheel_rest_length = 0.0
+suspension_travel = 0.0
+suspension_stiffness = 25.0
+suspension_max_force = 5000.0
+
+[editable path="Model"]

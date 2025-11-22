@@ -15,10 +15,15 @@ run/main_scene="uid://bodpq72qfhjm8"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://textures/icon.svg"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
 "res://addons/": "purple",
+"res://data/": "pink",
 "res://entities/": "orange",
 "res://materials/": "yellow",
 "res://scenes/": "red",
