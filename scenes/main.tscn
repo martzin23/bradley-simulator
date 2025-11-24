@@ -132,6 +132,7 @@ shadow_enabled = true
 data_directory = "res://data/regions"
 material = SubResource("Terrain3DMaterial_o6xl0")
 assets = ExtResource("5_tbgi4")
+mesh_size = 32
 top_level = true
 metadata/_edit_lock_ = true
 
@@ -140,13 +141,13 @@ terrain = NodePath("..")
 process_material = ExtResource("4_tipki")
 scene = ExtResource("5_o6xl0")
 mesh = SubResource("ArrayMesh_3a6c1")
-instance_spacing = 1.0
+instance_spacing = 1.5
 grid_width = 5
-rows = 32
-amount = 1024
+rows = 21
+amount = 441
 process_fixed_fps = 1
 min_draw_distance = 80.0
-particle_count = 25600
+particle_count = 11025
 
 [node name="Bradley" parent="." instance=ExtResource("2_0wfyh")]
 transform = Transform3D(-0.8660253, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, -0.8660253, -63.51958, -7.6629252, -164.23389)
