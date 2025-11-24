@@ -23,6 +23,18 @@
 
 ---
 
+>[!NOTE]
+>Assets linkovi
+> - Terrain (MIT License): https://terrain3d.readthedocs.io/en/latest/index.html
+> - Bradley model (CC BY 4.0): https://sketchfab.com/3d-models/m2-bradley-ifv-ab022158ab5f4fbfa55d4142db7595ab
+> - Textures (free): https://www.cgbookcase.com/
+> - Textures (free): https://freepbr.com/
+> - Tree models (Free Standard): https://sketchfab.com/3d-models/coniferous-forest-assets-pack-240ce9cf0ad3474f809a59f9446e63cd 
+> - Tree models (Free Standard): https://sketchfab.com/3d-models/various-forest-assets-pack-cf138b8eb2d340cda643ed59f824989c
+> - Grass models (CC BY 4.0): https://sketchfab.com/3d-models/grass-pack-lp-3352f9d646ec4f25b8aeb28e4232814a
+
+---
+
 <table>
     <tr>
         <th>Element</th>
@@ -62,7 +74,7 @@
         <td><kbd>Gotovo</kbd></td>
     </tr>
     <tr>
-        <td>3. 3D targets <br/>(other armored vehicles/tanks)</td>
+        <td>3. 3D targets</td>
         <td>
             <ol type="a">
                 <li>Sphere/Box</li>
@@ -70,6 +82,7 @@
                 <li>Imported 3D model</li>
                 <li>Personally designed 3D model</li>
             </ol>
+            <em>(other armored vehicles/tanks)</em>
         </td>
         <td><kbd>c)</kbd></td>
         <td></td>
@@ -93,9 +106,9 @@
             </ol>
             <em>(any one of a, b, … + mandatory d)</em>
         </td>
-        <td><kbd>? + d)</kbd></td>
-        <td>?) Golub <br/> d) ?</td>
-        <td><kbd>Nedovršeno</kbd></td>
+        <td><kbd>b)</kbd><br/><kbd>d)</kbd></td>
+        <td>Golub <br/>???</td>
+        <td><kbd>Gotovo</kbd> <br/> <kbd>Nedovršeno</kbd></td>
     </tr>
     <tr>
         <td>5. Target motion simulation</td>
@@ -233,6 +246,19 @@
         <td><kbd>a)</kbd></td>
         <td>-</td>
         <td><kbd>Gotovo</kbd></td>
+    </tr>
+    <tr>
+        <td>15. Dokumentacija</td>
+        <td>
+            <ul>
+                <li>primjeri postojecih simulatora oklopnih vozila</li>
+                <li>lista poruka s LLM</li>
+                <li>???</li>
+            </ul>
+        </td>
+        <td><kbd>-</kbd></td>
+        <td></td>
+        <td><kbd>Nije početo</kbd></td>
     </tr>
 </table>
 

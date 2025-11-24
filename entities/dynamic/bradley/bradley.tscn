@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg5kpojeurmjn"]
+[gd_scene load_steps=9 format=3 uid="uid://bg5kpojeurmjn"]
 
 [ext_resource type="Script" uid="uid://cipb3n4ju275h" path="res://entities/dynamic/bradley/movement.gd" id="1_rd4cu"]
-[ext_resource type="PackedScene" uid="uid://cajcmxav6ftbm" path="res://entities/dynamic/bradley/model.blend" id="1_wiani"]
+[ext_resource type="PackedScene" uid="uid://cajcmxav6ftbm" path="res://entities/dynamic/bradley/bradley_model.blend" id="1_wiani"]
+[ext_resource type="PackedScene" uid="uid://2bg2wakhlmcs" path="res://components/SwitchCameraComponent.tscn" id="2_rkp55"]
 [ext_resource type="Script" uid="uid://w66wgf3yab1p" path="res://entities/dynamic/bradley/turret.gd" id="3_fc11s"]
-[ext_resource type="Script" uid="uid://cun6jrb3ayapc" path="res://entities/dynamic/bradley/camera.gd" id="3_hovhb"]
+[ext_resource type="Script" uid="uid://cun6jrb3ayapc" path="res://entities/dynamic/bradley/camera_look.gd" id="3_hovhb"]
+[ext_resource type="Script" uid="uid://cjnme6xxm8fwo" path="res://entities/dynamic/bradley/camera_zoom.gd" id="6_3gs87"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wiani"]
 size = Vector3(3.4267578, 2.2097778, 5.538727)
@@ -19,6 +21,9 @@ wheels_right = [NodePath("VehicleWheelR0"), NodePath("VehicleWheelR1"), NodePath
 wheels_left = [NodePath("VehicleWheelL0"), NodePath("VehicleWheelL1"), NodePath("VehicleWheelL2"), NodePath("VehicleWheelL3"), NodePath("VehicleWheelL4"), NodePath("VehicleWheelL5"), NodePath("VehicleWheelL6"), NodePath("VehicleWheelL7")]
 track_model = NodePath("Model/Bradley/Body/Armature/Skeleton3D/Tracks")
 
+[node name="SwitchCameraComponent" parent="." node_paths=PackedStringArray("cameras") instance=ExtResource("2_rkp55")]
+cameras = [NodePath("../SpringArm3D/CameraExterior"), NodePath("../Model/Bradley/Body/Turret/Barrel/CameraBarrel")]
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0191774, 0.10050964)
 shape = SubResource("BoxShape3D_wiani")
@@ -32,14 +37,17 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2
 shape = SubResource("SeparationRayShape3D_hovhb")
 spring_length = 10.0
 script = ExtResource("3_hovhb")
+capture_mouse = true
 
 [node name="CameraExterior" type="Camera3D" parent="SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 current = true
 fov = 60.0
 
-[node name="Model" parent="." instance=ExtResource("1_wiani")]
+[node name="Model" parent="." node_paths=PackedStringArray("axis_horizontal", "axis_vertical") instance=ExtResource("1_wiani")]
 script = ExtResource("3_fc11s")
+axis_horizontal = NodePath("Bradley/Body/Turret")
+axis_vertical = NodePath("Bradley/Body/Turret/Barrel")
 
 [node name="Skeleton3D" parent="Model/Bradley/Body/Armature" index="0"]
 transform = Transform3D(1, -1.6543587e-24, 0, 1.3314212e-31, 1, 0, 0, -1.6940659e-21, 1, 0, 0, 0)
@@ -73,8 +81,9 @@ bones/11/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
 transform = Transform3D(1, 2.474475e-11, -1.0816275e-18, 0, -4.3711385e-08, -1, -2.4744751e-11, 0.99999994, -4.371139e-08, -0.16112022, 0.4341591, 2.0599253)
 
 [node name="CameraBarrel" type="Camera3D" parent="Model/Bradley/Body/Turret/Barrel" index="0"]
-transform = Transform3D(-0.99999994, 2.9103806e-11, 0.00034474762, 1.682301e-10, 1.0000001, 4.331258e-07, -0.00034474762, 4.3312585e-07, -0.99999994, 0.014695793, 0.15750933, 0.5689497)
-fov = 60.0
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1.0000001, 0, 8.742278e-08, 0, -1, 0.014695793, 0.15750933, 0.5689497)
+fov = 70.0
+script = ExtResource("6_3gs87")
 
 [node name="BoneAttachments" type="Node3D" parent="."]
 

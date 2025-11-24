@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cax052ays4ppw"]
+
+[ext_resource type="Texture2D" uid="uid://c18jscg88ng6u" path="res://textures/foliage/oak_bark_diffuse.png" id="1_8u8nf"]
+
+[resource]
+albedo_texture = ExtResource("1_8u8nf")
+metallic_specular = 0.0
+normal_enabled = true
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+texture_filter = 2

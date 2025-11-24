@@ -1,12 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://bodpq72qfhjm8"]
+[gd_scene load_steps=17 format=4 uid="uid://bodpq72qfhjm8"]
 
 [ext_resource type="Script" uid="uid://d2sscmmxsebpd" path="res://scenes/main.gd" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://bg5kpojeurmjn" path="res://entities/dynamic/bradley/bradley.tscn" id="2_0wfyh"]
-[ext_resource type="Material" uid="uid://cl4rjl8ttyplk" path="res://materials/placeholder.tres" id="4_jyhfs"]
-[ext_resource type="Terrain3DAssets" uid="uid://die7rmv5qdbji" path="res://entities/static/terrain/terrain3dassets.res" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bg5kpojeurmjn" path="res://entities/dynamic/bradley/Bradley.tscn" id="2_0wfyh"]
+[ext_resource type="Material" uid="uid://0tu4n3y0dmen" path="res://entities/static/terrain/grass_process_material.tres" id="4_tipki"]
+[ext_resource type="PackedScene" uid="uid://ddcpw6g3ke7fo" path="res://entities/static/foliage/grass.blend" id="5_o6xl0"]
+[ext_resource type="Terrain3DAssets" uid="uid://die7rmv5qdbji" path="res://entities/static/terrain/terrain_assets.res" id="5_tbgi4"]
+[ext_resource type="Material" uid="uid://bkplafpjesnxd" path="res://materials/foliage/grass.tres" id="6_tipki"]
+[ext_resource type="PackedScene" uid="uid://bg4ihykfel0sm" path="res://components/Terrain3DParticleComponent.tscn" id="7_tipki"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
 ground_bottom_color = Color(0.654902, 0.6901961, 0.74509805, 1)
+ground_energy_multiplier = 0.25
 
 [sub_resource type="Sky" id="Sky_sugp2"]
 sky_material = SubResource("ProceduralSkyMaterial_jyhfs")
@@ -15,19 +19,16 @@ sky_material = SubResource("ProceduralSkyMaterial_jyhfs")
 background_mode = 2
 sky = SubResource("Sky_sugp2")
 tonemap_mode = 2
-ssao_enabled = true
+tonemap_exposure = 1.5
+tonemap_white = 1.5
+ssao_radius = 32.0
 ssao_intensity = 4.0
-glow_enabled = true
 fog_enabled = true
 fog_mode = 1
 fog_density = 1.0
 fog_sky_affect = 0.0
 fog_depth_begin = 0.0
 fog_depth_end = 1000.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_sugp2"]
-
-[sub_resource type="PrismMesh" id="PrismMesh_tbgi4"]
 
 [sub_resource type="Gradient" id="Gradient_jyhfs"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -59,22 +60,61 @@ _shader_parameters = {
 &"bias_distance": 512.0,
 &"blend_sharpness": 0.5,
 &"depth_blur": 0.0,
+&"dual_scale_far": 170.0,
+&"dual_scale_near": 100.0,
+&"dual_scale_reduction": 0.3,
+&"dual_scale_texture": 0,
 &"enable_macro_variation": true,
 &"enable_projection": true,
 &"flat_terrain_normals": false,
-&"macro_variation1": Color(0.6306644, 0.6416131, 0.685487, 1),
-&"macro_variation2": Color(0.7020707, 0.6445629, 0.55288243, 1),
-&"macro_variation_slope": 0.333,
+&"macro_variation1": Color(0.89002943, 0.8947803, 0.9090437, 1),
+&"macro_variation2": Color(0.741347, 0.67746776, 0.5915349, 1),
+&"macro_variation_slope": 0.3330000158175,
 &"mipmap_bias": 1.0,
 &"noise1_angle": 0.0,
 &"noise1_offset": Vector2(0.5, 0.5),
-&"noise1_scale": 0.04,
-&"noise2_scale": 0.076,
+&"noise1_scale": 0.0310000014725,
+&"noise2_scale": 0.1250000059375,
 &"noise_texture": SubResource("NoiseTexture2D_tefeu"),
-&"projection_threshold": 0.8
+&"projection_threshold": 0.7999999821184,
+&"tri_scale_reduction": 0.3
 }
 world_background = 0
+texture_filtering = 1
 auto_shader = true
+dual_scaling = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_b1u86"]
+_surfaces = [{
+"aabb": AABB(-0.4982001, -0.05464336, -0.59584683, 1.0075305, 0.68605125, 1.1127346),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
+"name": "green",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("izOqEP0rAAC3yQAASOUAAMrIVO8U7gAAnzL//8k0AADQjokIcRQAAJahiQjg+QAAToLU8/n7AACIb9TzixYAAP//iQi1ygAAfwOJCFzkAAAAANTzIsgAAH/81PN7rgAAaNSqEB8pAADJGQAA6MQAAAgQVO8PxQAAp8r//0YpAAAUSYkI//8AALwuiQgsGwAA8E3U8zsYAABHaNTzDf0AAHXUqhAAAAAAHqYAAPfhAABonlTvYecAAL/M//9pBQAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3a6c1"]
+resource_name = "grass_Plane"
+_surfaces = [{
+"aabb": AABB(-0.4982001, -0.05464336, -0.59584683, 1.0075305, 0.68605125, 1.1127346),
+"attribute_data": PackedByteArray("///pAQAA6QEAAGam///pAQAA6QEAAGam///pAQAA6QEAAGam///pAQAA6QEAAGam///pAQAA6QEAAGam///pAQAA6QEAAGam///pAQAAZqb//2am///pAQAAZqb//2am///pAQAAZqb//2am///pAQAAZqb//2am///pAQAAZqb//2am///pAQAAZqb//2am"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcAGAAZABoAGwAcAB0AHgAfACAAIQAiACMA"),
+"material": ExtResource("6_tipki"),
+"name": "green",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("izOqEP0rgBq3yQAASOWAGsrIVO8U7n8a0I6JCHEU5yiWoYkI4PnnKE6C1PP5++go//+JCLXK3z9/A4kIXOTfPwAA1PMiyN8/aNSqEB8pljrJGQAA6MSWOggQVO8PxZU6FEmJCP//ES28LokILBsQLfBN1PM7GBAtddSqEAAA2C4epgAA9+HYLmieVO9h59cuizOqEP0rgBrKyFTvFO5/Gp8y///JNIAa0I6JCHEU5yhOgtTz+fvnKIhv1POLFuco//+JCLXK3z8AANTzIsjfP3/81PN7rt8/aNSqEB8pljoIEFTvD8WVOqfK//9GKZY6FEmJCP//EC3wTdTzOxgQLUdo1PMN/RAtddSqEAAA2C5onlTvYefXLr/M//9pBdgu7szdGe7M3RnuzN4ZSdSWKErUlihK1JUojfkfc475H3OQ+R9z7ePbR+3j20fs49xHrK0oqaytKKmsrSmpCNgRMAjYETAH2BIw7szdGe/M3hnuzN0ZStSWKErUlihK1JYojvkfc475H3OO+R9z7ePcR+3j20ft49tHrK0oqaytKKmsrSipCNgRMAjYETAI2BEw")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_b1u86")
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_sugp2")
@@ -87,31 +127,6 @@ environment = SubResource("Environment_jyhfs")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(0.62387955, 0.34136957, -0.7030229, 0, 0.8995577, 0.43680182, 0.78152055, -0.2725117, 0.5612157, 0, 0, 0)
 shadow_enabled = true
-shadow_reverse_cull_face = true
-
-[node name="Bradley" parent="." instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -46.8189, 0)
-
-[node name="Temp" type="Node3D" parent="."]
-transform = Transform3D(-0.9659258, 0, 0.25881913, 0, 1, 0, -0.25881913, 0, -0.9659258, 0, -46.000664, 0)
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="Temp"]
-transform = Transform3D(10.981409, 0, -8.767114, 0, 1, 0, 8.297344, 0, 11.603143, 16.603456, -0.92216873, -6.4225235)
-material_override = ExtResource("4_jyhfs")
-use_collision = true
-mesh = SubResource("BoxMesh_sugp2")
-
-[node name="CSGMesh3D4" type="CSGMesh3D" parent="Temp"]
-transform = Transform3D(-3.2222496e-07, 0, 9.045854, 0, 1.429639, 0, -7.371647, 0, -3.9540686e-07, -1.262206, -0.33844376, -10.586645)
-material_override = ExtResource("4_jyhfs")
-use_collision = true
-mesh = SubResource("PrismMesh_tbgi4")
-
-[node name="CSGMesh3D5" type="CSGMesh3D" parent="Temp"]
-transform = Transform3D(5.9073296, 0, -5.411092, 0, 1.7509423, 0, 4.409607, 0, 7.2489686, -13.216218, -0.25372314, -6.331749)
-material_override = ExtResource("4_jyhfs")
-use_collision = true
-mesh = SubResource("PrismMesh_tbgi4")
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://data/regions"
@@ -119,3 +134,19 @@ material = SubResource("Terrain3DMaterial_o6xl0")
 assets = ExtResource("5_tbgi4")
 top_level = true
 metadata/_edit_lock_ = true
+
+[node name="GrassParticles" parent="Terrain3D" node_paths=PackedStringArray("terrain") instance=ExtResource("7_tipki")]
+terrain = NodePath("..")
+process_material = ExtResource("4_tipki")
+scene = ExtResource("5_o6xl0")
+mesh = SubResource("ArrayMesh_3a6c1")
+instance_spacing = 1.0
+grid_width = 5
+rows = 32
+amount = 1024
+process_fixed_fps = 1
+min_draw_distance = 80.0
+particle_count = 25600
+
+[node name="Bradley" parent="." instance=ExtResource("2_0wfyh")]
+transform = Transform3D(-0.8660253, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, -0.8660253, -63.51958, -7.6629252, -164.23389)

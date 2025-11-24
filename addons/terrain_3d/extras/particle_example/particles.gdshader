@@ -228,7 +228,6 @@ void start() {
 		c[1] * weights[1] +
 		c[2] * weights[2] +
 		c[3] * weights[3] ;
-
 	COLOR = color_map;
 
 	// Read control map
@@ -239,7 +238,8 @@ void start() {
 	float blend = float(control >> 14u & 0xFFu) * 0.003921568627450; // 1. / 255.
 
 	// Hardcoded example, hand painted texture id 0 is filtered out.
-	if (!auto && ((base == 0 && blend < 0.7) || (over == 0 && blend >= 0.3))) {
+	// if (!auto && ((base == 0 && blend < 0.7) || (over == 0 && blend >= 0.3))) {
+	if (!( ((base == 1 && blend < 0.1) || (over == 1 && blend >= 0.9)) || auto )) {
 		pos.y = 0. / 0.;
 		pos.xz = vec2(100000.0);
 	}

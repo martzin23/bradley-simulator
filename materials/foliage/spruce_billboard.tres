@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c4qr2ig2sdnxd"]
+
+[ext_resource type="Texture2D" uid="uid://clgqtr3lt3axt" path="res://textures/foliage/spruce_billboard_diffuse.png" id="1_kklku"]
+[ext_resource type="Texture2D" uid="uid://c6myd1i0f5ayl" path="res://textures/foliage/spruce_billboard_normal.png" id="2_xc5o2"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.75
+alpha_antialiasing_mode = 0
+albedo_color = Color(0.5294118, 0.6, 0.67058825, 1)
+albedo_texture = ExtResource("1_kklku")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("2_xc5o2")
+billboard_mode = 2
