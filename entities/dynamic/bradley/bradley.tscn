@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bg5kpojeurmjn"]
+[gd_scene load_steps=11 format=3 uid="uid://bg5kpojeurmjn"]
 
 [ext_resource type="Script" uid="uid://cipb3n4ju275h" path="res://entities/dynamic/bradley/movement.gd" id="1_rd4cu"]
 [ext_resource type="PackedScene" uid="uid://cajcmxav6ftbm" path="res://entities/dynamic/bradley/bradley_model.blend" id="1_wiani"]
+[ext_resource type="Material" uid="uid://td775hcub6d0" path="res://materials/bradley/bradley_tracks_left.tres" id="2_7eosh"]
 [ext_resource type="PackedScene" uid="uid://2bg2wakhlmcs" path="res://components/SwitchCameraComponent.tscn" id="2_rkp55"]
 [ext_resource type="Script" uid="uid://w66wgf3yab1p" path="res://entities/dynamic/bradley/turret.gd" id="3_fc11s"]
 [ext_resource type="Script" uid="uid://cun6jrb3ayapc" path="res://entities/dynamic/bradley/camera_look.gd" id="3_hovhb"]
+[ext_resource type="Material" uid="uid://dw438qaqwht2s" path="res://materials/bradley/bradley_tracks_right.tres" id="3_nurf6"]
 [ext_resource type="Script" uid="uid://cjnme6xxm8fwo" path="res://entities/dynamic/bradley/camera_zoom.gd" id="6_3gs87"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wiani"]
@@ -12,17 +14,19 @@ size = Vector3(3.4267578, 2.2097778, 5.538727)
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_hovhb"]
 
-[node name="Bradley" type="VehicleBody3D" node_paths=PackedStringArray("wheels_right", "wheels_left", "track_model")]
+[node name="Bradley" type="VehicleBody3D" node_paths=PackedStringArray("wheels_right", "wheels_left")]
 mass = 1000.0
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, 1, 0)
 script = ExtResource("1_rd4cu")
 wheels_right = [NodePath("VehicleWheelR0"), NodePath("VehicleWheelR1"), NodePath("VehicleWheelR2"), NodePath("VehicleWheelR3"), NodePath("VehicleWheelR4"), NodePath("VehicleWheelR5"), NodePath("VehicleWheelR6"), NodePath("VehicleWheelR7")]
 wheels_left = [NodePath("VehicleWheelL0"), NodePath("VehicleWheelL1"), NodePath("VehicleWheelL2"), NodePath("VehicleWheelL3"), NodePath("VehicleWheelL4"), NodePath("VehicleWheelL5"), NodePath("VehicleWheelL6"), NodePath("VehicleWheelL7")]
-track_model = NodePath("Model/Bradley/Body/Armature/Skeleton3D/Tracks")
+material_track_left = ExtResource("2_7eosh")
+material_track_right = ExtResource("3_nurf6")
+uv_speed = 0.019
 
 [node name="SwitchCameraComponent" parent="." node_paths=PackedStringArray("cameras") instance=ExtResource("2_rkp55")]
-cameras = [NodePath("../SpringArm3D/CameraExterior"), NodePath("../Model/Bradley/Body/Turret/Barrel/CameraBarrel")]
+cameras = [NodePath("../SpringArm3D/CameraExterior"), NodePath("../Model/Body/Turret/Barrel/CameraBarrel")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0191774, 0.10050964)
@@ -46,43 +50,10 @@ fov = 60.0
 
 [node name="Model" parent="." node_paths=PackedStringArray("axis_horizontal", "axis_vertical") instance=ExtResource("1_wiani")]
 script = ExtResource("3_fc11s")
-axis_horizontal = NodePath("Bradley/Body/Turret")
-axis_vertical = NodePath("Bradley/Body/Turret/Barrel")
+axis_horizontal = NodePath("Body/Turret")
+axis_vertical = NodePath("Body/Turret/Barrel")
 
-[node name="Skeleton3D" parent="Model/Bradley/Body/Armature" index="0"]
-transform = Transform3D(1, -1.6543587e-24, 0, 1.3314212e-31, 1, 0, 0, -1.6940659e-21, 1, 0, 0, 0)
-bones/0/position = Vector3(1.2847859, 0.37647298, 1.8621279)
-bones/0/rotation = Quaternion(1.5457403e-21, -2.9103785e-11, -9.4555e-12, 1)
-bones/0/scale = Vector3(1, 1.0000001, 1)
-bones/1/position = Vector3(1.2845383, 0.37647256, 1.1444826)
-bones/1/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
-bones/2/position = Vector3(1.2842578, 0.37647197, 0.33083504)
-bones/2/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
-bones/3/position = Vector3(1.2839273, 0.3764715, -0.6276339)
-bones/3/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
-bones/4/position = Vector3(1.2836798, 0.37647113, -1.3452796)
-bones/4/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
-bones/5/position = Vector3(1.2834275, 0.37647054, -2.0767736)
-bones/5/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
-bones/6/position = Vector3(-1.2813473, 0.37647298, 1.8630126)
-bones/6/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
-bones/7/position = Vector3(-1.2815949, 0.37647265, 1.1453675)
-bones/7/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
-bones/8/position = Vector3(-1.2818754, 0.3764722, 0.33171996)
-bones/8/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
-bones/9/position = Vector3(-1.2822058, 0.37647173, -0.62674904)
-bones/9/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
-bones/10/position = Vector3(-1.2824533, 0.37647137, -1.3443943)
-bones/10/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
-bones/11/position = Vector3(-1.2827055, 0.376471, -2.0758886)
-bones/11/rotation = Quaternion(-1.4210853e-14, -5.820767e-11, -2.9103806e-11, 1)
-
-[node name="Turret" parent="Model/Bradley/Body" index="4"]
-transform = Transform3D(1, 2.474475e-11, -1.0816275e-18, 0, -4.3711385e-08, -1, -2.4744751e-11, 0.99999994, -4.371139e-08, -0.16112022, 0.4341591, 2.0599253)
-
-[node name="CameraBarrel" type="Camera3D" parent="Model/Bradley/Body/Turret/Barrel" index="0"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1.0000001, 0, 8.742278e-08, 0, -1, 0.014695793, 0.15750933, 0.5689497)
-fov = 70.0
+[node name="CameraBarrel" parent="Model/Body/Turret/Barrel" index="0"]
 script = ExtResource("6_3gs87")
 
 [node name="BoneAttachments" type="Node3D" parent="."]
@@ -90,98 +61,86 @@ script = ExtResource("6_3gs87")
 [node name="BoneAttachmentL1" type="BoneAttachment3D" parent="BoneAttachments"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2838664, 0.37569445, 1.9093287)
 bone_name = "L1"
-bone_idx = 0
 override_pose = true
 use_external_skeleton = true
-external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+external_skeleton = NodePath("../../Model/Body/Armature/Skeleton3D")
 
 [node name="BoneAttachmentL2" type="BoneAttachment3D" parent="BoneAttachments"]
 transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, 1.2836188, 0.37569404, 1.1916834)
 bone_name = "L2"
-bone_idx = 1
 override_pose = true
 use_external_skeleton = true
-external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+external_skeleton = NodePath("../../Model/Body/Armature/Skeleton3D")
 
 [node name="BoneAttachmentL3" type="BoneAttachment3D" parent="BoneAttachments"]
 transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, 1.2833383, 0.37569344, 0.37803584)
 bone_name = "L3"
-bone_idx = 2
 override_pose = true
 use_external_skeleton = true
-external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+external_skeleton = NodePath("../../Model/Body/Armature/Skeleton3D")
 
 [node name="BoneAttachmentL4" type="BoneAttachment3D" parent="BoneAttachments"]
 transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, 1.2830079, 0.37569296, -0.58043313)
 bone_name = "L4"
-bone_idx = 3
 override_pose = true
 use_external_skeleton = true
-external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+external_skeleton = NodePath("../../Model/Body/Armature/Skeleton3D")
 
 [node name="BoneAttachmentL5" type="BoneAttachment3D" parent="BoneAttachments"]
 transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, 1.2827604, 0.3756926, -1.2980788)
 bone_name = "L5"
-bone_idx = 4
 override_pose = true
 use_external_skeleton = true
-external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+external_skeleton = NodePath("../../Model/Body/Armature/Skeleton3D")
 
 [node name="BoneAttachmentL6" type="BoneAttachment3D" parent="BoneAttachments"]
 transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, 1.282508, 0.375692, -2.0295727)
 bone_name = "L6"
-bone_idx = 5
 override_pose = true
 use_external_skeleton = true
-external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+external_skeleton = NodePath("../../Model/Body/Armature/Skeleton3D")
 
 [node name="BoneAttachmentR1" type="BoneAttachment3D" parent="BoneAttachments"]
 transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, -1.2822667, 0.37569445, 1.9102134)
 bone_name = "R1"
-bone_idx = 6
 override_pose = true
 use_external_skeleton = true
-external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+external_skeleton = NodePath("../../Model/Body/Armature/Skeleton3D")
 
 [node name="BoneAttachmentR2" type="BoneAttachment3D" parent="BoneAttachments"]
 transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, -1.2825143, 0.37569413, 1.1925683)
 bone_name = "R2"
-bone_idx = 7
 override_pose = true
 use_external_skeleton = true
-external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+external_skeleton = NodePath("../../Model/Body/Armature/Skeleton3D")
 
 [node name="BoneAttachmentR3" type="BoneAttachment3D" parent="BoneAttachments"]
 transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, -1.2827948, 0.37569368, 0.37892076)
 bone_name = "R3"
-bone_idx = 8
 override_pose = true
 use_external_skeleton = true
-external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+external_skeleton = NodePath("../../Model/Body/Armature/Skeleton3D")
 
 [node name="BoneAttachmentR4" type="BoneAttachment3D" parent="BoneAttachments"]
 transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, -1.2831253, 0.3756932, -0.57954824)
 bone_name = "R4"
-bone_idx = 9
 override_pose = true
 use_external_skeleton = true
-external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+external_skeleton = NodePath("../../Model/Body/Armature/Skeleton3D")
 
 [node name="BoneAttachmentR5" type="BoneAttachment3D" parent="BoneAttachments"]
 transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, -1.2833728, 0.37569284, -1.2971935)
 bone_name = "R5"
-bone_idx = 10
 override_pose = true
 use_external_skeleton = true
-external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+external_skeleton = NodePath("../../Model/Body/Armature/Skeleton3D")
 
 [node name="BoneAttachmentR6" type="BoneAttachment3D" parent="BoneAttachments"]
 transform = Transform3D(1, 1.8911026e-11, -5.820757e-11, -3.9296608e-11, 0.9999999, 1.6940657e-21, 5.8207765e-11, -2.842171e-14, 1, -1.283625, 0.3756925, -2.0286877)
 bone_name = "R6"
-bone_idx = 11
 override_pose = true
 use_external_skeleton = true
-external_skeleton = NodePath("../../Model/Bradley/Body/Armature/Skeleton3D")
+external_skeleton = NodePath("../../Model/Body/Armature/Skeleton3D")
 
 [node name="VehicleWheelL0" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.282, 0.8988036, 2.7715101)

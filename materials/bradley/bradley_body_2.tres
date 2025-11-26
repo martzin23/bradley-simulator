@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bdfws24qj3pdx"]
+
+[ext_resource type="Texture2D" uid="uid://dn3tw6rsdyog6" path="res://textures/bradley/bradley_body_diffuse.png" id="1_60s65"]
+[ext_resource type="Texture2D" uid="uid://ba4wmqwud1seq" path="res://textures/bradley/bradley_body_normal.png" id="2_d7omd"]
+
+[resource]
+albedo_texture = ExtResource("1_60s65")
+metallic_specular = 0.25
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("2_d7omd")
+ao_enabled = true
+texture_filter = 2

@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c8swrxf1xxm41"]
+
+[ext_resource type="Texture2D" uid="uid://b3kmrr1qlxjtu" path="res://textures/bradley/bradley_tracks_diffuse.png" id="1_f45b1"]
+[ext_resource type="Texture2D" uid="uid://dkche4e72g3pr" path="res://textures/bradley/bradley_tracks_normal.png" id="2_y3r8t"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
+albedo_texture = ExtResource("1_f45b1")
+metallic_specular = 0.25
+roughness = 0.95
+normal_enabled = true
+normal_texture = ExtResource("2_y3r8t")
+texture_filter = 2

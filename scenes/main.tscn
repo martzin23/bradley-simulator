@@ -1,13 +1,13 @@
 [gd_scene load_steps=21 format=4 uid="uid://bodpq72qfhjm8"]
 
 [ext_resource type="Script" uid="uid://d2sscmmxsebpd" path="res://scenes/main.gd" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://bg5kpojeurmjn" path="res://entities/dynamic/bradley/Bradley.tscn" id="2_0wfyh"]
 [ext_resource type="Material" uid="uid://0tu4n3y0dmen" path="res://entities/static/terrain/grass_process_material.tres" id="4_tipki"]
 [ext_resource type="PackedScene" uid="uid://ddcpw6g3ke7fo" path="res://entities/static/foliage/grass.blend" id="5_o6xl0"]
 [ext_resource type="Terrain3DAssets" uid="uid://die7rmv5qdbji" path="res://entities/static/terrain/terrain_assets.res" id="5_tbgi4"]
 [ext_resource type="Material" uid="uid://bkplafpjesnxd" path="res://materials/foliage/grass.tres" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://bg4ihykfel0sm" path="res://components/Terrain3DParticleComponent.tscn" id="7_tipki"]
 [ext_resource type="Texture2D" uid="uid://geo1nxkpe68v" path="res://textures/post_processing_test.png" id="8_85g3d"]
+[ext_resource type="PackedScene" uid="uid://07vicyva4xyl" path="res://entities/dynamic/bradley/Bradley2.tscn" id="9_85g3d"]
 [ext_resource type="Shader" uid="uid://b5ptog53u0l54" path="res://materials/post_processing/ScreenEffects_Ultimate.tres" id="9_choun"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
@@ -231,5 +231,5 @@ process_fixed_fps = 1
 min_draw_distance = 80.0
 particle_count = 11025
 
-[node name="Bradley" parent="." instance=ExtResource("2_0wfyh")]
-transform = Transform3D(-0.8660253, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, -0.8660253, -63.34842, -7.643582, -164.19331)
+[node name="Bradley" parent="." instance=ExtResource("9_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.01892, -6.4419556, -166.5224)

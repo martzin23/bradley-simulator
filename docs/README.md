@@ -2,36 +2,39 @@
 
 ---
 
-### Upute s prez
+### Upute s prezentacije
 
 - [ ] Upoznati se s arhitekturom ovakvih simulatora i ukratko ju opisati na temelju: djelovođa poslati neki članak; studentski tim pogledati po Google Scholaru i Googleu dodatne znanstvene članke i brošure postojećih simulatora
-- [ ] U izabranom alatu npr. Unity / Unreal / Godot / PyGame / …, ostvariti pojednostavljenu simulaciju oklopnjaka i 3D scene, s vizualnim efektima gibanja po terenu, ispaljivanja oružja (kosi hitac) i pogotka u cilj (npr. druge oklopnjake) ili teren itd.
+- [x] U izabranom alatu npr. Unity / Unreal / Godot / PyGame / …, ostvariti pojednostavljenu simulaciju oklopnjaka i 3D scene, s vizualnim efektima gibanja po terenu, ispaljivanja oružja (kosi hitac) i pogotka u cilj (npr. druge oklopnjake) ili teren itd.
 - [ ] Matematički model treba napraviti drastično pojednostavljen (kinematički) isključivo za potrebe demonstracije koncepta - ne bavimo se matematičkim modeliranjem ovih sustava + netko eksperimentirati s LLM-om za dinamički ali upravljivi model
 - [ ] Ograničena simulacija izabranih osnovnih instrumenata na kontrolnoj ploči vozila, na temelju javno dostupnih informacija
 - [ ] Demonstracija treba imati scenarij u kojemu imamo regularne situacije i onda više izvanredne/stresne situacije – npr. scenarij gdje prvih par oklopnjaka ne uzvraća paljbu, a onda uzvraćaju paljbu manje ili više točno/precizno
-- [ ] Ovisno o afinitetima tima, može se kao deployment platforma ciljati obični laptop, ili mobitel, ili …
+- [x] Ovisno o afinitetima tima, može se kao deployment platforma ciljati obični laptop, ili mobitel, ili …
 
 ---
 
 >[!NOTE]
 >M2 Bradley research linkovi
 > - Wiki: https://en.wikipedia.org/wiki/M2_Bradley
-> - Interior: [https://en.defence-ua.com/weapon_and_tech/](https://en.defence-ua.com/weapon_and_tech/what_does_m2a2_bradley_look_like_from_inside_analyzing_ukraines_new_combat_vehicle_photo-5382.html)
 > - Promo: https://youtu.be/xqDgn-qXr0E
 > - Design: https://youtu.be/gNHnC81K7EA
 > - Bradleycoft: https://www.oasis-ae.com/bradleycoft
+> - Interior: https://www.turbosquid.com/3d-models/m2-bradley-ifv-with-full-interior-3d-model-2089580
+> - Interior: [https://en.defence-ua.com/weapon_and_tech/](https://en.defence-ua.com/weapon_and_tech/what_does_m2a2_bradley_look_like_from_inside_analyzing_ukraines_new_combat_vehicle_photo-5382.html)
 
 ---
 
 >[!NOTE]
 >Assets linkovi
-> - Terrain (MIT License): https://terrain3d.readthedocs.io/en/latest/index.html
+> - Terrain3D addon (MIT License): https://terrain3d.readthedocs.io/en/latest/index.html
 > - Bradley model (CC BY 4.0): https://sketchfab.com/3d-models/m2-bradley-ifv-ab022158ab5f4fbfa55d4142db7595ab
+> - Bradley model (CC BY-NC 4.0): https://sketchfab.com/3d-models/ba-m2a2-bradley-8d6d1208a6c4469db6d52628d610552e
 > - Textures (free): https://www.cgbookcase.com/
 > - Textures (free): https://freepbr.com/
-> - Tree models (Free Standard): https://sketchfab.com/3d-models/coniferous-forest-assets-pack-240ce9cf0ad3474f809a59f9446e63cd 
+> - Tree models (Free Standard): https://sketchfab.com/3d-models/coniferous-forest-assets-pack-240ce9cf0ad3474f809a59f9446e63cd
 > - Tree models (Free Standard): https://sketchfab.com/3d-models/various-forest-assets-pack-cf138b8eb2d340cda643ed59f824989c
-> - Grass models (CC BY 4.0): https://sketchfab.com/3d-models/grass-pack-lp-3352f9d646ec4f25b8aeb28e4232814a
+> - Grass texture (CC BY 4.0): https://sketchfab.com/3d-models/grass-pack-lp-3352f9d646ec4f25b8aeb28e4232814a
+> - Post processing shader (MIT License): https://github.com/ArseniyMirniy/Godot-4-Color-Correction-and-Screen-Effects
 
 ---
 
@@ -57,7 +60,7 @@
         </td>
         <td><kbd>c)</kbd></td>
         <td>Golub</td>
-        <td><kbd>Nedovršeno</kbd></td>
+        <td><kbd>Gotovo</kbd></td>
     </tr>
     <tr>
         <td>2. 3D armored vehicle/tank</td>
