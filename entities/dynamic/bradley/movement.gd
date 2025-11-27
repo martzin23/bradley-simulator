@@ -7,18 +7,15 @@ extends VehicleBody3D
 @export var BRAKE_POWER = 20
 
 @export_group("Tracks")
-@export var wheels_right: Array[VehicleWheel3D]
-@export var wheels_left: Array[VehicleWheel3D]
-@export var material_track_left: Material
-@export var material_track_right: Material
-@export var uv_speed := 0.5
+@export var WHEELS_RIGHT: Array[VehicleWheel3D]
+@export var WHEELS_LEFT: Array[VehicleWheel3D]
+@export var MATERIAL_TRACK_RIGHT: Material
+@export var MATERIAL_TRACK_LEFT: Material
+@export var TRACK_SPEED := 0.08
 
 func _process(delta: float) -> void:
-	# var steering_factor = Input.get_axis("move_right", "move_left") * STEERING_STRENGTH
-	# material_track_left.uv1_offset.y -= (self.linear_velocity.dot(self.basis.z) - steering_factor * 0.5) * delta * uv_speed;
-	# material_track_right.uv1_offset.y -= (self.linear_velocity.dot(self.basis.z) + steering_factor * 0.5) * delta * uv_speed;
-	material_track_left.uv1_offset.y -= wheels_left[4].get_rpm() * delta * uv_speed;
-	material_track_right.uv1_offset.y -= wheels_right[4].get_rpm() * delta * uv_speed;
+	MATERIAL_TRACK_LEFT.uv1_offset.y -= WHEELS_LEFT[4].get_rpm() * delta * TRACK_SPEED;
+	MATERIAL_TRACK_RIGHT.uv1_offset.y -= WHEELS_RIGHT[4].get_rpm() * delta * TRACK_SPEED;
 		
 func _input(_event: InputEvent) -> void:
 	if (Input.is_action_pressed("brake")):
@@ -30,8 +27,8 @@ func _input(_event: InputEvent) -> void:
 		
 	var steering_factor = Input.get_axis("move_right", "move_left") * STEERING_STRENGTH
 	var brake_released: int = int(!Input.is_action_pressed("brake"))
-	for w in wheels_right:
+	for w in WHEELS_RIGHT:
 		w.engine_force = (Input.get_axis("move_backward", "move_forward") + steering_factor) * ENGINE_POWER * brake_released
 		
-	for w in wheels_left:
+	for w in WHEELS_LEFT:
 		w.engine_force = (Input.get_axis("move_backward", "move_forward") - steering_factor) * ENGINE_POWER * brake_released

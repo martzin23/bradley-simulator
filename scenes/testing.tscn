@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://7i8072qdx1fd"]
 
-[ext_resource type="Script" uid="uid://d2sscmmxsebpd" path="res://scenes/esc_to_exit.gd" id="1_l6grw"]
+[ext_resource type="Script" uid="uid://d2sscmmxsebpd" path="res://scenes/exit_app.gd" id="1_l6grw"]
 [ext_resource type="Material" uid="uid://cl4rjl8ttyplk" path="res://materials/placeholder.tres" id="1_ryjsw"]
 [ext_resource type="PackedScene" uid="uid://07vicyva4xyl" path="res://entities/dynamic/bradley/Bradley.tscn" id="2_pcu7d"]
 

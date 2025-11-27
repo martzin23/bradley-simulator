@@ -41,17 +41,17 @@ _subresources={
 "materials": {
 "Body": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://materials/bradley/bradley_body_2.tres",
+"use_external/fallback_path": "res://materials/bradley/bradley_body.tres",
 "use_external/path": "uid://bdfws24qj3pdx"
 },
 "Track Left": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://materials/bradley/bradley_tracks_left_2.tres",
+"use_external/fallback_path": "res://materials/bradley/bradley_tracks_left.tres",
 "use_external/path": "uid://ga1t6a32xufd"
 },
 "Tracks Right": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://materials/bradley/bradley_tracks_right_2.tres",
+"use_external/fallback_path": "res://materials/bradley/bradley_tracks_right.tres",
 "use_external/path": "uid://c8swrxf1xxm41"
 }
 }

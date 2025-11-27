@@ -1,14 +1,13 @@
-[gd_scene load_steps=21 format=4 uid="uid://bodpq72qfhjm8"]
+[gd_scene load_steps=19 format=4 uid="uid://bodpq72qfhjm8"]
 
-[ext_resource type="Script" uid="uid://d2sscmmxsebpd" path="res://scenes/esc_to_exit.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://d2sscmmxsebpd" path="res://scenes/exit_app.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://dtljdjo5pwe33" path="res://entities/dynamic/PostProcessingCanvas.tscn" id="2_tipki"]
 [ext_resource type="Material" uid="uid://0tu4n3y0dmen" path="res://entities/static/terrain/grass_process_material.tres" id="4_tipki"]
 [ext_resource type="PackedScene" uid="uid://ddcpw6g3ke7fo" path="res://entities/static/foliage/grass.blend" id="5_o6xl0"]
 [ext_resource type="Terrain3DAssets" uid="uid://die7rmv5qdbji" path="res://entities/static/terrain/terrain_assets.res" id="5_tbgi4"]
 [ext_resource type="Material" uid="uid://bkplafpjesnxd" path="res://materials/foliage/grass.tres" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://bg4ihykfel0sm" path="res://components/Terrain3DParticleComponent.tscn" id="7_tipki"]
-[ext_resource type="Texture2D" uid="uid://geo1nxkpe68v" path="res://textures/post_processing_test.png" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://07vicyva4xyl" path="res://entities/dynamic/bradley/Bradley.tscn" id="9_85g3d"]
-[ext_resource type="Shader" uid="uid://b5ptog53u0l54" path="res://materials/post_processing/ScreenEffects_Ultimate.tres" id="9_choun"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
 ground_bottom_color = Color(0.654902, 0.6901961, 0.74509805, 1)
@@ -36,45 +35,6 @@ volumetric_fog_length = 256.0
 [sub_resource type="FogMaterial" id="FogMaterial_85g3d"]
 density = 0.01
 albedo = Color(0.89, 0.93766665, 1, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_eb6dy"]
-shader = ExtResource("9_choun")
-shader_parameter/Pixelation_Scale = 1.0
-shader_parameter/Panini = 0.0
-shader_parameter/Chromatic_Peripheral = 0.9
-shader_parameter/Chromatic_Aberrations = 0.0
-shader_parameter/Chromatic_Darkening = 0.9
-shader_parameter/Blur_Amount = 5.960480020661407e-08
-shader_parameter/Blur_Centered = 0.0
-shader_parameter/Bloom_Starts = 0.9
-shader_parameter/Bloom_Halation = 0.0
-shader_parameter/Bloom_Booster = 0.0
-shader_parameter/Shadows_Split = 0.3
-shader_parameter/Shadow_Color_Temp = 50.0
-shader_parameter/Shadow_Green_Tint = 7.450599994740514e-07
-shader_parameter/Shadow_Brightness = 0.8999999966472
-shader_parameter/Shadow_Contrast = 0.8999999966472
-shader_parameter/Shadows_Saturation = 0.5000000074506
-shader_parameter/Highlights_Split = 0.6300000231713
-shader_parameter/Mid_Color_Temp = 7.450599994740514e-07
-shader_parameter/Mid_Green_Tint = 0.0
-shader_parameter/Mid_Brightness = 1.0
-shader_parameter/Mid_Contrast = 0.999999994412
-shader_parameter/Mid_Saturation = 1.5
-shader_parameter/High_Color_Temp = -24.99999962747
-shader_parameter/High_Green_Tint = 0.0
-shader_parameter/High_Brightness = 1.0
-shader_parameter/High_Contrast = 0.75
-shader_parameter/High_Saturation = 1.0000000149012
-shader_parameter/Main_Color_Temp = 4500.0
-shader_parameter/Main_Green_Tint = 1.4901199989481029e-06
-shader_parameter/Main_Brightness = 1.0
-shader_parameter/Main_Contrast = 1.0000000149012
-shader_parameter/Main_Saturation = 1.0
-shader_parameter/Posterization = 0.0
-shader_parameter/Vignette = 0.0
-shader_parameter/Film_Grain = 0.0
-shader_parameter/Filter_Strenght = 0.0
 
 [sub_resource type="Gradient" id="Gradient_jyhfs"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -179,35 +139,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.736908, -45.86683, -0.57824
 size = Vector3(1537.4197, 33.932266, 1018.8269)
 material = SubResource("FogMaterial_85g3d")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Environment"]
-
-[node name="CanvasLayer (temp)" type="CanvasLayer" parent="Environment/CanvasLayer"]
-visible = false
-
-[node name="TextureRect (temp)" type="TextureRect" parent="Environment/CanvasLayer/CanvasLayer (temp)"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1267.265
-offset_top = -601.07996
-offset_right = 1292.735
-offset_bottom = 838.92004
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_85g3d")
-
-[node name="PostProcessing" type="CanvasLayer" parent="Environment/CanvasLayer"]
-
-[node name="ColorRect" type="ColorRect" parent="Environment/CanvasLayer/PostProcessing"]
-visibility_layer = 16
-material = SubResource("ShaderMaterial_eb6dy")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CanvasLayer" parent="Environment" instance=ExtResource("2_tipki")]
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://data/regions"
