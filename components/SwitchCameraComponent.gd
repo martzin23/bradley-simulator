@@ -10,4 +10,3 @@ func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("switch")):
 		index = (index + 1) % len(cameras)
 		cameras[index].current = true
-		# cameras[index].rotation_degrees = Vector3(0.0, 0.0, 0.0)

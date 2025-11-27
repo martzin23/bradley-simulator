@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=4 uid="uid://bodpq72qfhjm8"]
 
-[ext_resource type="Script" uid="uid://d2sscmmxsebpd" path="res://scenes/main.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://d2sscmmxsebpd" path="res://scenes/esc_to_exit.gd" id="1_sugp2"]
 [ext_resource type="Material" uid="uid://0tu4n3y0dmen" path="res://entities/static/terrain/grass_process_material.tres" id="4_tipki"]
 [ext_resource type="PackedScene" uid="uid://ddcpw6g3ke7fo" path="res://entities/static/foliage/grass.blend" id="5_o6xl0"]
 [ext_resource type="Terrain3DAssets" uid="uid://die7rmv5qdbji" path="res://entities/static/terrain/terrain_assets.res" id="5_tbgi4"]
@@ -14,12 +14,12 @@
 ground_bottom_color = Color(0.654902, 0.6901961, 0.74509805, 1)
 ground_energy_multiplier = 0.25
 
-[sub_resource type="Sky" id="Sky_sugp2"]
+[sub_resource type="Sky" id="Sky_85g3d"]
 sky_material = SubResource("ProceduralSkyMaterial_jyhfs")
 
 [sub_resource type="Environment" id="Environment_jyhfs"]
 background_mode = 2
-sky = SubResource("Sky_sugp2")
+sky = SubResource("Sky_85g3d")
 tonemap_mode = 2
 tonemap_exposure = 1.5
 tonemap_white = 1.5
