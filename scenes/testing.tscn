@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d2sscmmxsebpd" path="res://scenes/esc_to_exit.gd" id="1_l6grw"]
 [ext_resource type="Material" uid="uid://cl4rjl8ttyplk" path="res://materials/placeholder.tres" id="1_ryjsw"]
-[ext_resource type="PackedScene" uid="uid://07vicyva4xyl" path="res://entities/dynamic/bradley/Bradley2.tscn" id="2_pcu7d"]
+[ext_resource type="PackedScene" uid="uid://07vicyva4xyl" path="res://entities/dynamic/bradley/Bradley.tscn" id="2_pcu7d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pcu7d"]
 ground_bottom_color = Color(0.654902, 0.6901961, 0.74509805, 1)

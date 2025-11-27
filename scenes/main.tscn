@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://bkplafpjesnxd" path="res://materials/foliage/grass.tres" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://bg4ihykfel0sm" path="res://components/Terrain3DParticleComponent.tscn" id="7_tipki"]
 [ext_resource type="Texture2D" uid="uid://geo1nxkpe68v" path="res://textures/post_processing_test.png" id="8_85g3d"]
-[ext_resource type="PackedScene" uid="uid://07vicyva4xyl" path="res://entities/dynamic/bradley/Bradley2.tscn" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://07vicyva4xyl" path="res://entities/dynamic/bradley/Bradley.tscn" id="9_85g3d"]
 [ext_resource type="Shader" uid="uid://b5ptog53u0l54" path="res://materials/post_processing/ScreenEffects_Ultimate.tres" id="9_choun"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
