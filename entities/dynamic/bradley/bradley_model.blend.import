@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cajcmxav6ftbm"
+uid="uid://5ietu0n05673"
 path="res://.godot/imported/bradley_model.blend-7593d1c2fa229a6964167600e2f55571.scn"
 
 [deps]
@@ -22,7 +22,7 @@ nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
-meshes/generate_lods=false
+meshes/generate_lods=true
 meshes/create_shadow_meshes=true
 meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
@@ -42,22 +42,17 @@ _subresources={
 "Body": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://materials/bradley/bradley_body.tres",
-"use_external/path": "uid://b3mdrhklusmfq"
+"use_external/path": "uid://bdfws24qj3pdx"
 },
-"Material": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://materials/placeholder.tres",
-"use_external/path": "uid://cl4rjl8ttyplk"
-},
-"Tracks_L": {
+"Track Left": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://materials/bradley/bradley_tracks_left.tres",
-"use_external/path": "uid://td775hcub6d0"
+"use_external/path": "uid://ga1t6a32xufd"
 },
-"Tracks_R": {
+"Tracks Right": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://materials/bradley/bradley_tracks_right.tres",
-"use_external/path": "uid://dw438qaqwht2s"
+"use_external/path": "uid://c8swrxf1xxm41"
 }
 }
 }

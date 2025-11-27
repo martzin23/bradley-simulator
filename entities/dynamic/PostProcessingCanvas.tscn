@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtljdjo5pwe33"]
+
+[ext_resource type="Texture2D" uid="uid://geo1nxkpe68v" path="res://textures/post_processing_test.png" id="1_qh1fe"]
+[ext_resource type="Shader" uid="uid://b5ptog53u0l54" path="res://materials/post_processing/ScreenEffects_Ultimate.tres" id="2_wwsml"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eb6dy"]
+shader = ExtResource("2_wwsml")
+shader_parameter/Pixelation_Scale = 1.0
+shader_parameter/Panini = 0.0
+shader_parameter/Chromatic_Peripheral = 0.9
+shader_parameter/Chromatic_Aberrations = 0.0
+shader_parameter/Chromatic_Darkening = 0.9
+shader_parameter/Blur_Amount = 5.960480020661407e-08
+shader_parameter/Blur_Centered = 0.0
+shader_parameter/Bloom_Starts = 0.9
+shader_parameter/Bloom_Halation = 0.0
+shader_parameter/Bloom_Booster = 0.0
+shader_parameter/Shadows_Split = 0.3
+shader_parameter/Shadow_Color_Temp = 50.0
+shader_parameter/Shadow_Green_Tint = 7.450599994740514e-07
+shader_parameter/Shadow_Brightness = 0.8999999966472
+shader_parameter/Shadow_Contrast = 0.8999999966472
+shader_parameter/Shadows_Saturation = 0.5000000074506
+shader_parameter/Highlights_Split = 0.6300000231713
+shader_parameter/Mid_Color_Temp = 7.450599994740514e-07
+shader_parameter/Mid_Green_Tint = 0.0
+shader_parameter/Mid_Brightness = 1.0
+shader_parameter/Mid_Contrast = 0.999999994412
+shader_parameter/Mid_Saturation = 1.5
+shader_parameter/High_Color_Temp = -24.99999962747
+shader_parameter/High_Green_Tint = 0.0
+shader_parameter/High_Brightness = 1.0
+shader_parameter/High_Contrast = 0.75
+shader_parameter/High_Saturation = 1.0000000149012
+shader_parameter/Main_Color_Temp = 4500.0
+shader_parameter/Main_Green_Tint = 1.4901199989481029e-06
+shader_parameter/Main_Brightness = 1.0
+shader_parameter/Main_Contrast = 1.0000000149012
+shader_parameter/Main_Saturation = 1.0
+shader_parameter/Posterization = 0.0
+shader_parameter/Vignette = 0.0
+shader_parameter/Film_Grain = 0.0
+shader_parameter/Filter_Strenght = 0.0
+
+[node name="PostProcessingCanvas" type="CanvasLayer"]
+
+[node name="CanvasLayer (temp)" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TextureRect (temp)" type="TextureRect" parent="CanvasLayer (temp)"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1267.265
+offset_top = -601.07996
+offset_right = 1292.735
+offset_bottom = 838.92004
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qh1fe")
+
+[node name="PostProcessing" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="PostProcessing"]
+visibility_layer = 7
+material = SubResource("ShaderMaterial_eb6dy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

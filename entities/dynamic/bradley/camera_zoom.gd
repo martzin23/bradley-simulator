@@ -1,8 +1,9 @@
 extends Camera3D
 
-@export var min_fov := 15.0
-@export var max_fov := 70.0
+@export var MIN_FOV := 15.0
+@export var MAX_FOV := 70.0
+@export var STEP := 0.1
 
 func _input(_event):
-	self.fov *= Input.get_axis("zoom_in", "zoom_out") * 0.1 + 1.0
-	self.fov = clamp(self.fov, min_fov, max_fov)
+	self.fov *= Input.get_axis("zoom_in", "zoom_out") * STEP + 1.0
+	self.fov = clamp(self.fov, MIN_FOV, MAX_FOV)

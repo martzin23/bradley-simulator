@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bg4ihykfel0sm"]
 
-[ext_resource type="Script" uid="uid://brr7e17qrces1" path="res://components/Terrain3DParticleComponent.gd" id="1_av0u7"]
+[ext_resource type="Script" uid="uid://brr7e17qrces1" path="res://components/terrain3D_particle_component.gd" id="1_av0u7"]
 
 [node name="Terrain3DParticleComponent" type="Node3D"]
 script = ExtResource("1_av0u7")
