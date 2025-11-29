@@ -7,7 +7,7 @@
 [ext_resource type="Terrain3DAssets" uid="uid://die7rmv5qdbji" path="res://entities/static/terrain/terrain_assets.res" id="5_tbgi4"]
 [ext_resource type="Material" uid="uid://bkplafpjesnxd" path="res://materials/foliage/grass.tres" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://bg4ihykfel0sm" path="res://components/Terrain3DParticleComponent.tscn" id="7_tipki"]
-[ext_resource type="PackedScene" uid="uid://07vicyva4xyl" path="res://entities/dynamic/bradley/Bradley.tscn" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://07vicyva4xyl" path="res://entities/dynamic/bradley/bradley.tscn" id="9_85g3d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
 ground_bottom_color = Color(0.654902, 0.6901961, 0.74509805, 1)
@@ -154,13 +154,13 @@ terrain = NodePath("..")
 process_material = ExtResource("4_tipki")
 scene = ExtResource("5_o6xl0")
 mesh = SubResource("ArrayMesh_3a6c1")
-instance_spacing = 1.5
+instance_spacing = 2.0
 grid_width = 5
-rows = 21
-amount = 441
+rows = 16
+amount = 256
 process_fixed_fps = 1
 min_draw_distance = 80.0
-particle_count = 11025
+particle_count = 6400
 
 [node name="Bradley" parent="." instance=ExtResource("9_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.01892, -6.4419556, -166.5224)

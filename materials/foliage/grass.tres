@@ -6,9 +6,12 @@
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
+cull_mode = 2
 albedo_color = Color(0.432, 0.42000002, 0.6, 1)
 albedo_texture = ExtResource("1_w5j38")
 metallic_specular = 0.0
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
 texture_filter = 2
 proximity_fade_distance = 5.0
 distance_fade_mode = 2
