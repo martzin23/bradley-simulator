@@ -1,0 +1,77 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://5ietu0n05673"
+path="res://.godot/imported/exterior.blend-2e4d5d6801ee4b7184cb5df50c13fdc4.scn"
+
+[deps]
+
+source_file="res://models/bradley/exterior.blend"
+dest_files=["res://.godot/imported/exterior.blend-2e4d5d6801ee4b7184cb5df50c13fdc4.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"Body": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://materials/bradley/body.tres",
+"use_external/path": "uid://bdfws24qj3pdx"
+},
+"Track Left": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://materials/bradley/tracks_left.tres",
+"use_external/path": "uid://ga1t6a32xufd"
+},
+"Tracks Right": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://materials/bradley/tracks_right.tres",
+"use_external/path": "uid://c8swrxf1xxm41"
+}
+}
+}
+blender/nodes/visible=0
+blender/nodes/active_collection_only=false
+blender/nodes/punctual_lights=true
+blender/nodes/cameras=true
+blender/nodes/custom_properties=true
+blender/nodes/modifiers=1
+blender/meshes/colors=false
+blender/meshes/uvs=true
+blender/meshes/normals=true
+blender/meshes/export_geometry_nodes_instances=false
+blender/meshes/tangents=true
+blender/meshes/skins=2
+blender/meshes/export_bones_deforming_mesh_only=false
+blender/materials/unpack_enabled=true
+blender/materials/export_materials=1
+blender/animation/limit_playback=true
+blender/animation/always_sample=true
+blender/animation/group_tracks=true
+gltf/naming_version=2

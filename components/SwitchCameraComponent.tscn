@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://2bg2wakhlmcs"]
-
-[ext_resource type="Script" uid="uid://crdumvul8d0pg" path="res://components/switch_camera_component.gd" id="1_w0ymr"]
-
-[node name="SwitchCameraComponent" type="Node"]
-script = ExtResource("1_w0ymr")

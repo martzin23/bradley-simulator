@@ -221,8 +221,8 @@
             </ol>
         </td>
         <td><kbd>c)</kbd></td>
-        <td></td>
-        <td><kbd>Nije početo</kbd></td>
+        <td>Golub</td>
+        <td><kbd>Nedovršeno</kbd></td>
     </tr>
     <tr>
         <td>13. Camera selection</td>
@@ -236,7 +236,7 @@
         </td>
         <td><kbd>b)</kbd></td>
         <td>Golub</td>
-        <td><kbd>Nedovršeno</kbd></td>
+        <td><kbd>Gotovo</kbd></td>
     </tr>
     <tr>
         <td>14. Replay capabilities</td>
