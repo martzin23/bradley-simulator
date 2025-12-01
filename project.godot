@@ -30,7 +30,6 @@ enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
 folder_colors={
 "res://addons/": "purple",
 "res://components/": "blue",
-"res://data/": "pink",
 "res://entities/": "orange",
 "res://materials/": "yellow",
 "res://scenes/": "red",

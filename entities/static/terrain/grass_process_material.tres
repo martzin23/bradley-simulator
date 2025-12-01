@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://0tu4n3y0dmen"]
 
-[ext_resource type="Shader" uid="uid://cp4kf3llgo85k" path="res://entities/static/terrain/particles.gdshader" id="1_446nf"]
+[ext_resource type="Shader" uid="uid://cp4kf3llgo85k" path="res://entities/static/terrain/grass_particles.gdshader" id="1_446nf"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_544iv"]
 noise_type = 2

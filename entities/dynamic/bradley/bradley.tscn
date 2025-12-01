@@ -1,16 +1,17 @@
-[gd_scene load_steps=19 format=3 uid="uid://07vicyva4xyl"]
+[gd_scene load_steps=20 format=3 uid="uid://biyqv287op1sf"]
 
 [ext_resource type="Script" uid="uid://cipb3n4ju275h" path="res://entities/dynamic/bradley/movement.gd" id="1_5pdc8"]
 [ext_resource type="PackedScene" uid="uid://2bg2wakhlmcs" path="res://components/SwitchCameraComponent.tscn" id="2_npdwc"]
-[ext_resource type="Material" uid="uid://ga1t6a32xufd" path="res://materials/bradley/bradley_tracks_left.tres" id="2_o7rri"]
-[ext_resource type="Material" uid="uid://c8swrxf1xxm41" path="res://materials/bradley/bradley_tracks_right.tres" id="3_gr2kg"]
+[ext_resource type="Material" uid="uid://ga1t6a32xufd" path="res://materials/bradley/tracks_left.tres" id="2_o7rri"]
+[ext_resource type="Material" uid="uid://c8swrxf1xxm41" path="res://materials/bradley/tracks_right.tres" id="3_gr2kg"]
 [ext_resource type="Script" uid="uid://cun6jrb3ayapc" path="res://entities/dynamic/bradley/camera_orbit.gd" id="3_o7rri"]
-[ext_resource type="PackedScene" uid="uid://5ietu0n05673" path="res://entities/dynamic/bradley/bradley_model.blend" id="4_oh868"]
+[ext_resource type="PackedScene" uid="uid://5ietu0n05673" path="res://entities/dynamic/bradley/exterior.blend" id="4_oh868"]
 [ext_resource type="PackedScene" uid="uid://cnobhxwxotone" path="res://components/TurretControlComponent.tscn" id="5_7eosh"]
 [ext_resource type="Script" uid="uid://yberdnfp6ex0" path="res://entities/dynamic/bradley/camera_look.gd" id="6_grwck"]
 [ext_resource type="Script" uid="uid://cjnme6xxm8fwo" path="res://entities/dynamic/bradley/camera_zoom.gd" id="8_nurf6"]
 [ext_resource type="Script" uid="uid://cvcenhi2hpcg3" path="res://entities/dynamic/bradley/antenna_spring_force.gd" id="8_o7rri"]
 [ext_resource type="PackedScene" uid="uid://dtljdjo5pwe33" path="res://entities/dynamic/PostProcessingCanvas.tscn" id="10_di6jh"]
+[ext_resource type="PackedScene" uid="uid://587x42rwbbs4" path="res://entities/dynamic/bradley/interior.blend" id="12_cllbj"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_grwck"]
 viewport_path = NodePath("Model/Body/Turret/Barrel/SubViewport")
@@ -59,6 +60,7 @@ AXIS_VERTICAL = NodePath("../Model/Body/Turret/Barrel")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(-0.053, 0, -8.002777e-09, 0, 0.053, 0, 8.002777e-09, 0, -0.053, -0.64322424, 2.341741, -0.09455828)
 layers = 2
+shaded = true
 double_sided = false
 texture_filter = 0
 texture = SubResource("ViewportTexture_grwck")
@@ -68,9 +70,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0191774, 0.10050964)
 shape = SubResource("BoxShape3D_wiani")
 
 [node name="CameraInterior" type="Camera3D" parent="."]
-transform = Transform3D(-1, 1.3877788e-17, -8.742791e-08, 1.3877788e-17, 1, 0, 8.742791e-08, -1.2133059e-24, -1, -0.5563892, 2.331457, -0.7137107)
+transform = Transform3D(-1, 1.3877788e-17, -8.742791e-08, 1.3877788e-17, 1, 0, 8.742791e-08, -1.2133059e-24, -1, -0.6075963, 2.331457, -0.6288167)
 cull_mask = 2
-fov = 40.0
+fov = 60.0
 script = ExtResource("6_grwck")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
@@ -99,31 +101,31 @@ bones/1/scale = Vector3(-1, -1, -1)
 bones/2/position = Vector3(0.982, 0.3419376, 1.4506458)
 bones/2/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/2/scale = Vector3(1, 0.9999999, 1)
-bones/3/position = Vector3(-2.682209e-05, 0.25101244, 1.3887882e-05)
+bones/3/position = Vector3(-2.682209e-05, 0.25101244, 1.4215708e-05)
 bones/3/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
 bones/3/scale = Vector3(-1, -1.0000001, -1)
 bones/4/position = Vector3(0.982, 0.34193635, 0.6986339)
 bones/4/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/4/scale = Vector3(1, 0.9999999, 1)
-bones/5/position = Vector3(-1.0728836e-05, 0.25097, 1.5854836e-05)
+bones/5/position = Vector3(-1.0728836e-05, 0.2509687, 1.6182661e-05)
 bones/5/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
 bones/5/scale = Vector3(-1, -1.0000001, -1)
 bones/6/position = Vector3(0.982, 0.34193608, -0.24305514)
 bones/6/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/6/scale = Vector3(1, 0.9999999, 1)
-bones/7/position = Vector3(4.4107437e-06, 0.2510084, 1.3887882e-05)
+bones/7/position = Vector3(4.4107437e-06, 0.2510084, 1.4215708e-05)
 bones/7/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
 bones/7/scale = Vector3(-1, -1.0000001, -1)
 bones/8/position = Vector3(0.982, 0.34193486, -1.0083922)
 bones/8/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/8/scale = Vector3(1, 0.9999999, 1)
-bones/9/position = Vector3(-2.682209e-05, 0.251014, 1.3887882e-05)
+bones/9/position = Vector3(-2.682209e-05, 0.251014, 1.4215708e-05)
 bones/9/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
 bones/9/scale = Vector3(-1, -1.0000001, -1)
 bones/10/position = Vector3(0.982, 0.34193462, -1.7237142)
 bones/10/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/10/scale = Vector3(1, 0.9999999, 1)
-bones/11/position = Vector3(-2.682209e-05, 0.25098133, 1.3828278e-05)
+bones/11/position = Vector3(-2.682209e-05, 0.25098002, 1.4156103e-05)
 bones/11/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
 bones/11/scale = Vector3(-1, -1.0000001, -1)
 bones/12/rotation = Quaternion(0, 0, 0.70710677, 0.70710677)
@@ -134,37 +136,37 @@ bones/13/scale = Vector3(-1, -1, -1)
 bones/14/position = Vector3(-0.982, 0.34193778, 2.1388035)
 bones/14/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/14/scale = Vector3(1, 0.9999999, 1)
-bones/15/position = Vector3(0, 0.25101745, -1.5258789e-05)
+bones/15/position = Vector3(0, 0.25101745, -1.5586615e-05)
 bones/15/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/15/scale = Vector3(-1, -1.0000001, -1)
 bones/16/position = Vector3(-0.982, 0.3419376, 1.4506458)
 bones/16/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/16/scale = Vector3(1, 0.9999999, 1)
-bones/17/position = Vector3(2.4437904e-05, 0.2509631, -1.9699335e-05)
+bones/17/position = Vector3(2.4437904e-05, 0.25096178, -2.002716e-05)
 bones/17/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/17/scale = Vector3(-1, -1.0000001, -1)
 bones/18/position = Vector3(-0.982, 0.34193635, 0.6986339)
 bones/18/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/18/scale = Vector3(1, 0.9999999, 1)
-bones/19/position = Vector3(4.172325e-06, 0.25102103, -1.5228987e-05)
+bones/19/position = Vector3(4.172325e-06, 0.25102103, -1.5556812e-05)
 bones/19/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/19/scale = Vector3(-1, -1.0000001, -1)
 bones/20/position = Vector3(-0.982, 0.34193608, -0.2430551)
 bones/20/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/20/scale = Vector3(1, 0.9999999, 1)
-bones/21/position = Vector3(-3.6656857e-06, 0.2510152, -1.5228987e-05)
+bones/21/position = Vector3(-3.6656857e-06, 0.2510152, -1.5556812e-05)
 bones/21/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/21/scale = Vector3(-1, -1.0000001, -1)
 bones/22/position = Vector3(-0.982, 0.34193486, -1.0083922)
 bones/22/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/22/scale = Vector3(1, 0.9999999, 1)
-bones/23/position = Vector3(2.4437904e-05, 0.25097847, -1.5228987e-05)
+bones/23/position = Vector3(2.4437904e-05, 0.25097716, -1.5556812e-05)
 bones/23/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/23/scale = Vector3(-1, -1.0000001, -1)
 bones/24/position = Vector3(-0.982, 0.34193462, -1.7237144)
 bones/24/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/24/scale = Vector3(1, 0.9999999, 1)
-bones/25/position = Vector3(2.4437904e-05, 0.25101995, -1.5258789e-05)
+bones/25/position = Vector3(2.4437904e-05, 0.25101995, -1.5586615e-05)
 bones/25/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/25/scale = Vector3(-1, -1.0000001, -1)
 bones/26/rotation = Quaternion(0, 0, -0.70710677, 0.70710677)
@@ -180,7 +182,6 @@ script = ExtResource("8_nurf6")
 canvas_item_default_texture_filter = 0
 oversampling = false
 size_2d_override_stretch = true
-render_target_update_mode = 4
 
 [node name="CameraBarrel2" type="Camera3D" parent="Model/Body/Turret/Barrel/SubViewport"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.238172, 2.8727093, 0.5002878)
@@ -241,9 +242,6 @@ settings/1/exclude_collision_count = 0
 script = ExtResource("8_o7rri")
 VEHICLE = NodePath("../../../../../..")
 
-[node name="TurretInterior" parent="Model/Body" index="2"]
-layers = 2
-
 [node name="BoneAttachments" type="Node3D" parent="."]
 
 [node name="BoneAttachmentL1a" type="BoneAttachment3D" parent="BoneAttachments"]
@@ -271,7 +269,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentL2b" type="BoneAttachment3D" parent="BoneAttachments/BoneAttachmentL2a"]
-transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.2510125, 1.3887882e-05)
+transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.2510125, 1.4215708e-05)
 bone_name = "L2b"
 bone_idx = 3
 override_pose = true
@@ -287,7 +285,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentL3b" type="BoneAttachment3D" parent="BoneAttachments/BoneAttachmentL3a"]
-transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -1.0728836e-05, 0.25097007, 1.5854836e-05)
+transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -1.0728836e-05, 0.25096875, 1.6182661e-05)
 bone_name = "L3b"
 bone_idx = 5
 override_pose = true
@@ -303,7 +301,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentL4b" type="BoneAttachment3D" parent="BoneAttachments/BoneAttachmentL4a"]
-transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, 4.3958426e-06, 0.2510084, 1.3887882e-05)
+transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, 4.3958426e-06, 0.2510084, 1.4215708e-05)
 bone_name = "L4b"
 bone_idx = 7
 override_pose = true
@@ -319,7 +317,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentL5b" type="BoneAttachment3D" parent="BoneAttachments/BoneAttachmentL5a"]
-transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.25101405, 1.3887882e-05)
+transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.25101405, 1.4215708e-05)
 bone_name = "L5b"
 bone_idx = 9
 override_pose = true
@@ -335,7 +333,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentL6b" type="BoneAttachment3D" parent="BoneAttachments/BoneAttachmentL6a"]
-transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.2509814, 1.3828278e-05)
+transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.25098008, 1.4156103e-05)
 bone_name = "L6b"
 bone_idx = 11
 override_pose = true
@@ -351,7 +349,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR1b" type="BoneAttachment3D" parent="BoneAttachments/BoneAttachmentR1a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 0, 0.25101745, -1.5258789e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 0, 0.25101745, -1.5586615e-05)
 bone_name = "R1b"
 bone_idx = 15
 override_pose = true
@@ -367,7 +365,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR2b" type="BoneAttachment3D" parent="BoneAttachments/BoneAttachmentR2a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.25096315, -1.9699335e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.25096184, -2.002716e-05)
 bone_name = "R2b"
 bone_idx = 17
 override_pose = true
@@ -383,7 +381,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR3b" type="BoneAttachment3D" parent="BoneAttachments/BoneAttachmentR3a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 4.172325e-06, 0.2510211, -1.5228987e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 4.172325e-06, 0.2510211, -1.5556812e-05)
 bone_name = "R3b"
 bone_idx = 19
 override_pose = true
@@ -399,7 +397,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR4b" type="BoneAttachment3D" parent="BoneAttachments/BoneAttachmentR4a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, -3.6507845e-06, 0.2510152, -1.5228987e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, -3.6507845e-06, 0.2510152, -1.5556812e-05)
 bone_name = "R4b"
 bone_idx = 21
 override_pose = true
@@ -415,7 +413,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR5b" type="BoneAttachment3D" parent="BoneAttachments/BoneAttachmentR5a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.25097853, -1.5228987e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.25097722, -1.5556812e-05)
 bone_name = "R5b"
 bone_idx = 23
 override_pose = true
@@ -431,7 +429,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR6b" type="BoneAttachment3D" parent="BoneAttachments/BoneAttachmentR6a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.25102, -1.5258789e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.25102, -1.5586615e-05)
 bone_name = "R6b"
 bone_idx = 25
 override_pose = true
@@ -782,4 +780,24 @@ suspension_travel = 0.0
 suspension_stiffness = 25.0
 suspension_max_force = 5000.0
 
+[node name="interior_test" parent="." instance=ExtResource("12_cllbj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17, 1.327, -0.262)
+
+[node name="Baked" parent="interior_test/Baked2" index="0"]
+layers = 2
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81117547, 2.5457807, -0.3756659)
+layers = 2
+light_energy = 0.2
+light_bake_mode = 0
+light_cull_mask = 4293918722
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_caster_mask = 4293918722
+distance_fade_begin = 0.0
+distance_fade_length = 0.5
+omni_range = 1.5
+
 [editable path="Model"]
+[editable path="interior_test"]

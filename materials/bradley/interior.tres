@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://vqx30dcknow8"]
+
+[ext_resource type="Texture2D" uid="uid://cti55bkbe2alh" path="res://textures/bradley/interior_diffuse.png" id="1_y0rwy"]
+[ext_resource type="Texture2D" uid="uid://dc67rpxh6d683" path="res://textures/bradley/interior_normal.png" id="3_hy5qx"]
+
+[resource]
+disable_ambient_light = true
+albedo_texture = ExtResource("1_y0rwy")
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+normal_enabled = true
+normal_scale = 1.5
+normal_texture = ExtResource("3_hy5qx")
+texture_filter = 0
+texture_repeat = false
