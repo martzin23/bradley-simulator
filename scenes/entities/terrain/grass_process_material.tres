@@ -3,12 +3,13 @@
 [ext_resource type="Shader" uid="uid://cp4kf3llgo85k" path="res://scenes/entities/terrain/grass_particles.gdshader" id="1_446nf"]
 
 [sub_resource type="Gradient" id="Gradient_li8uv"]
-colors = PackedColorArray(0.22310296, 0.2231029, 0.22310269, 1, 0.556953, 0.556953, 0.556953, 1)
+colors = PackedColorArray(0.35531375, 0.35531357, 0.35531327, 1, 0.5449743, 0.54497427, 0.54497427, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_angu5"]
 noise_type = 2
-frequency = 0.005
-fractal_octaves = 2
+frequency = 0.0145
+fractal_octaves = 1
+cellular_return_type = 4
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q6jjo"]
 noise = SubResource("FastNoiseLite_angu5")

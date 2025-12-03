@@ -1,4 +1,5 @@
 extends Node3D
+class_name EnvironmentManager
 
 #enum PresetType {DAY, NIGHT, FOG}
 #

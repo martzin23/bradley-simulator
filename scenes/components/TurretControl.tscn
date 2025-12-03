@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnobhxwxotone"]
+
+[ext_resource type="Script" uid="uid://b1fh2brofkevt" path="res://scenes/components/turret_control.gd" id="1_ilbov"]
+
+[node name="TurretControlComponent" type="Node"]
+script = ExtResource("1_ilbov")

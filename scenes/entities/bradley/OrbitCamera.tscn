@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://chrxhw2q4tasd"]
+
+[ext_resource type="Script" uid="uid://cun6jrb3ayapc" path="res://scenes/entities/bradley/orbit_camera.gd" id="1_s72ff"]
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_hovhb"]
+
+[node name="OrbitCamera" type="SpringArm3D"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+shape = SubResource("SeparationRayShape3D_hovhb")
+spring_length = 10.0
+script = ExtResource("1_s72ff")
+current = false
+CAPTURE_MOUSE = true
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+cull_mask = 1
+fov = 60.0
+
+[node name="Target" type="Node3D" parent="."]

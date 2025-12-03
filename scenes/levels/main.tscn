@@ -6,7 +6,7 @@
 [ext_resource type="Environment" uid="uid://w57ajlshosdw" path="res://scenes/levels/environment/day.tres" id="3_dj21o"]
 [ext_resource type="Terrain3DAssets" uid="uid://die7rmv5qdbji" path="res://scenes/entities/terrain/terrain_assets.res" id="3_rssyh"]
 [ext_resource type="Environment" uid="uid://cjcowj4132eu1" path="res://scenes/levels/environment/night.tres" id="4_dj21o"]
-[ext_resource type="PackedScene" uid="uid://bg4ihykfel0sm" path="res://scenes/components/Terrain3DParticleComponent.tscn" id="4_hwp66"]
+[ext_resource type="PackedScene" uid="uid://bg4ihykfel0sm" path="res://scenes/components/Terrain3DParticle.tscn" id="4_hwp66"]
 [ext_resource type="Material" uid="uid://0tu4n3y0dmen" path="res://scenes/entities/terrain/grass_process_material.tres" id="5_2xkjh"]
 [ext_resource type="Environment" uid="uid://b38g35rhqhdxt" path="res://scenes/levels/environment/fog.tres" id="5_6ui35"]
 [ext_resource type="PackedScene" uid="uid://ddcpw6g3ke7fo" path="res://models/foliage/grass.blend" id="6_dj21o"]
