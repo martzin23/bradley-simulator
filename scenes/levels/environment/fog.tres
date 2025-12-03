@@ -1,0 +1,35 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://b38g35rhqhdxt"]
+
+[ext_resource type="Texture2D" uid="uid://dtrc2d8soqfhh" path="res://textures/sky/kloofendal_misty_morning_puresky_2k.hdr" id="1_p2k3c"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_e4771"]
+panorama = ExtResource("1_p2k3c")
+energy_multiplier = 0.4
+
+[sub_resource type="Sky" id="Sky_85g3d"]
+sky_material = SubResource("PanoramaSkyMaterial_e4771")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_85g3d")
+sky_rotation = Vector3(0, 2.469641, 0)
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.3
+tonemap_mode = 2
+ssao_enabled = true
+ssao_intensity = 5.0
+fog_enabled = true
+fog_mode = 1
+fog_density = 0.95
+fog_aerial_perspective = 1.0
+fog_sky_affect = 0.0
+fog_height = -45.0
+fog_height_density = 0.05
+fog_depth_curve = 0.3
+fog_depth_begin = 0.0
+fog_depth_end = 1024.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_length = 512.0
+volumetric_fog_detail_spread = 6.0

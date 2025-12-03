@@ -1,0 +1,42 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ex27rjbqfqj2"]
+
+[ext_resource type="Shader" uid="uid://b5ptog53u0l54" path="res://materials/post_processing/ScreenEffects_Ultimate.tres" id="1_dhece"]
+
+[resource]
+shader = ExtResource("1_dhece")
+shader_parameter/Pixelation_Scale = 1.0
+shader_parameter/Panini = 0.0
+shader_parameter/Chromatic_Peripheral = 0.9
+shader_parameter/Chromatic_Aberrations = 0.0
+shader_parameter/Chromatic_Darkening = 0.9
+shader_parameter/Blur_Amount = 0.0
+shader_parameter/Blur_Centered = 0.0
+shader_parameter/Bloom_Starts = 0.9
+shader_parameter/Bloom_Halation = 0.0
+shader_parameter/Bloom_Booster = 0.0
+shader_parameter/Shadows_Split = 0.30000000074502997
+shader_parameter/Shadow_Color_Temp = 50.0
+shader_parameter/Shadow_Green_Tint = 7.500000856819
+shader_parameter/Shadow_Brightness = 0.8999999966472
+shader_parameter/Shadow_Contrast = 0.8999999966472
+shader_parameter/Shadows_Saturation = 0.5000000074506
+shader_parameter/Highlights_Split = 0.6300000231713
+shader_parameter/Mid_Color_Temp = 7.500000856819
+shader_parameter/Mid_Green_Tint = 0.0
+shader_parameter/Mid_Brightness = 1.0
+shader_parameter/Mid_Contrast = 0.999999994412
+shader_parameter/Mid_Saturation = 1.5
+shader_parameter/High_Color_Temp = -24.99999962747
+shader_parameter/High_Green_Tint = 0.0
+shader_parameter/High_Brightness = 1.0
+shader_parameter/High_Contrast = 0.75
+shader_parameter/High_Saturation = 1.0000000149012
+shader_parameter/Main_Color_Temp = 4500.0
+shader_parameter/Main_Green_Tint = 1.5000015124717976
+shader_parameter/Main_Brightness = 1.20000001788144
+shader_parameter/Main_Contrast = 1.20000001788144
+shader_parameter/Main_Saturation = 0.70000001043084
+shader_parameter/Posterization = 0.0
+shader_parameter/Vignette = 0.0
+shader_parameter/Film_Grain = 0.0
+shader_parameter/Filter_Strenght = 0.0

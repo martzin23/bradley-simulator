@@ -1,42 +1,38 @@
-[gd_scene load_steps=20 format=4 uid="uid://bodpq72qfhjm8"]
+[gd_scene load_steps=24 format=4 uid="uid://bodpq72qfhjm8"]
 
 [ext_resource type="Script" uid="uid://d2sscmmxsebpd" path="res://scripts/exit_app.gd" id="1_vkq25"]
 [ext_resource type="Texture2D" uid="uid://geo1nxkpe68v" path="res://textures/temp.png" id="2_7lrji"]
-[ext_resource type="Material" uid="uid://odpib64ahj6m" path="res://materials/post_processing/settings.tres" id="3_7lrji"]
+[ext_resource type="Script" uid="uid://bslx3btt43gik" path="res://scripts/environment_manager.gd" id="2_hwp66"]
+[ext_resource type="Environment" uid="uid://w57ajlshosdw" path="res://scenes/levels/environment/day.tres" id="3_dj21o"]
 [ext_resource type="Terrain3DAssets" uid="uid://die7rmv5qdbji" path="res://scenes/entities/terrain/terrain_assets.res" id="3_rssyh"]
+[ext_resource type="Environment" uid="uid://cjcowj4132eu1" path="res://scenes/levels/environment/night.tres" id="4_dj21o"]
 [ext_resource type="PackedScene" uid="uid://bg4ihykfel0sm" path="res://scenes/components/Terrain3DParticleComponent.tscn" id="4_hwp66"]
 [ext_resource type="Material" uid="uid://0tu4n3y0dmen" path="res://scenes/entities/terrain/grass_process_material.tres" id="5_2xkjh"]
+[ext_resource type="Environment" uid="uid://b38g35rhqhdxt" path="res://scenes/levels/environment/fog.tres" id="5_6ui35"]
 [ext_resource type="PackedScene" uid="uid://ddcpw6g3ke7fo" path="res://models/foliage/grass.blend" id="6_dj21o"]
 [ext_resource type="Material" uid="uid://bkplafpjesnxd" path="res://materials/foliage/grass.tres" id="7_6ui35"]
 [ext_resource type="PackedScene" uid="uid://biyqv287op1sf" path="res://scenes/entities/bradley/Bradley.tscn" id="8_y56qp"]
+[ext_resource type="Material" uid="uid://degl554d1fjlr" path="res://materials/post_processing/filter_v2.tres" id="13_dj21o"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
-ground_bottom_color = Color(0.654902, 0.6901961, 0.74509805, 1)
-ground_curve = 0.036050055
-ground_energy_multiplier = 0.25
+[sub_resource type="Gradient" id="Gradient_rssyh"]
+offsets = PackedFloat32Array(0.24242425, 1)
 
-[sub_resource type="Sky" id="Sky_85g3d"]
-sky_material = SubResource("ProceduralSkyMaterial_jyhfs")
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hwp66"]
+frequency = 0.3
+fractal_octaves = 3
 
-[sub_resource type="Environment" id="Environment_jyhfs"]
-background_mode = 2
-sky = SubResource("Sky_85g3d")
-tonemap_mode = 2
-tonemap_exposure = 1.5
-tonemap_white = 1.5
-ssao_intensity = 3.0
-fog_enabled = true
-fog_mode = 1
-fog_density = 1.0
-fog_sky_affect = 0.0
-fog_depth_begin = 0.0
-fog_depth_end = 1000.0
-volumetric_fog_density = 0.0
-volumetric_fog_length = 256.0
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_2xkjh"]
+width = 128
+height = 1
+depth = 128
+noise = SubResource("FastNoiseLite_hwp66")
+color_ramp = SubResource("Gradient_rssyh")
 
 [sub_resource type="FogMaterial" id="FogMaterial_85g3d"]
-density = 0.01
-albedo = Color(0.89, 0.93766665, 1, 1)
+density = 0.03
+emission = Color(0.68880004, 0.71066666, 0.82, 1)
+edge_fade = 1.0
+density_texture = SubResource("NoiseTexture3D_2xkjh")
 
 [sub_resource type="Gradient" id="Gradient_jyhfs"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -127,42 +123,27 @@ shadow_mesh = SubResource("ArrayMesh_ie1vp")
 [node name="Main" type="Node3D"]
 script = ExtResource("1_vkq25")
 
-[node name="Environment" type="Node3D" parent="."]
+[node name="EnvironmentManager" type="Node3D" parent="." node_paths=PackedStringArray("ENVIRONMENT", "LIGHT", "VOLUME")]
+script = ExtResource("2_hwp66")
+PRESET_DAY = ExtResource("3_dj21o")
+PRESET_NIGHT = ExtResource("4_dj21o")
+PRESET_FOG = ExtResource("5_6ui35")
+ENVIRONMENT = NodePath("WorldEnvironment")
+LIGHT = NodePath("DirectionalLight3D")
+VOLUME = NodePath("FogVolume")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
-environment = SubResource("Environment_jyhfs")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="EnvironmentManager"]
+environment = ExtResource("3_dj21o")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(0.62387955, 0.34136957, -0.7030229, 0, 0.8995577, 0.43680182, 0.78152055, -0.2725117, 0.5612157, 0, 0, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="EnvironmentManager"]
+transform = Transform3D(0.77824324, 0.26737365, -0.5681979, 0, 0.90482706, 0.42577922, 0.6279631, -0.3313598, 0.70417535, 0, 0, 0)
 shadow_enabled = true
 
-[node name="FogVolume" type="FogVolume" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.736908, -45.86683, -0.5782471)
-size = Vector3(1537.4197, 33.932266, 1018.8269)
-material = SubResource("FogMaterial_85g3d")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Environment"]
-
-[node name="TextureRect" type="TextureRect" parent="Environment/CanvasLayer"]
+[node name="FogVolume" type="FogVolume" parent="EnvironmentManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.736908, -39.09837, -0.5782471)
 visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -665.0
-offset_top = -124.0
-offset_right = 743.0
-offset_bottom = 668.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_7lrji")
-
-[node name="ColorRect" type="ColorRect" parent="Environment/CanvasLayer"]
-material = ExtResource("3_7lrji")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+size = Vector3(1536, 50, 1024)
+material = SubResource("FogMaterial_85g3d")
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://scenes/entities/terrain/regions"
@@ -187,3 +168,26 @@ particle_count = 6400
 
 [node name="Bradley" parent="." instance=ExtResource("8_y56qp")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -61.80681, -7.585008, -166.57848)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -665.0
+offset_top = -124.0
+offset_right = 743.0
+offset_bottom = 668.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7lrji")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource("13_dj21o")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

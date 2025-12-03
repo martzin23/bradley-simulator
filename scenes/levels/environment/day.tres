@@ -1,0 +1,30 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://w57ajlshosdw"]
+
+[ext_resource type="Texture2D" uid="uid://bcijs6ebltgja" path="res://textures/sky/autumn_field_puresky_2k.hdr" id="1_7rks4"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_e4771"]
+panorama = ExtResource("1_7rks4")
+energy_multiplier = 0.3
+
+[sub_resource type="Sky" id="Sky_85g3d"]
+sky_material = SubResource("PanoramaSkyMaterial_e4771")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_85g3d")
+ambient_light_sky_contribution = 0.75
+tonemap_mode = 2
+ssao_intensity = 3.0
+sdfgi_use_occlusion = true
+glow_blend_mode = 0
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.57856953, 0.64012384, 0.68518436, 1)
+fog_sun_scatter = 0.15
+fog_density = 1.0
+fog_sky_affect = 0.0
+fog_depth_curve = 0.8
+fog_depth_begin = 0.0
+fog_depth_end = 1536.0
+volumetric_fog_density = 0.0
+volumetric_fog_length = 256.0
