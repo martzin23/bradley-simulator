@@ -47,7 +47,7 @@ func _input(event: InputEvent) -> void:
 	if (perspective == PerspectiveType.FIRST_PERSON and (event.is_action_pressed("zoom_in") or event.is_action_pressed("zoom_out"))):
 		target_fov *= Input.get_axis("zoom_in", "zoom_out") * STEP + 1.0
 		target_fov = clamp(target_fov, MIN_FOV, MAX_FOV)
-		TURRET_CONTROL.sensitivity = base_sensitivity * lerp(0.1, 1.0, target_fov - MIN_FOV) / (MAX_FOV - MIN_FOV)
+		TURRET_CONTROL.sensitivity = base_sensitivity * lerp(0.1, 1.0, (target_fov - MIN_FOV) / (MAX_FOV - MIN_FOV))
 		
 		if (zoom_tween):
 			zoom_tween.kill()

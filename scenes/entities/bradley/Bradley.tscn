@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://biyqv287op1sf"]
+[gd_scene load_steps=20 format=3 uid="uid://biyqv287op1sf"]
 
 [ext_resource type="PackedScene" uid="uid://2bg2wakhlmcs" path="res://scenes/components/CameraManager.tscn" id="2_npdwc"]
 [ext_resource type="Material" uid="uid://ga1t6a32xufd" path="res://materials/bradley/tracks_left.tres" id="2_o7rri"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cvcenhi2hpcg3" path="res://scripts/antenna_spring_force.gd" id="8_o7rri"]
 [ext_resource type="PackedScene" uid="uid://chrxhw2q4tasd" path="res://scenes/entities/bradley/OrbitCamera.tscn" id="9_t1a07"]
 [ext_resource type="PackedScene" uid="uid://4c33o5eoulwe" path="res://scenes/entities/inputs/Switch.tscn" id="11_0r3s0"]
+[ext_resource type="Texture2D" uid="uid://dh47qfe00ajdo" path="res://textures/instructions.png" id="11_oar21"]
 [ext_resource type="PackedScene" uid="uid://nsn7g8th70pc" path="res://scenes/entities/bradley/FirstPersonCamera.tscn" id="11_t1a07"]
 [ext_resource type="PackedScene" uid="uid://cj7fpivwr8qkd" path="res://scenes/entities/inputs/Button.tscn" id="12_0r3s0"]
 [ext_resource type="PackedScene" uid="uid://587x42rwbbs4" path="res://models/bradley/interior.blend" id="12_cllbj"]
@@ -77,31 +78,31 @@ bones/1/scale = Vector3(-1, -1, -1)
 bones/2/position = Vector3(0.982, 0.3419376, 1.4506458)
 bones/2/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/2/scale = Vector3(1, 0.9999999, 1)
-bones/3/position = Vector3(-2.682209e-05, 0.25101244, 1.7523766e-05)
+bones/3/position = Vector3(-2.682209e-05, 0.25101244, 1.8894672e-05)
 bones/3/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
 bones/3/scale = Vector3(-1, -1.0000001, -1)
 bones/4/position = Vector3(0.982, 0.34193635, 0.6986339)
 bones/4/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/4/scale = Vector3(1, 0.9999999, 1)
-bones/5/position = Vector3(-1.0728836e-05, 0.25095546, 1.9490719e-05)
+bones/5/position = Vector3(-1.0728836e-05, 0.25094998, 2.0861626e-05)
 bones/5/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
 bones/5/scale = Vector3(-1, -1.0000001, -1)
 bones/6/position = Vector3(0.982, 0.34193608, -0.24305514)
 bones/6/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/6/scale = Vector3(1, 0.9999999, 1)
-bones/7/position = Vector3(4.4107437e-06, 0.2510084, 1.7523766e-05)
+bones/7/position = Vector3(4.4107437e-06, 0.2510084, 1.8894672e-05)
 bones/7/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
 bones/7/scale = Vector3(-1, -1.0000001, -1)
 bones/8/position = Vector3(0.982, 0.34193486, -1.0083922)
 bones/8/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/8/scale = Vector3(1, 0.9999999, 1)
-bones/9/position = Vector3(-2.682209e-05, 0.251014, 1.7523766e-05)
+bones/9/position = Vector3(-2.682209e-05, 0.251014, 1.8894672e-05)
 bones/9/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
 bones/9/scale = Vector3(-1, -1.0000001, -1)
 bones/10/position = Vector3(0.982, 0.34193462, -1.7237142)
 bones/10/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/10/scale = Vector3(1, 0.9999999, 1)
-bones/11/position = Vector3(-2.682209e-05, 0.2509668, 1.7464161e-05)
+bones/11/position = Vector3(-2.682209e-05, 0.2509613, 1.8835068e-05)
 bones/11/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
 bones/11/scale = Vector3(-1, -1.0000001, -1)
 bones/12/rotation = Quaternion(0, 0, 0.70710677, 0.70710677)
@@ -112,37 +113,37 @@ bones/13/scale = Vector3(-1, -1, -1)
 bones/14/position = Vector3(-0.982, 0.34193778, 2.1388035)
 bones/14/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/14/scale = Vector3(1, 0.9999999, 1)
-bones/15/position = Vector3(0, 0.25101745, -1.8894672e-05)
+bones/15/position = Vector3(0, 0.25101745, -2.026558e-05)
 bones/15/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/15/scale = Vector3(-1, -1.0000001, -1)
 bones/16/position = Vector3(-0.982, 0.3419376, 1.4506458)
 bones/16/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/16/scale = Vector3(1, 0.9999999, 1)
-bones/17/position = Vector3(2.4437904e-05, 0.25094855, -2.3335218e-05)
+bones/17/position = Vector3(2.4437904e-05, 0.25094306, -2.4706125e-05)
 bones/17/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/17/scale = Vector3(-1, -1.0000001, -1)
 bones/18/position = Vector3(-0.982, 0.34193635, 0.6986339)
 bones/18/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/18/scale = Vector3(1, 0.9999999, 1)
-bones/19/position = Vector3(4.172325e-06, 0.25102103, -1.886487e-05)
+bones/19/position = Vector3(4.172325e-06, 0.25102103, -2.0235777e-05)
 bones/19/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/19/scale = Vector3(-1, -1.0000001, -1)
 bones/20/position = Vector3(-0.982, 0.34193608, -0.2430551)
 bones/20/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/20/scale = Vector3(1, 0.9999999, 1)
-bones/21/position = Vector3(-3.6656857e-06, 0.2510152, -1.886487e-05)
+bones/21/position = Vector3(-3.6656857e-06, 0.2510152, -2.0235777e-05)
 bones/21/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/21/scale = Vector3(-1, -1.0000001, -1)
 bones/22/position = Vector3(-0.982, 0.34193486, -1.0083922)
 bones/22/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/22/scale = Vector3(1, 0.9999999, 1)
-bones/23/position = Vector3(2.4437904e-05, 0.25096393, -1.886487e-05)
+bones/23/position = Vector3(2.4437904e-05, 0.25095844, -2.0235777e-05)
 bones/23/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/23/scale = Vector3(-1, -1.0000001, -1)
 bones/24/position = Vector3(-0.982, 0.34193462, -1.7237144)
 bones/24/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/24/scale = Vector3(1, 0.9999999, 1)
-bones/25/position = Vector3(2.4437904e-05, 0.25101995, -1.8894672e-05)
+bones/25/position = Vector3(2.4437904e-05, 0.25101995, -2.026558e-05)
 bones/25/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/25/scale = Vector3(-1, -1.0000001, -1)
 bones/26/rotation = Quaternion(0, 0, -0.70710677, 0.70710677)
@@ -226,7 +227,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentL2b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentL2a"]
-transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.2510125, 1.7523766e-05)
+transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.2510125, 1.8894672e-05)
 bone_name = "L2b"
 bone_idx = 3
 override_pose = true
@@ -242,7 +243,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentL3b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentL3a"]
-transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -1.0728836e-05, 0.25095552, 1.9490719e-05)
+transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -1.0728836e-05, 0.25095004, 2.0861626e-05)
 bone_name = "L3b"
 bone_idx = 5
 override_pose = true
@@ -258,7 +259,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentL4b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentL4a"]
-transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, 4.3958426e-06, 0.2510084, 1.7523766e-05)
+transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, 4.3958426e-06, 0.2510084, 1.8894672e-05)
 bone_name = "L4b"
 bone_idx = 7
 override_pose = true
@@ -274,7 +275,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentL5b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentL5a"]
-transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.25101405, 1.7523766e-05)
+transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.25101405, 1.8894672e-05)
 bone_name = "L5b"
 bone_idx = 9
 override_pose = true
@@ -290,7 +291,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentL6b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentL6a"]
-transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.25096685, 1.7464161e-05)
+transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.25096136, 1.8835068e-05)
 bone_name = "L6b"
 bone_idx = 11
 override_pose = true
@@ -306,7 +307,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR1b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentR1a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 0, 0.25101745, -1.8894672e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 0, 0.25101745, -2.026558e-05)
 bone_name = "R1b"
 bone_idx = 15
 override_pose = true
@@ -322,7 +323,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR2b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentR2a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.2509486, -2.3335218e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.25094312, -2.4706125e-05)
 bone_name = "R2b"
 bone_idx = 17
 override_pose = true
@@ -338,7 +339,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR3b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentR3a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 4.172325e-06, 0.2510211, -1.886487e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 4.172325e-06, 0.2510211, -2.0235777e-05)
 bone_name = "R3b"
 bone_idx = 19
 override_pose = true
@@ -354,7 +355,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR4b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentR4a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, -3.6507845e-06, 0.2510152, -1.886487e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, -3.6507845e-06, 0.2510152, -2.0235777e-05)
 bone_name = "R4b"
 bone_idx = 21
 override_pose = true
@@ -370,7 +371,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR5b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentR5a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.250964, -1.886487e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.2509585, -2.0235777e-05)
 bone_name = "R5b"
 bone_idx = 23
 override_pose = true
@@ -386,7 +387,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR6b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentR6a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.25102, -1.8894672e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.25102, -2.026558e-05)
 bone_name = "R6b"
 bone_idx = 25
 override_pose = true
@@ -474,17 +475,100 @@ distance_fade_begin = 0.0
 distance_fade_length = 0.5
 omni_range = 1.5
 
-[node name="Switch" parent="Interior" instance=ExtResource("11_0r3s0")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.5735764, 0, -0.5735764, 0.819152, -0.31974944, 2.0030088, -0.16377492)
+[node name="InstructionBoard" type="Sprite3D" parent="Interior"]
+transform = Transform3D(-1.0927848e-09, 0, 0.025, 0, 0.025, 0, -0.025, 0, -1.0927848e-09, -0.95285493, 2.2607036, -0.47247455)
+layers = 2
+texture = ExtResource("11_oar21")
 
-[node name="Switch2" parent="Interior" instance=ExtResource("11_0r3s0")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.5735764, 0, -0.5735764, 0.819152, -0.04947695, 2.0030088, -0.16377492)
+[node name="ControlPanel" type="Node3D" parent="Interior"]
 
-[node name="Button" parent="Interior" instance=ExtResource("12_0r3s0")]
-transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, -0.23037797, 2.0009365, -0.16431892)
+[node name="SwitchQuality" parent="Interior/ControlPanel" instance=ExtResource("11_0r3s0")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.5735764, 0, -0.5735764, 0.819152, -0.30901924, 2.014681, -0.15207005)
+state = true
+label = "Quality"
+label_position = 1
 
-[node name="Button2" parent="Interior" instance=ExtResource("12_0r3s0")]
-transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, -0.14176984, 2.0009365, -0.16431892)
+[node name="SwitchNV" parent="Interior/ControlPanel" instance=ExtResource("11_0r3s0")]
+transform = Transform3D(-4.3711385e-08, -4.3711392e-08, 1, -1, -4.371139e-08, -4.371139e-08, 4.3711392e-08, -1, -4.371139e-08, -0.8375523, 2.0834386, -0.10953604)
+label = "NV"
+label_position = 3
+label_spacing = 0.025
+
+[node name="SwitchLights" parent="Interior/ControlPanel" instance=ExtResource("11_0r3s0")]
+transform = Transform3D(-4.3711385e-08, -4.3711392e-08, 1, -1, -4.371139e-08, -4.371139e-08, 4.3711392e-08, -1, -4.371139e-08, -0.8375523, 2.1332307, -0.10953604)
+label = "Lights"
+label_position = 3
+label_spacing = 0.03
+
+[node name="SwitchSim" parent="Interior/ControlPanel" instance=ExtResource("11_0r3s0")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.5735764, 0, -0.5735764, 0.819152, -0.030470282, 2.014681, -0.15207005)
+label = "Sim"
+label_position = 1
+
+[node name="ButtonDay" parent="Interior/ControlPanel" instance=ExtResource("12_0r3s0")]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, -0.22662179, 1.9986038, -0.17261526)
+label = "Day"
+label_position = 1
+
+[node name="ButtonNight" parent="Interior/ControlPanel" instance=ExtResource("12_0r3s0")]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, -0.17239939, 1.9986038, -0.17261526)
+label = "Night"
+label_position = 1
+
+[node name="ButtonFlip" parent="Interior/ControlPanel" instance=ExtResource("12_0r3s0")]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, -0.17239939, 2.0249252, -0.13502413)
+label = "Flip"
+label_position = 3
+label_spacing = 0.04
+
+[node name="ButtonFog" parent="Interior/ControlPanel" instance=ExtResource("12_0r3s0")]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, -0.118291944, 1.9986038, -0.17261526)
+label = "Fog"
+label_position = 1
+
+[node name="ButtonFire" parent="Interior/ControlPanel" instance=ExtResource("12_0r3s0")]
+transform = Transform3D(1.5, 0, 0, 0, -4.371139e-08, 1.5, 0, -1, -6.556708e-08, -0.44862044, 2.1185024, -0.10953604)
+icon = "X"
+
+[node name="ButtonMoveReverse" parent="Interior/ControlPanel" instance=ExtResource("12_0r3s0")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.56870794, 2.0978146, -0.10953604)
+icon = "↓"
+
+[node name="ButtonMoveRight" parent="Interior/ControlPanel" instance=ExtResource("12_0r3s0")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.6086701, 2.0978146, -0.10953604)
+icon = "↻"
+
+[node name="ButtonMoveLeft" parent="Interior/ControlPanel" instance=ExtResource("12_0r3s0")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.52937603, 2.0978146, -0.10953604)
+icon = "↺"
+
+[node name="ButtonMoveForward" parent="Interior/ControlPanel" instance=ExtResource("12_0r3s0")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.5692018, 2.1453025, -0.10953604)
+icon = "↑"
+
+[node name="ButtonZoomIn" parent="Interior/ControlPanel" instance=ExtResource("12_0r3s0")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.6671896, 2.147474, -0.10953604)
+icon = "+"
+
+[node name="ButtomAimUp" parent="Interior/ControlPanel" instance=ExtResource("12_0r3s0")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.750271, 2.1483235, -0.10953604)
+icon = "⏶"
+
+[node name="ButtonZoomOut" parent="Interior/ControlPanel" instance=ExtResource("12_0r3s0")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.6671896, 2.0966136, -0.10953604)
+icon = "-"
+
+[node name="ButtonAimDown" parent="Interior/ControlPanel" instance=ExtResource("12_0r3s0")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.7486547, 2.0922608, -0.10953604)
+icon = "⏷"
+
+[node name="ButtonAimLeft" parent="Interior/ControlPanel" instance=ExtResource("12_0r3s0")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.7216712, 2.1209042, -0.10953604)
+icon = "⏴"
+
+[node name="ButtonAimRight" parent="Interior/ControlPanel" instance=ExtResource("12_0r3s0")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.7771748, 2.1186295, -0.10953604)
+icon = "⏵"
 
 [node name="VehicleWheelL0" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.482, 0.704, 3.004)

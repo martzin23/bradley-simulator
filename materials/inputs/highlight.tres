@@ -3,6 +3,6 @@
 [resource]
 resource_name = "Switch"
 disable_ambient_light = true
-albedo_color = Color(0.6798202, 0.290143, 0.33969033, 1)
+albedo_color = Color(0.8269189, 0.4082084, 0.45602858, 1)
 metallic_specular = 0.0
 roughness = 0.9

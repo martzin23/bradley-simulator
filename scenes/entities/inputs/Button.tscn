@@ -28,4 +28,21 @@ layers = 2
 [node name="Button" parent="Model/Base" index="0"]
 layers = 2
 
+[node name="Icon" type="Label3D" parent="Model/Base/Button" index="0"]
+transform = Transform3D(-0.06, -9.059748e-09, -3.9601416e-16, 0, -2.6226832e-09, 0.06, -9.059748e-09, 0.06, 2.6226832e-09, 0, 0.016095178, 0.00090010464)
+layers = 2
+modulate = Color(0.15741998, 0.06370605, 0.07509834, 1)
+text = "X"
+font_size = 64
+outline_size = 0
+
+[node name="Label" type="Label3D" parent="."]
+transform = Transform3D(-0.05, 7.54979e-09, 3.3001182e-16, 0, -2.1855695e-09, 0.05, 7.54979e-09, 0.05, 2.1855695e-09, 0, 0.003, 0.029)
+visible = false
+layers = 2
+modulate = Color(0.3372549, 0.3372549, 0.3372549, 1)
+text = "Label"
+font_size = 64
+outline_size = 32
+
 [editable path="Model"]
