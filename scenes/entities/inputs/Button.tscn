@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj7fpivwr8qkd"]
+
+[ext_resource type="Script" uid="uid://b8algfakl1uxb" path="res://scenes/entities/inputs/button.gd" id="1_pweym"]
+[ext_resource type="PackedScene" uid="uid://bfpg4akr3q1hu" path="res://models/inputs/button.blend" id="2_37nmo"]
+[ext_resource type="Material" uid="uid://8a0s52ji0cja" path="res://materials/inputs/normal.tres" id="2_onilm"]
+[ext_resource type="Material" uid="uid://b5q7efy358kc2" path="res://materials/inputs/highlight.tres" id="3_p022k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tllw2"]
+size = Vector3(0.037353516, 0.027954102, 0.036132813)
+
+[node name="Button" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_pweym")
+default_material = ExtResource("2_onilm")
+highlight_material = ExtResource("3_p022k")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8831105e-05, 0.01325836, 4.272163e-05)
+shape = SubResource("BoxShape3D_tllw2")
+debug_fill = false
+
+[node name="Model" parent="." instance=ExtResource("2_37nmo")]
+
+[node name="Base" parent="Model" index="0"]
+layers = 2
+
+[node name="Button" parent="Model/Base" index="0"]
+layers = 2
+
+[editable path="Model"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://4c33o5eoulwe"]
+
+[ext_resource type="Script" uid="uid://sk7i5ri25tdk" path="res://scenes/entities/inputs/switch.gd" id="1_gxm8p"]
+[ext_resource type="Material" uid="uid://8a0s52ji0cja" path="res://materials/inputs/normal.tres" id="2_87obl"]
+[ext_resource type="PackedScene" uid="uid://bftrfqyns0uqf" path="res://models/inputs/switch.blend" id="2_dm82g"]
+[ext_resource type="Material" uid="uid://b5q7efy358kc2" path="res://materials/inputs/highlight.tres" id="3_44ell"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tllw2"]
+size = Vector3(0.033203125, 0.029057313, 0.05883789)
+
+[node name="Switch" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_gxm8p")
+default_material = ExtResource("2_87obl")
+highlight_material = ExtResource("3_44ell")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8831105e-05, 0.015148161, 4.272163e-05)
+shape = SubResource("BoxShape3D_tllw2")
+debug_fill = false
+
+[node name="Model" parent="." instance=ExtResource("2_dm82g")]
+
+[node name="Base" parent="Model" index="0"]
+layers = 2
+
+[node name="Switch" parent="Model/Base" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 0.0037499992, 0)
+layers = 2
+
+[editable path="Model"]
