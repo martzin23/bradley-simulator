@@ -17,11 +17,14 @@ class_name OrbitCamera
 @onready var CAMERA := $Camera
 #@onready var TARGET := $Target
 #var move_tween: Tween
+var zoom_tween: Tween
+var target_length
 
-#func _ready():
+func _ready():
 	#CAMERA.top_level = true
 	#get_parent().remove_child(CAMERA)
 	#get_tree().root.add_child(CAMERA)
+	target_length = self.spring_length
 
 #func _process(delta: float) -> void:
 	#if (Input.is_action_pressed("alt_look")):
@@ -39,8 +42,14 @@ class_name OrbitCamera
 	#CAMERA.global_position = CAMERA.global_position.lerp(target_pos, lerp_speed * delta)
 
 func _input(event):
-	self.spring_length *= Input.get_axis("zoom_in", "zoom_out") * 0.1 + 1.0
-	self.spring_length = clamp(self.spring_length, MIN_ZOOM, MAX_ZOOM)
+	#self.spring_length *= Input.get_axis("zoom_in", "zoom_out") * 0.1 + 1.0
+	#self.spring_length = clamp(self.spring_length, MIN_ZOOM, MAX_ZOOM)
+	if (event.is_action("zoom_in") or event.is_action("zoom_out")):
+		target_length = clamp(target_length * (Input.get_axis("zoom_in", "zoom_out") * 0.1 + 1.0), MIN_ZOOM, MAX_ZOOM)
+		if (zoom_tween):
+			zoom_tween.kill()
+		zoom_tween = get_tree().create_tween()
+		zoom_tween.tween_property(self, "spring_length", target_length, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 		
 	if event is InputEventMouseMotion:
 		if (!Input.is_action_pressed("alt_look")):

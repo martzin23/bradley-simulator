@@ -20,12 +20,12 @@
 	- [x] LOD
 - UI - `golub`
 	- [x] monitor za ciljanje
-	- [ ] kontrolna ploča kretanja
-	- [ ] kontrolna ploča postavka simulacije
+	- [x] kontrolna ploča kretanja
+	- [x] kontrolna ploča postavka simulacije
 - Vrijeme/Weather - `golub`
-	- [ ] day
-	- [ ] night
-	- [ ] fog
+	- [x] day
+	- [x] night
+	- [x] fog
 - Audio efekti - `vito`
 	- [ ] pucanje (blizu)
 	- [ ] pucanje (daleko)
@@ -165,7 +165,7 @@
             </td>
             <td><kbd>d)</kbd></td>
             <td>golub</td>
-            <td><kbd>Nedovršeno</kbd></td>
+            <td><kbd>Gotovo</kbd></td>
         </tr>
         <tr>
             <td>7. Setup of initial parameters of simulation</td>
@@ -248,7 +248,7 @@
             </td>
             <td><kbd>c)</kbd></td>
             <td>golub</td>
-            <td><kbd>Nedovršeno</kbd></td>
+            <td><kbd>Gotovo</kbd></td>
         </tr>
         <tr>
             <td>13. Camera selection</td>
