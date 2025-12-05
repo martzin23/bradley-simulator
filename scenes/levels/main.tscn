@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=4 uid="uid://bodpq72qfhjm8"]
+[gd_scene load_steps=25 format=4 uid="uid://bodpq72qfhjm8"]
 
 [ext_resource type="Script" uid="uid://d2sscmmxsebpd" path="res://scripts/exit_app.gd" id="1_vkq25"]
+[ext_resource type="PackedScene" uid="uid://dvredawh2u6cj" path="res://scenes/components/QualityManager.tscn" id="2_6ui35"]
 [ext_resource type="Texture2D" uid="uid://geo1nxkpe68v" path="res://textures/temp.png" id="2_7lrji"]
 [ext_resource type="Script" uid="uid://bslx3btt43gik" path="res://scripts/environment_manager.gd" id="2_hwp66"]
 [ext_resource type="Environment" uid="uid://w57ajlshosdw" path="res://scenes/levels/environment/day.tres" id="3_dj21o"]
@@ -123,6 +124,11 @@ shadow_mesh = SubResource("ArrayMesh_ie1vp")
 [node name="Main" type="Node3D"]
 script = ExtResource("1_vkq25")
 
+[node name="QualityManagerComponent" parent="." node_paths=PackedStringArray("TERRAIN", "GRASS_PARTICLE", "POST_PROCESSING") instance=ExtResource("2_6ui35")]
+TERRAIN = NodePath("../Terrain3D")
+GRASS_PARTICLE = NodePath("../Terrain3D/GrassParticles")
+POST_PROCESSING = NodePath("../CanvasLayer/ColorRect")
+
 [node name="EnvironmentManager" type="Node3D" parent="." node_paths=PackedStringArray("ENVIRONMENT", "LIGHT", "VOLUME")]
 script = ExtResource("2_hwp66")
 PRESET_DAY = ExtResource("3_dj21o")
@@ -167,7 +173,7 @@ min_draw_distance = 80.0
 particle_count = 6400
 
 [node name="Bradley" parent="." instance=ExtResource("8_y56qp")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -61.80681, -7.585008, -166.57848)
+transform = Transform3D(-0.6578356, 0, -0.75316155, 0, 1, 0, 0.75316155, 0, -0.6578356, -60.183228, -7.585006, -164.88608)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

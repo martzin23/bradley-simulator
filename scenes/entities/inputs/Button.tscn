@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://b5q7efy358kc2" path="res://materials/inputs/highlight.tres" id="3_p022k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tllw2"]
-size = Vector3(0.037353516, 0.027954102, 0.036132813)
+size = Vector3(0.037353516, 0.016418457, 0.036132813)
 
 [node name="Button" type="StaticBody3D"]
 collision_layer = 2
@@ -16,7 +16,7 @@ default_material = ExtResource("2_onilm")
 highlight_material = ExtResource("3_p022k")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8831105e-05, 0.01325836, 4.272163e-05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8831105e-05, 0.007490538, 4.272163e-05)
 shape = SubResource("BoxShape3D_tllw2")
 debug_fill = false
 
@@ -30,6 +30,7 @@ layers = 2
 
 [node name="Icon" type="Label3D" parent="Model/Base/Button" index="0"]
 transform = Transform3D(-0.06, -9.059748e-09, -3.9601416e-16, 0, -2.6226832e-09, 0.06, -9.059748e-09, 0.06, 2.6226832e-09, 0, 0.016095178, 0.00090010464)
+visible = false
 layers = 2
 modulate = Color(0.15741998, 0.06370605, 0.07509834, 1)
 text = "X"
@@ -37,7 +38,7 @@ font_size = 64
 outline_size = 0
 
 [node name="Label" type="Label3D" parent="."]
-transform = Transform3D(-0.05, 7.54979e-09, 3.3001182e-16, 0, -2.1855695e-09, 0.05, 7.54979e-09, 0.05, 2.1855695e-09, 0, 0.003, 0.029)
+transform = Transform3D(-0.05, 7.54979e-09, 3.3001182e-16, 0, -2.1855695e-09, 0.05, 7.54979e-09, 0.05, 2.1855695e-09, 0, 0.003, 0.03)
 visible = false
 layers = 2
 modulate = Color(0.3372549, 0.3372549, 0.3372549, 1)

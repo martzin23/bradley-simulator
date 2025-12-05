@@ -2,6 +2,15 @@ extends Camera3D
 class_name FirstPersonCamera
 
 @export var SENSITIVITY = 0.2
+@export var enabled := true:
+	set(value):
+		self.current = value
+		self.set_process_input(value)
+		if (value and captured):
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		elif (value and !captured):
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		enabled = value
 @export var captured := false:
 	set(value):
 		if (value):
@@ -29,47 +38,51 @@ func _input(event):
 		elif (event.is_action_released("interact") and collider.has_method("release")):
 			collider.release()
 			pressed = false
-		
-func _physics_process(_delta: float) -> void:
-	if (captured):
-		if (!RAY.is_colliding() && collided):
-			if (collider.has_method("exit")):
-				collider.exit()
-			if (pressed && collider.has_method("release")):
-				collider.release()
-			collider = null
-			collided = false
-		elif (RAY.is_colliding() && !collided):
-			collider = RAY.get_collider()
-			if (collider.has_method("enter")):
-				collider.enter()
-			collided = true
-		elif (RAY.is_colliding() and RAY.get_collider() != collider):
-			if (collider.has_method("exit")):
-				collider.exit()
-			collider = RAY.get_collider()
-			if (collider.has_method("enter")):
-				collider.enter()
-	else:
-		var ray_cast = cursor_ray_cast()
-		if (ray_cast.is_empty() && collided):
-			if (collider.has_method("exit")):
-				collider.exit()
-			if (pressed && collider.has_method("release")):
-				collider.release()
-			collider = null
-			collided = false
-		elif (!ray_cast.is_empty() && !collided):
-			collider = ray_cast.collider
-			if (collider.has_method("enter")):
-				collider.enter()
-			collided = true
-		elif (!ray_cast.is_empty() and ray_cast.collider != collider):
-			if (collider.has_method("exit")):
-				collider.exit()
-			collider = ray_cast.collider
-			if (collider.has_method("enter")):
-				collider.enter()
+			
+	if event is InputEventMouseMotion:
+		if (captured):
+			if (!RAY.is_colliding() && collided):
+				if (collider.has_method("exit")):
+					collider.exit()
+				if (pressed && collider.has_method("release")):
+					collider.release()
+				collider = null
+				collided = false
+			elif (RAY.is_colliding() && !collided):
+				collider = RAY.get_collider()
+				if (collider.has_method("enter")):
+					collider.enter()
+				collided = true
+			elif (RAY.is_colliding() and RAY.get_collider() != collider):
+				if (collider.has_method("exit")):
+					collider.exit()
+				if (pressed && collider.has_method("release")):
+					collider.release()
+				collider = RAY.get_collider()
+				if (collider.has_method("enter")):
+					collider.enter()
+		else:
+			var ray_cast = cursor_ray_cast()
+			if (ray_cast.is_empty() && collided):
+				if (collider.has_method("exit")):
+					collider.exit()
+				if (pressed && collider.has_method("release")):
+					collider.release()
+				collider = null
+				collided = false
+			elif (!ray_cast.is_empty() && !collided):
+				collider = ray_cast.collider
+				if (collider.has_method("enter")):
+					collider.enter()
+				collided = true
+			elif (!ray_cast.is_empty() and ray_cast.collider != collider):
+				if (collider.has_method("exit")):
+					collider.exit()
+				if (pressed && collider.has_method("release")):
+					collider.release()
+				collider = ray_cast.collider
+				if (collider.has_method("enter")):
+					collider.enter()
 
 # https://www.youtube.com/watch?v=5Uc9yzj4YLY
 func cursor_ray_cast() -> Dictionary:

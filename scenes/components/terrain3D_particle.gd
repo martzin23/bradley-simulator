@@ -5,6 +5,7 @@
 
 @tool
 extends Node3D
+class_name Terrain3DParticles
 
 
 #region settings

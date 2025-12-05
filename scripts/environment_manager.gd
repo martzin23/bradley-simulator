@@ -24,6 +24,9 @@ class_name EnvironmentManager
 @export var LIGHT: DirectionalLight3D
 @export var VOLUME: FogVolume
 
+func _ready() -> void:
+	Global.environment_manager = get_node(get_path())
+
 func setDay():
 	ENVIRONMENT.environment = PRESET_DAY
 	LIGHT.visible = true

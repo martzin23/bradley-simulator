@@ -1,13 +1,15 @@
 extends SpringArm3D
 class_name OrbitCamera
 
-@export var current := true:
+@export var enabled := false:
 	set(value):
-		if (value):
-			$Camera.current = true
-			if (CAPTURE_MOUSE):
-				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		current = value
+		$Camera.current = value
+		self.set_process_input(value)
+		if (value and CAPTURE_MOUSE):
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		elif (value and !CAPTURE_MOUSE):
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		enabled = value
 @export var SENSITIVITY = 0.2
 @export var CAPTURE_MOUSE := false
 @export var MIN_ZOOM := 5.0
@@ -16,12 +18,10 @@ class_name OrbitCamera
 #@onready var TARGET := $Target
 #var move_tween: Tween
 
-func _ready():
+#func _ready():
 	#CAMERA.top_level = true
 	#get_parent().remove_child(CAMERA)
 	#get_tree().root.add_child(CAMERA)
-	if (CAPTURE_MOUSE):
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 #func _process(delta: float) -> void:
 	#if (Input.is_action_pressed("alt_look")):

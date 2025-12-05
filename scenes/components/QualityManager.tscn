@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvredawh2u6cj"]
+
+[ext_resource type="Script" uid="uid://cpvth1u287egq" path="res://scenes/components/quality_manager.gd" id="1_rwa2t"]
+
+[node name="QualityManagerComponent" type="Node"]
+script = ExtResource("1_rwa2t")
