@@ -1,0 +1,409 @@
+[gd_scene load_steps=21 format=3 uid="uid://dvryx0gsjb4ea"]
+
+[ext_resource type="PackedScene" uid="uid://2bg2wakhlmcs" path="res://scenes/components/camera_manager.tscn" id="1_yek7b"]
+[ext_resource type="PackedScene" uid="uid://cnobhxwxotone" path="res://scenes/components/turret_control.tscn" id="2_fu0el"]
+[ext_resource type="PackedScene" uid="uid://wenifoio53n8" path="res://scenes/components/complex_movement.tscn" id="3_ubqlo"]
+[ext_resource type="PackedScene" uid="uid://5ietu0n05673" path="res://models/bradley/exterior.blend" id="6_6bslw"]
+[ext_resource type="Script" uid="uid://cvcenhi2hpcg3" path="res://scripts/antenna_spring_force.gd" id="7_r0gie"]
+[ext_resource type="PackedScene" uid="uid://chrxhw2q4tasd" path="res://scenes/entities/bradley/orbit_camera.tscn" id="8_y5ilo"]
+[ext_resource type="Shader" uid="uid://l0b8kd2fdm4a" path="res://materials/post_processing/NV.gdshader" id="9_xx21m"]
+[ext_resource type="PackedScene" uid="uid://587x42rwbbs4" path="res://models/bradley/interior.blend" id="10_kvide"]
+[ext_resource type="PackedScene" uid="uid://nsn7g8th70pc" path="res://scenes/entities/bradley/first_person_camera.tscn" id="11_hnrsp"]
+[ext_resource type="Texture2D" uid="uid://dh47qfe00ajdo" path="res://textures/instructions.png" id="12_sqdu2"]
+[ext_resource type="Script" uid="uid://d7c06jbe4i3u" path="res://scripts/control_panel_manger.gd" id="13_ijpep"]
+[ext_resource type="PackedScene" uid="uid://4c33o5eoulwe" path="res://scenes/entities/inputs/switch.tscn" id="14_lxil3"]
+[ext_resource type="PackedScene" uid="uid://cj7fpivwr8qkd" path="res://scenes/entities/inputs/button.tscn" id="15_cn30y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wiani"]
+size = Vector3(3.4267578, 3.1278381, 6.440346)
+
+[sub_resource type="Curve" id="Curve_o7rri"]
+_limits = [0.0, 10.0, 0.0, 1.0]
+_data = [Vector2(1, 10), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_gr2kg"]
+_data = [Vector2(1, 0.25), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_ew7cw"]
+_limits = [0.0, 10.0, 0.0, 1.0]
+_data = [Vector2(1, 10), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_y1f4v"]
+_data = [Vector2(1, 0.25), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yjk4t"]
+resource_local_to_scene = true
+shader = ExtResource("9_xx21m")
+shader_parameter/noise_amount = 1.0
+shader_parameter/fade_in_speed = 1.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ubqlo"]
+viewport_path = NodePath("Exterior/SubViewport")
+
+[node name="BradleyAlt" type="RigidBody3D"]
+mass = 1000.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 1, 0)
+
+[node name="CameraManagerComponent" parent="." node_paths=PackedStringArray("INTERIOR_CAMERA", "EXTERIOR_CAMERA", "BARREL_CAMERA", "TURRET_CONTROL") instance=ExtResource("1_yek7b")]
+INTERIOR_CAMERA = NodePath("../Interior/FirstPersonCamera")
+EXTERIOR_CAMERA = NodePath("../Exterior/OrbitCamera")
+BARREL_CAMERA = NodePath("../Exterior/SubViewport/CameraBarrel")
+TURRET_CONTROL = NodePath("../TurretControlComponent")
+
+[node name="TurretControlComponent" parent="." node_paths=PackedStringArray("AXIS_HORIZONTAL", "AXIS_VERTICAL") instance=ExtResource("2_fu0el")]
+AXIS_HORIZONTAL = NodePath("../Exterior/Model/Body/Turret")
+AXIS_VERTICAL = NodePath("../Exterior/Model/Body/Turret/Barrel")
+
+[node name="ComplexMovementComponent" parent="." instance=ExtResource("3_ubqlo")]
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5601473, 0.15173721)
+shape = SubResource("BoxShape3D_wiani")
+debug_fill = false
+
+[node name="Exterior" type="Node3D" parent="."]
+
+[node name="Model" parent="Exterior" instance=ExtResource("6_6bslw")]
+
+[node name="Skeleton3D" parent="Exterior/Model/Body/TracksArmature" index="0"]
+bones/0/position = Vector3(0.982, 0.342, 2.139)
+bones/0/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
+bones/1/position = Vector3(0, 0.25099647, 0)
+bones/1/rotation = Quaternion(0.70710677, 3.793077e-08, -0.70710677, 6.883939e-08)
+bones/1/scale = Vector3(-1, -1, -1)
+bones/2/position = Vector3(0.982, 0.3419376, 1.4506458)
+bones/2/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
+bones/2/scale = Vector3(1, 0.9999999, 1)
+bones/3/position = Vector3(-2.682209e-05, 0.25101244, 1.9699335e-05)
+bones/3/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
+bones/3/scale = Vector3(-1, -1.0000001, -1)
+bones/4/position = Vector3(0.982, 0.34193635, 0.6986339)
+bones/4/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
+bones/4/scale = Vector3(1, 0.9999999, 1)
+bones/5/position = Vector3(-1.0728836e-05, 0.25094676, 2.1666288e-05)
+bones/5/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
+bones/5/scale = Vector3(-1, -1.0000001, -1)
+bones/6/position = Vector3(0.982, 0.34193608, -0.24305514)
+bones/6/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
+bones/6/scale = Vector3(1, 0.9999999, 1)
+bones/7/position = Vector3(4.4107437e-06, 0.2510084, 1.9699335e-05)
+bones/7/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
+bones/7/scale = Vector3(-1, -1.0000001, -1)
+bones/8/position = Vector3(0.982, 0.34193486, -1.0083922)
+bones/8/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
+bones/8/scale = Vector3(1, 0.9999999, 1)
+bones/9/position = Vector3(-2.682209e-05, 0.251014, 1.9699335e-05)
+bones/9/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
+bones/9/scale = Vector3(-1, -1.0000001, -1)
+bones/10/position = Vector3(0.982, 0.34193462, -1.7237142)
+bones/10/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
+bones/10/scale = Vector3(1, 0.9999999, 1)
+bones/11/position = Vector3(-2.682209e-05, 0.25095809, 1.963973e-05)
+bones/11/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
+bones/11/scale = Vector3(-1, -1.0000001, -1)
+bones/12/rotation = Quaternion(0, 0, 0.70710677, 0.70710677)
+bones/12/scale = Vector3(-1, -1, -1)
+bones/13/position = Vector3(1.1020002, 0.704, 3.004)
+bones/13/rotation = Quaternion(0, 0, 0.70710677, 0.70710677)
+bones/13/scale = Vector3(-1, -1, -1)
+bones/14/position = Vector3(-0.982, 0.34193778, 2.1388035)
+bones/14/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
+bones/14/scale = Vector3(1, 0.9999999, 1)
+bones/15/position = Vector3(0, 0.25101745, -2.1070242e-05)
+bones/15/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
+bones/15/scale = Vector3(-1, -1.0000001, -1)
+bones/16/position = Vector3(-0.982, 0.3419376, 1.4506458)
+bones/16/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
+bones/16/scale = Vector3(1, 0.9999999, 1)
+bones/17/position = Vector3(2.4437904e-05, 0.25093985, -2.5510788e-05)
+bones/17/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
+bones/17/scale = Vector3(-1, -1.0000001, -1)
+bones/18/position = Vector3(-0.982, 0.34193635, 0.6986339)
+bones/18/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
+bones/18/scale = Vector3(1, 0.9999999, 1)
+bones/19/position = Vector3(4.172325e-06, 0.25102103, -2.104044e-05)
+bones/19/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
+bones/19/scale = Vector3(-1, -1.0000001, -1)
+bones/20/position = Vector3(-0.982, 0.34193608, -0.2430551)
+bones/20/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
+bones/20/scale = Vector3(1, 0.9999999, 1)
+bones/21/position = Vector3(-3.6656857e-06, 0.2510152, -2.104044e-05)
+bones/21/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
+bones/21/scale = Vector3(-1, -1.0000001, -1)
+bones/22/position = Vector3(-0.982, 0.34193486, -1.0083922)
+bones/22/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
+bones/22/scale = Vector3(1, 0.9999999, 1)
+bones/23/position = Vector3(2.4437904e-05, 0.25095522, -2.104044e-05)
+bones/23/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
+bones/23/scale = Vector3(-1, -1.0000001, -1)
+bones/24/position = Vector3(-0.982, 0.34193462, -1.7237144)
+bones/24/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
+bones/24/scale = Vector3(1, 0.9999999, 1)
+bones/25/position = Vector3(2.4437904e-05, 0.25101995, -2.1070242e-05)
+bones/25/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
+bones/25/scale = Vector3(-1, -1.0000001, -1)
+bones/26/rotation = Quaternion(0, 0, -0.70710677, 0.70710677)
+bones/26/scale = Vector3(-1, -1, -1)
+bones/27/rotation = Quaternion(0, 0, -0.70710677, 0.70710677)
+bones/27/scale = Vector3(-1, -1, -1)
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Exterior/Model/Body/Turret/Barrel" index="1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.0039360225, 0.4400158, 0.20985055)
+remote_path = NodePath("../../../../../SubViewport/CameraBarrel")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Exterior/Model/Body/Turret/Barrel" index="2"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.0039360225, 0.4400158, 0.20985055)
+visible = false
+light_energy = 20.0
+spot_range = 100.0
+spot_angle = 30.0
+spot_angle_attenuation = 0.066986
+
+[node name="SpringBoneSimulator3D" type="SpringBoneSimulator3D" parent="Exterior/Model/Body/Turret/TurretArmature/Skeleton3D" index="1" node_paths=PackedStringArray("VEHICLE")]
+setting_count = 2
+settings/0/root_bone_name = "Aa1"
+settings/0/root_bone = 0
+settings/0/end_bone_name = "Aa6"
+settings/0/end_bone = 5
+settings/0/extend_end_bone = false
+settings/0/center_from = 1
+settings/0/center_node = NodePath(".")
+settings/0/individual_config = false
+settings/0/rotation_axis = 3
+settings/0/radius/value = 0.02
+settings/0/radius/damping_curve = null
+settings/0/stiffness/value = 1.0
+settings/0/stiffness/damping_curve = SubResource("Curve_o7rri")
+settings/0/drag/value = 0.5
+settings/0/drag/damping_curve = SubResource("Curve_gr2kg")
+settings/0/gravity/value = 0.0
+settings/0/gravity/damping_curve = null
+settings/0/gravity/direction = Vector3(0, -1, 0)
+settings/0/enable_all_child_collisions = false
+settings/0/collision_count = 0
+settings/1/root_bone_name = "Ab1"
+settings/1/root_bone = 6
+settings/1/end_bone_name = "Ab6"
+settings/1/end_bone = 11
+settings/1/extend_end_bone = false
+settings/1/center_from = 1
+settings/1/center_node = NodePath(".")
+settings/1/individual_config = false
+settings/1/rotation_axis = 3
+settings/1/radius/value = 0.02
+settings/1/radius/damping_curve = null
+settings/1/stiffness/value = 1.0
+settings/1/stiffness/damping_curve = SubResource("Curve_ew7cw")
+settings/1/drag/value = 0.5
+settings/1/drag/damping_curve = SubResource("Curve_y1f4v")
+settings/1/gravity/value = 0.0
+settings/1/gravity/damping_curve = null
+settings/1/gravity/direction = Vector3(0, -1, 0)
+settings/1/enable_all_child_collisions = true
+settings/1/exclude_collision_count = 0
+script = ExtResource("7_r0gie")
+VEHICLE = NodePath("../../../../../../..")
+
+[node name="OrbitCamera" parent="Exterior" instance=ExtResource("8_y5ilo")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 2.7990654, 0)
+
+[node name="SubViewport" type="SubViewport" parent="Exterior"]
+canvas_item_default_texture_filter = 0
+oversampling = false
+size_2d_override_stretch = true
+
+[node name="CameraBarrel" type="Camera3D" parent="Exterior/SubViewport"]
+process_mode = 3
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.238172, 2.8727093, 0.5002878)
+cull_mask = 1
+current = true
+near = 0.1
+far = 1000.0
+
+[node name="PostProcessNV" type="ColorRect" parent="Exterior/SubViewport/CameraBarrel"]
+visible = false
+light_mask = 2
+visibility_layer = 2
+material = SubResource("ShaderMaterial_yjk4t")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Interior" type="Node3D" parent="."]
+
+[node name="Model" parent="Interior" instance=ExtResource("10_kvide")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17, 1.327, -0.262)
+
+[node name="Baked" parent="Interior/Model/Baked2" index="0"]
+layers = 2
+
+[node name="FirstPersonCamera" parent="Interior" instance=ExtResource("11_hnrsp")]
+transform = Transform3D(-1, 1.3877788e-17, -1.509958e-07, 1.3877788e-17, 1, 0, 1.509958e-07, -2.0954877e-24, -1, -0.6075963, 2.331457, -0.6288167)
+current = true
+
+[node name="Monitor" type="Sprite3D" parent="Interior"]
+transform = Transform3D(-0.052, 0, -7.851782e-09, 0, 0.052, 0, 7.851782e-09, 0, -0.052, -0.6419944, 2.346655, -0.09455828)
+layers = 2
+shaded = true
+double_sided = false
+texture_filter = 0
+texture = SubResource("ViewportTexture_ubqlo")
+
+[node name="InteriorLight" type="OmniLight3D" parent="Interior"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5368336, 2.510316, -0.5941056)
+layers = 2
+light_energy = 0.2
+light_size = 0.05
+light_bake_mode = 0
+light_cull_mask = 4293918722
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_caster_mask = 4293918722
+distance_fade_begin = 0.0
+distance_fade_length = 0.5
+omni_range = 1.5
+
+[node name="InstructionBoard" type="Sprite3D" parent="Interior"]
+transform = Transform3D(-1.0927848e-09, 0, 0.025, 0, 0.025, 0, -0.025, 0, -1.0927848e-09, -0.95285493, 2.2607036, -0.47247455)
+layers = 2
+texture = ExtResource("12_sqdu2")
+
+[node name="ControlPanel" type="Node3D" parent="Interior" node_paths=PackedStringArray("TURRET_CONTROL", "CAMERA_MANAGER", "MOVEMENT_COMPONENT", "POST_PROCESS_NV", "VEHICLE", "LIGHT")]
+script = ExtResource("13_ijpep")
+TURRET_CONTROL = NodePath("../../TurretControlComponent")
+CAMERA_MANAGER = NodePath("../../CameraManagerComponent")
+MOVEMENT_COMPONENT = NodePath("../../ComplexMovementComponent")
+POST_PROCESS_NV = NodePath("../../Exterior/SubViewport/CameraBarrel/PostProcessNV")
+VEHICLE = NodePath("../..")
+LIGHT = NodePath("../../Exterior/Model/Body/Turret/Barrel/SpotLight3D")
+
+[node name="SwitchQuality" parent="Interior/ControlPanel" instance=ExtResource("14_lxil3")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.5735764, 0, -0.5735764, 0.819152, -0.3146536, 2.014681, -0.15207005)
+state = true
+label = "Quality"
+label_position = 1
+
+[node name="SwitchNV" parent="Interior/ControlPanel" instance=ExtResource("14_lxil3")]
+transform = Transform3D(-4.3711385e-08, -4.3711392e-08, 1, -1, -4.371139e-08, -4.371139e-08, 4.3711392e-08, -1, -4.371139e-08, -0.8375523, 2.0834386, -0.10953604)
+label = "NV"
+label_position = 3
+label_spacing = 0.025
+
+[node name="SwitchLights" parent="Interior/ControlPanel" instance=ExtResource("14_lxil3")]
+transform = Transform3D(-4.3711385e-08, -4.3711392e-08, 1, -1, -4.371139e-08, -4.371139e-08, 4.3711392e-08, -1, -4.371139e-08, -0.8375523, 2.1332307, -0.10953604)
+label = "Lights"
+label_position = 3
+label_spacing = 0.03
+
+[node name="SwitchSim" parent="Interior/ControlPanel" instance=ExtResource("14_lxil3")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.5735764, 0, -0.5735764, 0.819152, -0.030470282, 2.014681, -0.15207005)
+label = "Sim"
+label_position = 1
+
+[node name="ButtonDay" parent="Interior/ControlPanel" instance=ExtResource("15_cn30y")]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, -0.22662179, 1.9986038, -0.17261526)
+icon = "☉"
+label = "Day"
+label_position = 1
+
+[node name="ButtonNight" parent="Interior/ControlPanel" instance=ExtResource("15_cn30y")]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, -0.17239939, 1.9986038, -0.17261526)
+icon = "☾"
+label = "Night"
+label_position = 1
+
+[node name="ButtonFog" parent="Interior/ControlPanel" instance=ExtResource("15_cn30y")]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, -0.118291944, 1.9986038, -0.17261526)
+icon = "~"
+label = "Fog"
+label_position = 1
+
+[node name="ButtonFlip" parent="Interior/ControlPanel" instance=ExtResource("15_cn30y")]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, -0.17239939, 2.0249252, -0.13502413)
+icon = "↺"
+label = "Flip"
+label_position = 3
+label_spacing = 0.04
+
+[node name="ButtonFire" parent="Interior/ControlPanel" instance=ExtResource("15_cn30y")]
+transform = Transform3D(1.5, 0, 0, 0, -4.371139e-08, 1.5, 0, -1, -6.556708e-08, -0.44862044, 2.1185024, -0.10953604)
+icon = "✶"
+
+[node name="ButtonMoveForward" parent="Interior/ControlPanel" instance=ExtResource("15_cn30y")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.5692018, 2.1453025, -0.10953604)
+icon = "↑"
+
+[node name="ButtonMoveReverse" parent="Interior/ControlPanel" instance=ExtResource("15_cn30y")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.56870794, 2.0978146, -0.10953604)
+icon = "↓"
+
+[node name="ButtonMoveRight" parent="Interior/ControlPanel" instance=ExtResource("15_cn30y")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.6086701, 2.0978146, -0.10953604)
+icon = "↻"
+
+[node name="ButtonMoveLeft" parent="Interior/ControlPanel" instance=ExtResource("15_cn30y")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.52937603, 2.0978146, -0.10953604)
+icon = "↺"
+
+[node name="ButtonZoomIn" parent="Interior/ControlPanel" instance=ExtResource("15_cn30y")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.6671896, 2.147474, -0.10953604)
+icon = "+"
+
+[node name="ButtonZoomOut" parent="Interior/ControlPanel" instance=ExtResource("15_cn30y")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.6671896, 2.0966136, -0.10953604)
+icon = "-"
+
+[node name="ButtomAimUp" parent="Interior/ControlPanel" instance=ExtResource("15_cn30y")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.750271, 2.1483235, -0.10953604)
+icon = "⏶"
+
+[node name="ButtonAimDown" parent="Interior/ControlPanel" instance=ExtResource("15_cn30y")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.7486547, 2.0922608, -0.10953604)
+icon = "⏷"
+
+[node name="ButtonAimRight" parent="Interior/ControlPanel" instance=ExtResource("15_cn30y")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.7771748, 2.1186295, -0.10953604)
+icon = "⏵"
+
+[node name="ButtonAimLeft" parent="Interior/ControlPanel" instance=ExtResource("15_cn30y")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.7216712, 2.1209042, -0.10953604)
+icon = "⏴"
+
+[connection signal="switch_off" from="Interior/ControlPanel/SwitchQuality" to="Interior/ControlPanel" method="quality" binds= [0]]
+[connection signal="switch_on" from="Interior/ControlPanel/SwitchQuality" to="Interior/ControlPanel" method="quality" binds= [1]]
+[connection signal="switch_off" from="Interior/ControlPanel/SwitchNV" to="Interior/ControlPanel" method="night_vision" binds= [false]]
+[connection signal="switch_on" from="Interior/ControlPanel/SwitchNV" to="Interior/ControlPanel" method="night_vision" binds= [true]]
+[connection signal="switch_off" from="Interior/ControlPanel/SwitchLights" to="Interior/ControlPanel" method="light" binds= [false]]
+[connection signal="switch_on" from="Interior/ControlPanel/SwitchLights" to="Interior/ControlPanel" method="light" binds= [true]]
+[connection signal="button_pressed" from="Interior/ControlPanel/ButtonDay" to="Interior/ControlPanel" method="environment" binds= [0]]
+[connection signal="button_pressed" from="Interior/ControlPanel/ButtonNight" to="Interior/ControlPanel" method="environment" binds= [1]]
+[connection signal="button_pressed" from="Interior/ControlPanel/ButtonFog" to="Interior/ControlPanel" method="environment" binds= [2]]
+[connection signal="button_pressed" from="Interior/ControlPanel/ButtonFlip" to="Interior/ControlPanel" method="flip"]
+[connection signal="button_pressed" from="Interior/ControlPanel/ButtonMoveForward" to="Interior/ControlPanel" method="move" binds= [Vector2(1, 0)]]
+[connection signal="button_released" from="Interior/ControlPanel/ButtonMoveForward" to="Interior/ControlPanel" method="move" binds= [Vector2(0, 0)]]
+[connection signal="button_pressed" from="Interior/ControlPanel/ButtonMoveReverse" to="Interior/ControlPanel" method="move" binds= [Vector2(-1, 0)]]
+[connection signal="button_released" from="Interior/ControlPanel/ButtonMoveReverse" to="Interior/ControlPanel" method="move" binds= [Vector2(0, 0)]]
+[connection signal="button_pressed" from="Interior/ControlPanel/ButtonMoveRight" to="Interior/ControlPanel" method="move" binds= [Vector2(0, -1)]]
+[connection signal="button_released" from="Interior/ControlPanel/ButtonMoveRight" to="Interior/ControlPanel" method="move" binds= [Vector2(0, 0)]]
+[connection signal="button_pressed" from="Interior/ControlPanel/ButtonMoveLeft" to="Interior/ControlPanel" method="move" binds= [Vector2(0, 1)]]
+[connection signal="button_released" from="Interior/ControlPanel/ButtonMoveLeft" to="Interior/ControlPanel" method="move" binds= [Vector2(0, 0)]]
+[connection signal="button_pressed" from="Interior/ControlPanel/ButtonZoomIn" to="Interior/ControlPanel" method="zoom" binds= [-1.0]]
+[connection signal="button_pressed" from="Interior/ControlPanel/ButtonZoomOut" to="Interior/ControlPanel" method="zoom" binds= [1.0]]
+[connection signal="button_pressed" from="Interior/ControlPanel/ButtomAimUp" to="Interior/ControlPanel" method="aim" binds= [Vector2(-1, 0)]]
+[connection signal="button_released" from="Interior/ControlPanel/ButtomAimUp" to="Interior/ControlPanel" method="aim" binds= [Vector2(0, 0)]]
+[connection signal="button_pressed" from="Interior/ControlPanel/ButtonAimDown" to="Interior/ControlPanel" method="aim" binds= [Vector2(1, 0)]]
+[connection signal="button_released" from="Interior/ControlPanel/ButtonAimDown" to="Interior/ControlPanel" method="aim" binds= [Vector2(0, 0)]]
+[connection signal="button_pressed" from="Interior/ControlPanel/ButtonAimRight" to="Interior/ControlPanel" method="aim" binds= [Vector2(0, -1)]]
+[connection signal="button_released" from="Interior/ControlPanel/ButtonAimRight" to="Interior/ControlPanel" method="aim" binds= [Vector2(0, 0)]]
+[connection signal="button_pressed" from="Interior/ControlPanel/ButtonAimLeft" to="Interior/ControlPanel" method="aim" binds= [Vector2(0, 1)]]
+[connection signal="button_released" from="Interior/ControlPanel/ButtonAimLeft" to="Interior/ControlPanel" method="aim" binds= [Vector2(0, 0)]]
+
+[editable path="Exterior/Model"]
+[editable path="Interior/Model"]

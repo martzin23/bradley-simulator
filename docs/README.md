@@ -308,7 +308,6 @@
 >[!NOTE]
 >Assets
 > - Terrain3D addon (MIT License): https://terrain3d.readthedocs.io/en/latest/index.html
-> - Bradley model (CC BY 4.0): https://sketchfab.com/3d-models/m2-bradley-ifv-ab022158ab5f4fbfa55d4142db7595ab
 > - Bradley model (CC BY-NC 4.0): https://sketchfab.com/3d-models/ba-m2a2-bradley-8d6d1208a6c4469db6d52628d610552e
 > - Textures (free): https://www.cgbookcase.com/
 > - Textures (free): https://freepbr.com/

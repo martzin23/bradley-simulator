@@ -1,6 +1,6 @@
 extends SpringBoneSimulator3D
 
-@export var VEHICLE := VehicleBody3D
+@export var VEHICLE: RigidBody3D
 
 func _physics_process(_delta: float) -> void:
 	var local_velocity := global_transform.basis.inverse() * VEHICLE.linear_velocity

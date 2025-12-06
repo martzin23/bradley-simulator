@@ -2,9 +2,9 @@ extends Node3D
 
 @export var TURRET_CONTROL : TurretControlComponent
 @export var CAMERA_MANAGER : CameraManagerComponent
-@export var SIMPLE_MOVEMENT : SimpleMovementComponent
+@export var MOVEMENT_COMPONENT : MovementComponent
 @export var POST_PROCESS_NV : ColorRect
-@export var VEHICLE : VehicleBody3D
+@export var VEHICLE : PhysicsBody3D
 @export var LIGHT : SpotLight3D
 
 func zoom(value: float) -> void:
@@ -17,7 +17,7 @@ func light(active: bool) -> void:
 	LIGHT.visible = active
 	
 func move(vector: Vector2) -> void:
-	SIMPLE_MOVEMENT.set_engine(vector)
+	MOVEMENT_COMPONENT.move(vector, false)
 
 func flip():
 	VEHICLE.global_position.y += 2
