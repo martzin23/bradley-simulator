@@ -5,7 +5,7 @@
 
 [resource]
 transparency = 2
-alpha_scissor_threshold = 0.75
+alpha_scissor_threshold = 0.9
 alpha_antialiasing_mode = 0
 albedo_color = Color(0.89411765, 0.7607843, 1, 1)
 albedo_texture = ExtResource("1_bohrq")

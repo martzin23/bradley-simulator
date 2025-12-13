@@ -5,7 +5,7 @@
 
 [resource]
 transparency = 2
-alpha_scissor_threshold = 0.75
+alpha_scissor_threshold = 0.9
 alpha_antialiasing_mode = 0
 albedo_color = Color(0.5294118, 0.6, 0.67058825, 1)
 albedo_texture = ExtResource("1_kklku")

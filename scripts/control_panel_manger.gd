@@ -27,18 +27,18 @@ func flip():
 func environment(preset: int) -> void:
 	match preset:
 		0:
-			Global.environment_manager.setDay()
+			Global.environment_manager.set_day()
 		1:
-			Global.environment_manager.setNight()
+			Global.environment_manager.set_night()
 		2:
-			Global.environment_manager.setFog()
+			Global.environment_manager.set_fog()
 
 func quality(mode: int):
 	match mode:
 		0:
-			Global.quality_manager.setQualityLow()
+			Global.quality_manager.set_quality_low()
 		1:
-			Global.quality_manager.setQualityHigh()
+			Global.quality_manager.set_quality_high()
 
 func night_vision(value: bool):
 	POST_PROCESS_NV.visible = value

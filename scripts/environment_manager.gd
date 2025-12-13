@@ -1,19 +1,6 @@
 extends Node3D
 class_name EnvironmentManager
 
-#enum PresetType {DAY, NIGHT, FOG}
-#
-#@export var current := PresetType.DAY:
-	#set(value):
-		#match value:
-			#PresetType.DAY: 
-				#setDay()
-			#PresetType.NIGHT:
-				#setNight()
-			#PresetType.FOG:
-				#setFog()
-		#current = value
-
 @export_group("Presets", "PRESET_")
 @export var PRESET_DAY: Environment
 @export var PRESET_NIGHT: Environment
@@ -27,17 +14,17 @@ class_name EnvironmentManager
 func _ready() -> void:
 	Global.environment_manager = get_node(get_path())
 
-func setDay():
+func set_day():
 	ENVIRONMENT.environment = PRESET_DAY
 	LIGHT.visible = true
 	VOLUME.visible = false
 	
-func setNight():
+func set_night():
 	ENVIRONMENT.environment = PRESET_NIGHT
 	LIGHT.visible = false
 	VOLUME.visible = false
 	
-func setFog():
+func set_fog():
 	ENVIRONMENT.environment = PRESET_FOG
 	LIGHT.visible = false
 	VOLUME.visible = true
