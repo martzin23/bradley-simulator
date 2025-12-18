@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dx6xicdu1g2a3"]
+
+[ext_resource type="Script" uid="uid://ddtuct247ypxj" path="res://scenes/entities/bradley/projectile.gd" id="1_pjpgb"]
+[ext_resource type="PackedScene" uid="uid://cj7xouelyuiey" path="res://scenes/entities/vfx/explosion.tscn" id="2_lstgn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ohhu"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pjpgb"]
+albedo_color = Color(0.2159017, 0.21590173, 0.2159017, 1)
+emission_enabled = true
+emission = Color(0.7299822, 0.758739, 0.18299004, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_pjpgb"]
+material = SubResource("StandardMaterial3D_pjpgb")
+size = Vector3(0.025, 0.025, 0.137)
+
+[node name="Projectile" type="RigidBody3D" node_paths=PackedStringArray("explosion")]
+mass = 0.184
+can_sleep = false
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("1_pjpgb")
+explosion = NodePath("Explosion")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1ohhu")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_pjpgb")
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Explosion" parent="." instance=ExtResource("2_lstgn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41718236, 0)
+
+[node name="ExplosionTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="projectile_collided"]
+[connection signal="timeout" from="LifeTimer" to="." method="destroy_itself"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b56h2oanfws00"]
+
+[ext_resource type="Script" uid="uid://dhskv38xd4dcn" path="res://scenes/components/turret_firing_component.gd" id="1_r7epg"]
+[ext_resource type="PackedScene" uid="uid://bnsjofut3d4j3" path="res://scenes/entities/vfx/firing_smoke.tscn" id="2_ljypv"]
+
+[node name="TurretFiringComponent" type="Marker3D" node_paths=PackedStringArray("cooldown_timer", "smoke_timer", "smoke")]
+script = ExtResource("1_r7epg")
+cooldown_timer = NodePath("CooldownTimer")
+smoke_timer = NodePath("SmokeTimer")
+smoke = NodePath("FiringSmoke")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="FiringSmoke" parent="." instance=ExtResource("2_ljypv")]
+
+[node name="SmokeTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="SmokeTimer" to="." method="_on_smoke_timer_timeout"]
