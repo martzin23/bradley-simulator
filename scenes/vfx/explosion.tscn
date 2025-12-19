@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj7xouelyuiey"]
+[gd_scene load_steps=6 format=3 uid="uid://cj7xouelyuiey"]
 
-[ext_resource type="Texture2D" uid="uid://b23c40dvjtco6" path="res://textures/vfx/explosion_03.tga" id="1_rds1g"]
+[ext_resource type="Script" uid="uid://ca0ynnuf2qkvg" path="res://scripts/explosion.gd" id="1_7eys1"]
+[ext_resource type="Texture2D" uid="uid://b23c40dvjtco6" path="res://textures/vfx/explosion_03.tga" id="1_hbwkm"]
 
 [sub_resource type="Animation" id="Animation_rds1g"]
 resource_name = "boom"
@@ -11,7 +12,7 @@ tracks/0/path = NodePath("Sprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 2),
+"handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 24, -0.16666667, -4, 0, 0),
 "times": PackedFloat32Array(0, 1)
 }
@@ -146,11 +147,13 @@ _data = {
 &"RESET": SubResource("Animation_sfh6h")
 }
 
-[node name="Explosion" type="Node3D"]
+[node name="Explosion" type="Node3D" node_paths=PackedStringArray("anim_player")]
+script = ExtResource("1_7eys1")
+anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-billboard = 2
-texture = ExtResource("1_rds1g")
+billboard = 1
+texture = ExtResource("1_hbwkm")
 hframes = 5
 vframes = 5
 
@@ -164,3 +167,5 @@ light_color = Color(0.99607843, 0.7764706, 0.5803922, 1)
 light_energy = 30.0
 light_specular = 1.0
 omni_range = 1.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

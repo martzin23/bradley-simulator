@@ -1,21 +1,14 @@
 extends RigidBody3D
 
-@export var explosion: Node3D
+var explosion = preload("res://scenes/vfx/explosion.tscn")
 
-func _ready() -> void:
-	explosion.visible = false
+var offset = 0.85
 
 func projectile_collided(_body: Node):
-	var anim_player = explosion.get_node("AnimationPlayer")
-	self.freeze = true
-	self.get_node("Mesh").visible = false
-	explosion.visible = true
-	anim_player.play("Boom")
-	anim_player.connect("animation_finished", anim_fin)
-
-func anim_fin(anim_name: StringName):
-	destroy_itself()
+	var instance: Node3D = explosion.instantiate()
+	get_tree().current_scene.add_child(instance)
+	instance.global_position = self.global_position + Vector3(0, offset, 0)
+	self.destroy_itself()
 
 func destroy_itself():
 	self.queue_free()
-	
