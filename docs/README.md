@@ -1,6 +1,6 @@
 ### Bradley Simulator
 
-A simplified simulator of a military vehicle M2A2 'Bradley' created for a university course. Made by a team of 4 people in Godot.
+A simplified simulator of a military vehicle M2A2 'Bradley' created for a university course. Made by a team of 4 people in the Godot game engine.
 
 ---
 
@@ -285,12 +285,12 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
             <td><kbd>Done</kbd></td>
         </tr>
         <tr>
-            <td>15. Dokumentacija</td>
+            <td>15. Documentation</td>
             <td>
                 <ul>
-                    <li>primjeri postojecih simulatora oklopnih vozila (obavezno)</li>
-                    <li>lista poruka s LLM (obavezno)</li>
-                    <li>???</li>
+                    <li>examples of existing simulators</li>
+                    <li>list of LLM prompts for category 4</li>
+                    <li>...</li>
                 </ul>
             </td>
             <td><kbd>-</kbd></td>
@@ -308,7 +308,6 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
 ### References
 </summary>
 
->[!NOTE]
 >Research
 > - Wiki: https://en.wikipedia.org/wiki/M2_Bradley
 > - Promo: https://youtu.be/xqDgn-qXr0E
@@ -317,7 +316,6 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
 > - Interior: https://www.turbosquid.com/3d-models/m2-bradley-ifv-with-full-interior-3d-model-2089580
 > - Interior: [https://en.defence-ua.com/weapon_and_tech/](https://en.defence-ua.com/weapon_and_tech/what_does_m2a2_bradley_look_like_from_inside_analyzing_ukraines_new_combat_vehicle_photo-5382.html)
 
->[!NOTE]
 >Assets
 > - Terrain3D addon (MIT License): https://terrain3d.readthedocs.io/en/latest/index.html
 > - Bradley model (CC BY-NC 4.0): https://sketchfab.com/3d-models/ba-m2a2-bradley-8d6d1208a6c4469db6d52628d610552e
