@@ -1,60 +1,20 @@
-### bradley-simulator
+### Bradley Simulator
+
+A simplified simulator of a military vehicle M2A2 'Bradley' created for a university course. Made by a team of 4 people in Godot.
 
 ---
 
 <details open>
 <summary>
 
-### Lista funkcionalnosti
+### Showcase
 </summary>
 
-- Tenk - `golub`
-	- [x] model
-	- [x] jednostavna simulacija
-	- [x] animacija gusjenica i kotaca
-	- [x] kontrola ciljanja
-- Teren - `golub`
-	- [x] reljef
-	- [x] drveca
-	- [x] traca
-	- [x] LOD
-- UI - `golub`
-	- [x] monitor za ciljanje
-	- [x] kontrolna ploča kretanja
-	- [x] kontrolna ploča postavka simulacije
-- Vrijeme/Weather - `golub`
-	- [x] day
-	- [x] night
-	- [x] fog
-- Audio efekti - `vito`
-	- [ ] pucanje (blizu)
-	- [ ] pucanje (daleko)
-	- [ ] eksplozija (blizu)
-	- [ ] eksplozija (daleko)
-	- [ ] ...
-- Vizualni efekti - `antonio`
-	- [ ] dim pucanja
-	- [ ] eksplozija metka 
-		- (razliciti efekti ovisno o udarcu tla ili vozila?)
-	- [ ] eksplozija vozila
-	- [ ] motor tenka
-	- [ ] ...
-- Enemy specialist - `grga`, `vito`
-	- [ ] model
-	- [ ] automatsko ciljanje mete
-	- [ ] loše ciljanje (spread)
-	- [ ] AI kretanje
-- Projektili i health sistem - `antonio`
-	- [ ] projektil
-        - stvaranje
-        - letjenje  
-        - udarac
-	- [ ] health
-        - trigger eksplozije pri smrti
-        - slucaj kada player umre?
-- Vibe coder - `grga`
-- Distribucija objekata - `antonio`
-- Dokumentacija - `???`
+![terrain](showcase/showcase_1.png)
+
+![interior](showcase/showcase_2.png)
+
+![driving](showcase/showcase_3.gif)
 </details>
 
 ---
@@ -62,15 +22,63 @@
 <details open>
 <summary>
 
-### Tablica uloga po kriterijima
+### Functionalities
+</summary>
+
+- Tank - `golub`
+	- [x] model
+	- [x] simple simulation
+	- [x] animation of tracks and wheels
+	- [x] turret control
+- Terrain - `golub`
+	- [x] relief/landscape
+	- [x] trees
+	- [x] grass
+	- [x] LOD
+- UI - `golub`
+	- [x] targeting monitor/sight
+	- [x] movement control panel/dashboard
+	- [x] simulation settings control panel
+- Environment - `golub`
+	- [x] day
+	- [x] night
+	- [x] fog
+- Audio effects - `vito`
+    - [ ] turret fire (near/far)
+    - [ ] explosion (near/far)
+	- [ ] ...
+- Visual effects - `antonio`
+	- [ ] gun smoke/muzzle flash
+	- [ ] bullet/shell explosion
+	- [ ] vehicle explosion
+	- [ ] ...
+- Enemy specialist - `grga`, `vito`
+	- [ ] model
+	- [ ] automatic target acquisition/aiming
+	- [ ] inaccurate aiming (spread)
+	- [ ] AI movement
+    - [ ] Enemy distribution - `antonio`
+- Projectiles & health system - `antonio`
+	- [ ] projectile (spawning, trajectory, hit)
+	- [ ] health (health points, death explosion)
+- Advanced movement (vibe coding) - `grga`
+- Documentation - `???`
+</details>
+
+---
+
+<details open>
+<summary>
+
+### Team roles
 </summary>
     <table>
         <tr>
-            <th>Element</th>
-            <th>Opcije</th>
-            <th>Izabrano</th>
-            <th>Dodjeljeni</th>
-            <th>Stanje</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Option</th>
+            <th>Assigned</th>
+            <th>State</th>
         </tr>
         <tr>
             <td>1. 3D terrain</td>
@@ -86,7 +94,7 @@
             </td>
             <td><kbd>c)</kbd></td>
             <td>golub</td>
-            <td><kbd>Gotovo</kbd></td>
+            <td><kbd>Done</kbd></td>
         </tr>
         <tr>
             <td>2. 3D armored vehicle/tank</td>
@@ -100,7 +108,7 @@
             </td>
             <td><kbd>c)</kbd></td>
             <td>golub</td>
-            <td><kbd>Gotovo</kbd></td>
+            <td><kbd>Done</kbd></td>
         </tr>
         <tr>
             <td>3. 3D targets</td>
@@ -115,7 +123,7 @@
             </td>
             <td><kbd>c)</kbd></td>
             <td>cuic, grga</td>
-            <td><kbd>Nije početo</kbd></td>
+            <td><kbd>Unfinished</kbd></td>
         </tr>
         <tr>
             <td>4. Armored vehicle/tank simulation on the terrain</td>
@@ -137,7 +145,7 @@
             </td>
             <td><kbd>b)</kbd><br/><kbd>d)</kbd></td>
             <td>golub <br/>grga</td>
-            <td><kbd>Gotovo</kbd> <br/> <kbd>Nedovršeno</kbd></td>
+            <td><kbd>Done</kbd> <br/> <kbd>Unfinished</kbd></td>
         </tr>
         <tr>
             <td>5. Target motion simulation</td>
@@ -150,22 +158,22 @@
             </td>
             <td><kbd>c)</kbd></td>
             <td>cuic, grga</td>
-            <td><kbd>Nije početo</kbd></td>
+            <td><kbd>Unfinished</kbd></td>
         </tr>
         <tr>
-            <td>6. Simulacija osnovnih instrumenata na kontrolnoj ploči vozila</td>
+            <td>6. Simulation of Basic Vehicle Dashboard Instruments</td>
             <td>
                 <ol type="a">
-                    <li>Overlay vlastitih bazičnih 3D elemenata – spljoštene sfere, izduženi kvadri kao kazaljke itd.</li>
-                    <li>Overlay vlastitih 2D elemenata – krugovi, izduženi trokuti kao kazaljke, itd.</li>
-                    <li>Overlay gotovih 2D elemenata ako postoji GUI biblioteka unutar razvojnog alata</li>
-                    <li>Integrirana 3D kontrolna ploča unutar 3D modela samog vozila</li>
+                    <li>Overlay of custom basic 3D elements – flattened spheres, elongated cuboids as pointers, etc.</li>
+                    <li>Overlay of custom 2D elements – circles, elongated triangles as pointers, etc.</li>
+                    <li>Overlay of ready-made 2D elements if a GUI library exists within the development tool</li>
+                    <li>Integrated 3D dashboard within the vehicle's 3D model itself</li>
                 </ol>
-                <em>(bar 2 izlazna instrumenta i bar 1 ulazni instrument)</em>
+                <em>(at least 2 output instruments and at least 1 input instrument)</em>
             </td>
             <td><kbd>d)</kbd></td>
             <td>golub</td>
-            <td><kbd>Gotovo</kbd></td>
+            <td><kbd>Done</kbd></td>
         </tr>
         <tr>
             <td>7. Setup of initial parameters of simulation</td>
@@ -179,22 +187,22 @@
             </td>
             <td><kbd>b)</kbd></td>
             <td>zulim</td>
-            <td><kbd>Nije početo</kbd></td>
+            <td><kbd>Unfinished</kbd></td>
         </tr>
         <tr>
             <td>8. Design of a scenario in line with the requirements of the topic as presented on the slides during introduction of seminar topics</td>
             <td>
                 <ol type="a">
-                    <li>Vizualni efekti eksplozija u sferi oko oklopnjaka</li>
-                    <li>Isto kao a</li>
-                    <li>b + Audio efekti eksplozija u sferi oko oklopnjaka</li>
-                    <li>c + Efekti na podrhtavanje kamere / promjena vidljivosti itd.</li>
+                    <li>Visual explosion effects in the sphere around the armored vehicle</li>
+                    <li>Same as a</li>
+                    <li>b + Audio explosion effects in the sphere around the armored vehicle</li>
+                    <li>c + Effects for camera shake / visibility changes, etc.</li>
                 </ol>
                 <em>(first, regular situations (targets that don’t return fire), then emergency/stressful situations (targets that return fire))</em>
             </td>
             <td><kbd>d)</kbd></td>
             <td>cuic, grga</td>
-            <td><kbd>Nije početo</kbd></td>
+            <td><kbd>Unfinished</kbd></td>
         </tr>
         <tr>
             <td>9. Reaction of the targets to being hit</td>
@@ -208,7 +216,7 @@
             </td>
             <td><kbd>d)</kbd></td>
             <td>cuic, grga</td>
-            <td><kbd>Nije početo</kbd></td>
+            <td><kbd>Unfinished</kbd></td>
         </tr>
         <tr>
             <td>10. Tank gun round on-firing and on-impact visual effects</td>
@@ -222,7 +230,7 @@
             </td>
             <td><kbd>c)</kbd></td>
             <td>zulim</td>
-            <td><kbd>Nije početo</kbd></td>
+            <td><kbd>Unfinished</kbd></td>
         </tr>
         <tr>
             <td>11. Audio simulation</td>
@@ -235,7 +243,7 @@
             </td>
             <td><kbd>b)</kbd></td>
             <td>cuic</td>
-            <td><kbd>Nije početo</kbd></td>
+            <td><kbd>Unfinished</kbd></td>
         </tr>
         <tr>
             <td>12. Weather conditions</td>
@@ -248,7 +256,7 @@
             </td>
             <td><kbd>c)</kbd></td>
             <td>golub</td>
-            <td><kbd>Gotovo</kbd></td>
+            <td><kbd>Done</kbd></td>
         </tr>
         <tr>
             <td>13. Camera selection</td>
@@ -262,7 +270,7 @@
             </td>
             <td><kbd>b)</kbd></td>
             <td>golub</td>
-            <td><kbd>Gotovo</kbd></td>
+            <td><kbd>Done</kbd></td>
         </tr>
         <tr>
             <td>14. Replay capabilities</td>
@@ -274,7 +282,7 @@
             </td>
             <td><kbd>a)</kbd></td>
             <td>-</td>
-            <td><kbd>Gotovo</kbd></td>
+            <td><kbd>Done</kbd></td>
         </tr>
         <tr>
             <td>15. Dokumentacija</td>
@@ -287,12 +295,18 @@
             </td>
             <td><kbd>-</kbd></td>
             <td></td>
-            <td><kbd>Nije početo</kbd></td>
+            <td><kbd>Unfinished</kbd></td>
         </tr>
     </table>
 </details>
 
 ---
+
+<details open>
+<summary>
+
+### References
+</summary>
 
 >[!NOTE]
 >Research
@@ -302,8 +316,6 @@
 > - Bradleycoft: https://www.oasis-ae.com/bradleycoft
 > - Interior: https://www.turbosquid.com/3d-models/m2-bradley-ifv-with-full-interior-3d-model-2089580
 > - Interior: [https://en.defence-ua.com/weapon_and_tech/](https://en.defence-ua.com/weapon_and_tech/what_does_m2a2_bradley_look_like_from_inside_analyzing_ukraines_new_combat_vehicle_photo-5382.html)
-
----
 
 >[!NOTE]
 >Assets
@@ -316,6 +328,7 @@
 > - Grass texture (CC BY 4.0): https://sketchfab.com/3d-models/grass-pack-lp-3352f9d646ec4f25b8aeb28e4232814a
 > - General post processing shader (MIT License): https://github.com/ArseniyMirniy/Godot-4-Color-Correction-and-Screen-Effects
 > - Night vision shader (MIT License): https://github.com/robertcorponoi/godot-night-vision-screen-shaders
+</details>
 
 ---
 

@@ -2,11 +2,10 @@
 
 [ext_resource type="Script" uid="uid://d2sscmmxsebpd" path="res://scripts/exit_app.gd" id="1_l6grw"]
 [ext_resource type="Material" uid="uid://cl4rjl8ttyplk" path="res://materials/placeholder.tres" id="1_ryjsw"]
-[ext_resource type="PackedScene" uid="uid://biyqv287op1sf" path="res://scenes/entities/bradley/bradley.tscn" id="2_pcu7d"]
+[ext_resource type="PackedScene" uid="uid://7k5egnlqk4pn" path="res://scenes/entities/bradley/bradley.tscn" id="2_pcu7d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pcu7d"]
 ground_bottom_color = Color(0.654902, 0.6901961, 0.74509805, 1)
-ground_energy_multiplier = 0.25
 
 [sub_resource type="Sky" id="Sky_sugp2"]
 sky_material = SubResource("ProceduralSkyMaterial_pcu7d")
@@ -157,4 +156,4 @@ size = Vector3(18.958618, 1, 0.9232025)
 material = ExtResource("1_ryjsw")
 
 [node name="Bradley" parent="." instance=ExtResource("2_pcu7d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.304739, 0.1895028, -0.2777424)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.245686, 0.1895028, 22.661858)
