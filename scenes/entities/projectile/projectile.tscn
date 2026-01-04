@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dx6xicdu1g2a3"]
+[gd_scene load_steps=6 format=3 uid="uid://dx6xicdu1g2a3"]
 
-[ext_resource type="Script" uid="uid://ddtuct247ypxj" path="res://scenes/entities/bradley/projectile.gd" id="1_pjpgb"]
+[ext_resource type="Script" uid="uid://ddtuct247ypxj" path="res://scenes/entities/projectile/projectile.gd" id="1_pjpgb"]
+[ext_resource type="PackedScene" uid="uid://cj7xouelyuiey" path="res://scenes/entities/vfx/explosion.tscn" id="2_opebc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ohhu"]
 size = Vector3(0.2, 0.2, 0.2)
@@ -22,6 +23,7 @@ continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 3
 script = ExtResource("1_pjpgb")
+explosion = ExtResource("2_opebc")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_1ohhu")

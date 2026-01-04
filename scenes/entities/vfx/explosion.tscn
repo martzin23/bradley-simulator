@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cj7xouelyuiey"]
 
-[ext_resource type="Script" uid="uid://ca0ynnuf2qkvg" path="res://scripts/explosion.gd" id="1_7eys1"]
+[ext_resource type="Script" uid="uid://ca0ynnuf2qkvg" path="res://scenes/entities/vfx/explosion.gd" id="1_7eys1"]
 [ext_resource type="Texture2D" uid="uid://b23c40dvjtco6" path="res://textures/vfx/explosion_03.tga" id="1_hbwkm"]
 
 [sub_resource type="Animation" id="Animation_rds1g"]
@@ -153,6 +153,7 @@ anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 1
+shaded = true
 texture = ExtResource("1_hbwkm")
 hframes = 5
 vframes = 5

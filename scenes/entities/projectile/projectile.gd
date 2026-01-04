@@ -1,8 +1,9 @@
 extends RigidBody3D
 
-var explosion = preload("res://scenes/vfx/explosion.tscn")
+#var explosion := preload("res://scenes/entities/vfx/explosion.tscn")
+@export var explosion: PackedScene
 
-var offset = 0.85
+var offset := 0.85
 
 func projectile_collided(_body: Node):
 	var instance: Node3D = explosion.instantiate()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://o76wuwc1nn8y"]
 
-[ext_resource type="Script" uid="uid://bi1usghf7jrdn" path="res://scripts/firing_smoke.gd" id="1_wp5sf"]
+[ext_resource type="Script" uid="uid://bi1usghf7jrdn" path="res://scenes/entities/vfx/firing_smoke.gd" id="1_wp5sf"]
 [ext_resource type="Texture2D" uid="uid://bapwua0jft3t8" path="res://textures/vfx/cloud_02.tga" id="2_wp5sf"]
 
 [node name="FiringSmoke" type="Node3D" node_paths=PackedStringArray("sprite")]
@@ -10,6 +10,7 @@ sprite = NodePath("Sprite3D")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 billboard = 1
+shaded = true
 texture = ExtResource("2_wp5sf")
 hframes = 8
 vframes = 8

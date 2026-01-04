@@ -5,8 +5,10 @@ var spawn_offset = 1.3
 
 @export var tank_rigidbody: RigidBody3D
 @export var cooldown_timer: Timer
-var projectile = preload("res://scenes/entities/bradley/projectile.tscn")
-var smoke = preload("res://scenes/vfx/firing_smoke.tscn")
+#var projectile := preload("res://scenes/entities/projectile/projectile.tscn")
+@export var projectile: PackedScene
+#var smoke := preload("res://scenes/entities/vfx/firing_smoke.tscn")
+@export var smoke: PackedScene
 
 func _input(event: InputEvent) -> void:
 	if (event.is_action("fire")):

@@ -2,7 +2,6 @@ extends Node3D
 
 @export var sprite: Sprite3D
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var tween = create_tween()
 	tween.finished.connect(_on_tween_finished)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://chrxhw2q4tasd"]
 
-[ext_resource type="Script" uid="uid://cun6jrb3ayapc" path="res://scenes/entities/bradley/orbit_camera.gd" id="1_s72ff"]
+[ext_resource type="Script" uid="uid://cun6jrb3ayapc" path="res://scenes/entities/cameras/orbit_camera.gd" id="1_s72ff"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_hovhb"]
 
