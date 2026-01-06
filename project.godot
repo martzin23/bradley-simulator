@@ -24,6 +24,10 @@ Global="*res://scripts/global.gd"
 window/size/resizable=false
 window/size/borderless=true
 
+[dotnet]
+
+project/assembly_name="bradley-simulator"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
@@ -36,8 +40,13 @@ folder_colors={
 "res://models/": "orange",
 "res://scenes/": "red",
 "res://scripts/": "teal",
+"res://sounds/": "pink",
 "res://textures/": "green"
 }
+
+[global_group]
+
+player=""
 
 [input]
 

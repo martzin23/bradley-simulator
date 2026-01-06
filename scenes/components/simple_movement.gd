@@ -19,17 +19,26 @@ func _process(delta: float) -> void:
 	MATERIAL_TRACK_LEFT.uv1_offset.y -= WHEELS_LEFT[4].get_rpm() * delta * TRACK_SPEED;
 	MATERIAL_TRACK_RIGHT.uv1_offset.y -= WHEELS_RIGHT[4].get_rpm() * delta * TRACK_SPEED;
 		
-func move(axis: Vector2, brakes: bool):
-	if (axis.length() == 0):
+func move(axis: Vector2, brakes: bool) -> void:
+	var has_input := axis.length() > 0.0
+
+	if has_input and not _is_moving:
+		_is_moving = true
+	elif not has_input and _is_moving:
+		_is_moving = false
+
+	if axis.length() == 0.0:
 		VEHICLE.brake = AUTO_BRAKE
 	else:
 		VEHICLE.brake = 0
-		
-	if (brakes):
+
+	if brakes:
 		VEHICLE.brake = BRAKE_POWER
-		
+
 	for w in WHEELS_RIGHT:
 		w.engine_force = (axis.x + axis.y * STEERING_STRENGTH) * ENGINE_POWER
+
 	for w in WHEELS_LEFT:
 		w.engine_force = (axis.x - axis.y * STEERING_STRENGTH) * ENGINE_POWER
+
 	

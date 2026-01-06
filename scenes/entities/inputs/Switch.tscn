@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://4c33o5eoulwe"]
+[gd_scene load_steps=8 format=3 uid="uid://4c33o5eoulwe"]
 
 [ext_resource type="Script" uid="uid://sk7i5ri25tdk" path="res://scenes/entities/inputs/switch.gd" id="1_gxm8p"]
 [ext_resource type="Material" uid="uid://8a0s52ji0cja" path="res://materials/inputs/normal.tres" id="2_87obl"]
 [ext_resource type="PackedScene" uid="uid://bftrfqyns0uqf" path="res://models/inputs/switch.blend" id="2_dm82g"]
 [ext_resource type="Material" uid="uid://b5q7efy358kc2" path="res://materials/inputs/highlight.tres" id="3_44ell"]
+[ext_resource type="AudioStream" uid="uid://m0q7k4og5wr" path="res://sounds/buttons/switch1.wav" id="4_d2opq"]
+[ext_resource type="AudioStream" uid="uid://dah4bruyhpoej" path="res://sounds/buttons/switch5.wav" id="5_t6l4y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tllw2"]
 size = Vector3(0.033203125, 0.029057313, 0.05883789)
@@ -14,6 +16,8 @@ collision_mask = 2
 script = ExtResource("1_gxm8p")
 default_material = ExtResource("2_87obl")
 highlight_material = ExtResource("3_44ell")
+switch_on_audio = ExtResource("4_d2opq")
+switch_off_audio = ExtResource("5_t6l4y")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8831105e-05, 0.015148161, 4.272163e-05)
@@ -37,5 +41,8 @@ modulate = Color(0.34, 0.34, 0.34, 1)
 text = "Label"
 font_size = 64
 outline_size = 32
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+volume_db = -25.0
 
 [editable path="Model"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cj7fpivwr8qkd"]
+[gd_scene load_steps=7 format=3 uid="uid://cj7fpivwr8qkd"]
 
 [ext_resource type="Script" uid="uid://b8algfakl1uxb" path="res://scenes/entities/inputs/button.gd" id="1_pweym"]
 [ext_resource type="PackedScene" uid="uid://bfpg4akr3q1hu" path="res://models/inputs/button.blend" id="2_37nmo"]
 [ext_resource type="Material" uid="uid://8a0s52ji0cja" path="res://materials/inputs/normal.tres" id="2_onilm"]
 [ext_resource type="Material" uid="uid://b5q7efy358kc2" path="res://materials/inputs/highlight.tres" id="3_p022k"]
+[ext_resource type="AudioStream" uid="uid://d04558xsr036k" path="res://sounds/buttons/button2.wav" id="5_p022k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tllw2"]
 size = Vector3(0.037353516, 0.016418457, 0.036132813)
@@ -45,5 +46,8 @@ modulate = Color(0.3372549, 0.3372549, 0.3372549, 1)
 text = "Label"
 font_size = 64
 outline_size = 32
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_p022k")
 
 [editable path="Model"]

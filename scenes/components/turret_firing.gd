@@ -10,6 +10,8 @@ var spawn_offset = 1.3
 #var smoke := preload("res://scenes/entities/vfx/firing_smoke.tscn")
 @export var smoke: PackedScene
 
+signal fired
+
 func _input(event: InputEvent) -> void:
 	if (event.is_action("fire")):
 		if (cooldown_timer.is_stopped()):
@@ -26,4 +28,5 @@ func _input(event: InputEvent) -> void:
 			instance.linear_velocity = tank_rigidbody.linear_velocity
 			instance.apply_impulse(global_transform.basis.z * impulse)
 			
+			fired.emit()
 			cooldown_timer.start()

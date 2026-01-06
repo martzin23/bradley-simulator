@@ -8,11 +8,12 @@ enum Positioning {ABOVE, UNDER, LEFT, RIGHT}
 @onready var MESH: MeshInstance3D = $Model/Base/Button
 @onready var LABEL_NODE: Label3D = $Label
 @onready var ICON_NODE: Label3D = $Model/Base/Button/Icon
+@onready var AUDIO_PLAYER: AudioStreamPlayer3D = $AudioStreamPlayer3D
 var press_tween: Tween
 
 @export_group("Text")
 @export var icon := "":
-	set(value):
+	set(value): 
 		icon = value
 		update_text()
 @export var label := "":
@@ -41,6 +42,7 @@ func exit():
 	MESH.material_override = default_material
 	
 func press():
+	AUDIO_PLAYER.play()
 	button_pressed.emit()
 	move_down()
 	

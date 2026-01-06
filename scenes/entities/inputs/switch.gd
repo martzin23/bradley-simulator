@@ -7,6 +7,7 @@ signal switch_off()
 enum Positioning {ABOVE, UNDER, LEFT, RIGHT}
 @onready var MESH: MeshInstance3D = $Model/Base/Switch
 @onready var LABEL_NODE: Label3D = $Label
+@onready var AUDIO_PLAYER: AudioStreamPlayer3D = $AudioStreamPlayer3D
 var flip_tween: Tween
 
 @export var state = false:
@@ -34,6 +35,10 @@ var flip_tween: Tween
 @export_group("Materials")
 @export var default_material: Material
 @export var highlight_material: Material
+@export_group("Audio")
+@export var switch_on_audio: AudioStream
+@export var switch_off_audio: AudioStream
+
 
 func _ready() -> void:
 	update_text()
@@ -57,6 +62,8 @@ func release():
 func flip_up():
 	if !is_inside_tree():
 		return 
+	AUDIO_PLAYER.stream = switch_off_audio
+	AUDIO_PLAYER.play()
 	if (flip_tween):
 		flip_tween.kill()
 	flip_tween = get_tree().create_tween()
@@ -65,6 +72,8 @@ func flip_up():
 func flip_down():
 	if !is_inside_tree():
 		return 
+	AUDIO_PLAYER.stream = switch_on_audio
+	AUDIO_PLAYER.play()
 	if (flip_tween):
 		flip_tween.kill()
 	flip_tween = get_tree().create_tween()
