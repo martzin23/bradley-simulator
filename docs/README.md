@@ -48,9 +48,9 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
     - [ ] explosion (near/far)
 	- [ ] ...
 - Visual effects - `antonio`
-	- [ ] gun smoke/muzzle flash
-	- [ ] bullet/shell explosion
-	- [ ] vehicle explosion
+	- [x] gun smoke/muzzle flash
+	- [x] bullet/shell explosion
+	- [x] vehicle explosion
 	- [ ] ...
 - Enemy specialist - `grga`, `vito`
 	- [ ] model
@@ -59,8 +59,8 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
 	- [ ] AI movement
     - [ ] Enemy distribution - `antonio`
 - Projectiles & health system - `antonio`
-	- [ ] projectile (spawning, trajectory, hit)
-	- [ ] health (health points, death explosion)
+	- [x] projectile (spawning, trajectory, hit)
+	- [x] health (health points, death explosion)
 - Advanced movement (vibe coding) - `grga`
 - Documentation - `???`
 </details>
