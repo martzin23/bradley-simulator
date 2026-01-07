@@ -326,6 +326,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
 > - Grass texture (CC BY 4.0): https://sketchfab.com/3d-models/grass-pack-lp-3352f9d646ec4f25b8aeb28e4232814a
 > - General post processing shader (MIT License): https://github.com/ArseniyMirniy/Godot-4-Color-Correction-and-Screen-Effects
 > - Night vision shader (MIT License): https://github.com/robertcorponoi/godot-night-vision-screen-shaders
+> - VFX textures (CC0 1.0): https://unity.com/blog/engine-platform/free-vfx-image-sequences-flipbooks
 </details>
 
 ---
