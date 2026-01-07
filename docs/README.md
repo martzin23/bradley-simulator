@@ -48,19 +48,19 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
     - [ ] explosion (near/far)
 	- [ ] ...
 - Visual effects - `antonio`
-	- [ ] gun smoke/muzzle flash
-	- [ ] bullet/shell explosion
-	- [ ] vehicle explosion
+	- [x] gun smoke/muzzle flash
+	- [x] bullet/shell explosion
+	- [x] vehicle explosion
 	- [ ] ...
 - Enemy specialist - `grga`, `vito`
 	- [ ] model
 	- [ ] automatic target acquisition/aiming
 	- [ ] inaccurate aiming (spread)
 	- [ ] AI movement
-    - [ ] Enemy distribution - `antonio`
+    - [x] Enemy distribution - `antonio`
 - Projectiles & health system - `antonio`
-	- [ ] projectile (spawning, trajectory, hit)
-	- [ ] health (health points, death explosion)
+	- [x] projectile (spawning, trajectory, hit)
+	- [x] health (health points, death explosion)
 - Advanced movement (vibe coding) - `grga`
 - Documentation - `???`
 </details>
@@ -326,6 +326,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
 > - Grass texture (CC BY 4.0): https://sketchfab.com/3d-models/grass-pack-lp-3352f9d646ec4f25b8aeb28e4232814a
 > - General post processing shader (MIT License): https://github.com/ArseniyMirniy/Godot-4-Color-Correction-and-Screen-Effects
 > - Night vision shader (MIT License): https://github.com/robertcorponoi/godot-night-vision-screen-shaders
+> - VFX textures (CC0 1.0): https://unity.com/blog/engine-platform/free-vfx-image-sequences-flipbooks
 </details>
 
 ---
