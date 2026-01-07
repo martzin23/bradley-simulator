@@ -57,7 +57,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
 	- [ ] automatic target acquisition/aiming
 	- [ ] inaccurate aiming (spread)
 	- [ ] AI movement
-    - [ ] Enemy distribution - `antonio`
+    - [x] Enemy distribution - `antonio`
 - Projectiles & health system - `antonio`
 	- [x] projectile (spawning, trajectory, hit)
 	- [x] health (health points, death explosion)
