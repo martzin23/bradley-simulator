@@ -1,156 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://cj7xouelyuiey"]
+[gd_scene load_steps=4 format=3 uid="uid://cj7xouelyuiey"]
 
 [ext_resource type="Script" uid="uid://ca0ynnuf2qkvg" path="res://scenes/entities/vfx/explosion.gd" id="1_7eys1"]
 [ext_resource type="Texture2D" uid="uid://b23c40dvjtco6" path="res://textures/vfx/explosion_03.tga" id="1_hbwkm"]
 [ext_resource type="AudioStream" uid="uid://cv2b5j0mjfqmh" path="res://sounds/explosion/explosion1.wav" id="3_ld38f"]
 
-[sub_resource type="Animation" id="Animation_rds1g"]
-resource_name = "boom"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 24, -0.16666667, -4, 0, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("OmniLight3D:light_energy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(2, 0, 2),
-"points": PackedFloat32Array(10, 0, 0, 0.050000004, 1.6666667, 20, -0.25, 0, 0.25, 0, 0, -0.11666667, 5, 0, 0),
-"times": PackedFloat32Array(0, 0.3, 1)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("OmniLight3D:light_color:r")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 2, 2),
-"points": PackedFloat32Array(0.99607843, -0.25, 0, 0.25, 0, 0.84313726, -0.050000004, 0.025490196, 0, 0, 0, -0.083333336, 0.14052288, 0, 0),
-"times": PackedFloat32Array(0, 0.3, 0.8)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("OmniLight3D:light_color:g")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 2, 2),
-"points": PackedFloat32Array(0.7764706, -0.25, 0, 0.25, 0, 0.47843137, -0.050000004, 0.049673207, 0, 0, 0, -0.083333336, 0.079738565, 0, 0),
-"times": PackedFloat32Array(0, 0.3, 0.8)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("OmniLight3D:light_color:b")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 2, 2),
-"points": PackedFloat32Array(0.5803922, -0.25, 0, 0.25, 0, 0.14117648, -0.050000004, 0.073202625, 0, 0, 0, -0.083333336, 0.023529414, 0, 0),
-"times": PackedFloat32Array(0, 0.3, 0.8)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("OmniLight3D:light_color:a")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0, 2, 2),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.050000004, 0, 0, 0, 1, -0.083333336, 0, 0, 0),
-"times": PackedFloat32Array(0, 0.3, 0.8)
-}
-
-[sub_resource type="Animation" id="Animation_sfh6h"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("OmniLight3D:light_energy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(30, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("OmniLight3D:light_color:r")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.99607843, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("OmniLight3D:light_color:g")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.7764706, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("OmniLight3D:light_color:b")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.5803922, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("OmniLight3D:light_color:a")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ld38f"]
-_data = {
-&"Boom": SubResource("Animation_rds1g"),
-&"RESET": SubResource("Animation_sfh6h")
-}
-
-[node name="Explosion" type="Node3D" node_paths=PackedStringArray("anim_player")]
+[node name="Explosion" type="Node3D" node_paths=PackedStringArray("anim_player", "sprite", "light")]
 script = ExtResource("1_7eys1")
-anim_player = NodePath("AnimationPlayer")
+anim_player = NodePath("")
+sprite = NodePath("Sprite3D")
+light = NodePath("OmniLight3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 1
@@ -159,19 +17,13 @@ texture = ExtResource("1_hbwkm")
 hframes = 5
 vframes = 5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ld38f")
-}
-
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2162816, 0)
 light_color = Color(0.99607843, 0.7764706, 0.5803922, 1)
-light_energy = 30.0
+light_energy = 5.0
 light_specular = 1.0
 omni_range = 1.0
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_ld38f")
 autoplay = true
-
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

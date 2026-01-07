@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bouhpyl4cr2gc"]
+
+[ext_resource type="PackedScene" uid="uid://bpts8r4oomcjf" path="res://scenes/components/health_manager.tscn" id="1_d3ay2"]
+[ext_resource type="PackedScene" uid="uid://01tgbj5jwk6h" path="res://scenes/entities/vfx/death_smoke.tscn" id="2_2brsr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2n3b"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mouox"]
+material = SubResource("StandardMaterial3D_x2n3b")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x2n3b"]
+size = Vector3(0.95, 0.95, 0.95)
+
+[node name="NaughtyCube" type="StaticBody3D" groups=["damageable"]]
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_mouox")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_x2n3b")
+
+[node name="HealthManagerComponent" parent="." node_paths=PackedStringArray("debug_health_text", "death_smoke_position") instance=ExtResource("1_d3ay2")]
+enable_health_text = true
+debug_health_text = NodePath("../HealthLabel")
+enable_smoke_vfx = true
+death_smoke_position = NodePath("../DeathSmokePosition")
+death_smoke = ExtResource("2_2brsr")
+
+[node name="HealthLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.289887, 0)
+pixel_size = 0.02
+billboard = 1
+text = "health"
+
+[node name="DeathSmokePosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70134807, 0)

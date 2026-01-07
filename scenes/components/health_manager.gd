@@ -12,7 +12,7 @@ extends Node
 @export var death_smoke: PackedScene
 
 signal died
-var dead = false
+var dead := false
 
 func _ready() -> void:
 	if enable_health_text:
@@ -27,9 +27,7 @@ func take_damage(amount: int):
 			if enable_smoke_vfx:
 				var smoke_instance: Node3D = death_smoke.instantiate()
 				self.add_sibling(smoke_instance)
-				#get_tree().current_scene.add_child(smoke_instance)
 				smoke_instance.position = death_smoke_position.position
 			dead = true
 	if enable_health_text:
 		debug_health_text.text = str(health)
-	#print(health)
