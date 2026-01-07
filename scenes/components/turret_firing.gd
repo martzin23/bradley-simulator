@@ -2,6 +2,7 @@ extends Node3D
 
 var impulse = 270
 var spawn_offset = 1.3
+var smoke_offset = 0.3
 
 @export var tank_rigidbody: RigidBody3D
 @export var cooldown_timer: Timer
@@ -17,7 +18,7 @@ func _input(event: InputEvent) -> void:
 		if (cooldown_timer.is_stopped()):
 			# stvaranje dima
 			var smoke_instance: Node3D = smoke.instantiate()
-			smoke_instance.position = self.position
+			smoke_instance.position = self.position + Vector3(0, smoke_offset, 0)
 			self.add_sibling(smoke_instance)
 			
 			# stvaranje projektila

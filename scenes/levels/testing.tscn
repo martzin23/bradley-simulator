@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://7i8072qdx1fd"]
+[gd_scene load_steps=14 format=3 uid="uid://7i8072qdx1fd"]
 
 [ext_resource type="Script" uid="uid://d2sscmmxsebpd" path="res://scripts/exit_app.gd" id="1_l6grw"]
 [ext_resource type="Material" uid="uid://cl4rjl8ttyplk" path="res://materials/placeholder.tres" id="1_ryjsw"]
 [ext_resource type="PackedScene" uid="uid://7k5egnlqk4pn" path="res://scenes/entities/bradley/Bradley.tscn" id="2_pcu7d"]
 [ext_resource type="PackedScene" uid="uid://y6oinm3gkfd2" path="res://scenes/entities/targets/evil_bradley/evil_bradley.tscn" id="4_x2n3b"]
+[ext_resource type="PackedScene" uid="uid://bpts8r4oomcjf" path="res://scenes/components/health_manager.tscn" id="5_mouox"]
+[ext_resource type="PackedScene" uid="uid://01tgbj5jwk6h" path="res://scenes/entities/vfx/death_smoke.tscn" id="6_0k28s"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pcu7d"]
 ground_bottom_color = Color(0.654902, 0.6901961, 0.74509805, 1)
@@ -27,6 +29,14 @@ volumetric_fog_density = 0.0
 volumetric_fog_length = 256.0
 
 [sub_resource type="PrismMesh" id="PrismMesh_l6grw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2n3b"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mouox"]
+material = SubResource("StandardMaterial3D_x2n3b")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x2n3b"]
 
 [node name="Testing" type="Node3D"]
 script = ExtResource("1_l6grw")
@@ -161,3 +171,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.245686, 0.1895028, 22.661
 
 [node name="EvilBradley" parent="." instance=ExtResource("4_x2n3b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.474436, 1.2226678, -5.573921)
+
+[node name="Kocka" type="StaticBody3D" parent="." groups=["damageable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.795437, 0.90392923, 32.260567)
+
+[node name="mesh" type="MeshInstance3D" parent="Kocka"]
+mesh = SubResource("BoxMesh_mouox")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kocka"]
+shape = SubResource("BoxShape3D_x2n3b")
+
+[node name="HealthManagerComponent" parent="Kocka" node_paths=PackedStringArray("debug_health_text", "death_smoke_position") instance=ExtResource("5_mouox")]
+enable_health_text = true
+debug_health_text = NodePath("../HealthLabel")
+enable_smoke_vfx = true
+death_smoke_position = NodePath("../DeathSmokePosition")
+death_smoke = ExtResource("6_0k28s")
+
+[node name="HealthLabel" type="Label3D" parent="Kocka"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.289887, 0)
+pixel_size = 0.02
+billboard = 1
+text = "health"
+
+[node name="DeathSmokePosition" type="Marker3D" parent="Kocka"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70134807, 0)

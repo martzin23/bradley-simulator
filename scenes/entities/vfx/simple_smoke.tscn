@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2bm0awco6p3b"]
+
+[ext_resource type="Script" uid="uid://lxyvdf4qxllw" path="res://scenes/entities/vfx/simple_smoke.gd" id="1_8bq85"]
+[ext_resource type="Texture2D" uid="uid://sgfs6mr8tid5" path="res://textures/vfx/smoke_01.tga" id="2_8bq85"]
+
+[node name="SimpleSmoke" type="Node3D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_8bq85")
+sprite = NodePath("Sprite3D")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = ExtResource("2_8bq85")
+hframes = 8
+vframes = 8
