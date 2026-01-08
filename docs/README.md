@@ -62,7 +62,20 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
 	- [x] projectile (spawning, trajectory, hit)
 	- [x] health (health points, death explosion)
 - Advanced movement (vibe coding) - `grga`
-- Documentation - `???`
+- Documentation
+    - [ ] uvod, sažetak, zaključak `grga`
+    - [ ] literatura `cuic`
+    - [ ] simulacija `golub`
+    - [ ] alternativna simulacija `grga`
+    - [ ] kontrolna ploča `golub`
+    - [ ] projektili `anotnio`
+    - [ ] health `anotnio`
+    - [ ] teren `golub`
+    - [ ] weather `golub`
+    - [ ] audio efekti `vito`
+    - [ ] vizualni efekti `anotnio`
+    - [ ] neprijatelji ai `grga` 
+    - [ ] spawnanje`anotnio`
 </details>
 
 ---
@@ -294,7 +307,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
                 </ul>
             </td>
             <td><kbd>-</kbd></td>
-            <td></td>
+            <td>svi</td>
             <td><kbd>Unfinished</kbd></td>
         </tr>
     </table>
