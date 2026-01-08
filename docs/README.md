@@ -44,9 +44,12 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
 	- [x] night
 	- [x] fog
 - Audio effects - `vito`
-    - [ ] turret fire (near/far)
-    - [ ] explosion (near/far)
-	- [ ] ...
+    - [x] turret fire (near/far)
+    - [x] explosion (near/far)
+	- [x] tank inside
+ 	- [x] tank buttons/switches
+  	- [ ] tank outside
+  	- [x] tank rep up
 - Visual effects - `antonio`
 	- [x] gun smoke/muzzle flash
 	- [x] bullet/shell explosion
