@@ -54,9 +54,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
 	- [x] gun smoke/muzzle flash
 	- [x] bullet/shell explosion
 	- [x] vehicle explosion
-	- [ ] ...
 - Enemy specialist - `grga`, `vito`
-	- [ ] model
 	- [ ] automatic target acquisition/aiming
 	- [ ] inaccurate aiming (spread)
 	- [ ] AI movement
