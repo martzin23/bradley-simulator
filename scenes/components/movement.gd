@@ -1,3 +1,4 @@
+@icon("./movement.png")
 extends Node
 class_name MovementComponent
 

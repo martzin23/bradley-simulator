@@ -4,12 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://dx6xicdu1g2a3" path="res://scenes/entities/projectile/projectile.tscn" id="2_yt5c0"]
 [ext_resource type="PackedScene" uid="uid://o76wuwc1nn8y" path="res://scenes/entities/vfx/firing_smoke.tscn" id="3_0t0va"]
 
-[node name="TurretFiringComponent" type="Marker3D" node_paths=PackedStringArray("cooldown_timer")]
+[node name="TurretFiringComponent" type="Node"]
 script = ExtResource("1_vq5xf")
-cooldown_timer = NodePath("CooldownTimer")
 projectile = ExtResource("2_yt5c0")
 smoke = ExtResource("3_0t0va")
 
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
+
+[connection signal="timeout" from="CooldownTimer" to="." method="cooldown_finish"]

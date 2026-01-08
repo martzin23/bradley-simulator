@@ -3,6 +3,7 @@ extends Node3D
 @export var TURRET_CONTROL : TurretControlComponent
 @export var CAMERA_MANAGER : CameraManagerComponent
 @export var MOVEMENT_COMPONENT : MovementComponent
+@export var FIRING_COMPONENT : TurretFiringComponent
 @export var POST_PROCESS_NV : ColorRect
 @export var VEHICLE : PhysicsBody3D
 @export var LIGHT : SpotLight3D
@@ -25,6 +26,8 @@ func flip():
 	VEHICLE.rotation_degrees.z = 0.0
 
 func environment(preset: int) -> void:
+	if (not Global.environment_manager):
+		return
 	match preset:
 		0:
 			Global.environment_manager.set_day()
@@ -34,6 +37,8 @@ func environment(preset: int) -> void:
 			Global.environment_manager.set_fog()
 
 func quality(mode: int):
+	if (not Global.quality_manager):
+		return
 	match mode:
 		0:
 			Global.quality_manager.set_quality_low()
@@ -42,3 +47,6 @@ func quality(mode: int):
 
 func night_vision(value: bool):
 	POST_PROCESS_NV.visible = value
+
+func fire():
+	FIRING_COMPONENT.trigger()

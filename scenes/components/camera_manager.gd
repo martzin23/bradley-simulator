@@ -1,3 +1,4 @@
+@icon("./camera_manager.png")
 extends Node
 class_name CameraManagerComponent
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://7k5egnlqk4pn"]
+[gd_scene load_steps=35 format=3 uid="uid://7k5egnlqk4pn"]
 
 [ext_resource type="PackedScene" uid="uid://2bg2wakhlmcs" path="res://scenes/components/camera_manager.tscn" id="2_npdwc"]
 [ext_resource type="Material" uid="uid://ga1t6a32xufd" path="res://materials/bradley/tracks_left.tres" id="2_o7rri"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bpts8r4oomcjf" path="res://scenes/components/health_manager.tscn" id="6_dnckv"]
 [ext_resource type="PackedScene" uid="uid://01tgbj5jwk6h" path="res://scenes/entities/vfx/death_smoke.tscn" id="7_k8641"]
 [ext_resource type="PackedScene" uid="uid://b56h2oanfws00" path="res://scenes/components/turret_firing.tscn" id="7_kgy0p"]
-[ext_resource type="Script" uid="uid://voib6wxcy7le" path="res://scenes/entities/sounds/turret_firing_audio_player.gd" id="8_gtw5e"]
 [ext_resource type="Script" uid="uid://cvcenhi2hpcg3" path="res://scenes/entities/bradley/antenna_spring_force.gd" id="8_o7rri"]
 [ext_resource type="AudioStream" uid="uid://dc7d4fgj4ga32" path="res://sounds/explosion/launch1.wav" id="9_kvvnk"]
 [ext_resource type="PackedScene" uid="uid://chrxhw2q4tasd" path="res://scenes/entities/cameras/orbit_camera.tscn" id="9_t1a07"]
@@ -57,7 +56,7 @@ shader_parameter/noise_amount = 1.0
 shader_parameter/fade_in_speed = 1.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_grwck"]
-viewport_path = NodePath("Exterior/SubViewport")
+viewport_path = NodePath("Exterior/AimingSubViewport")
 
 [node name="Bradley" type="VehicleBody3D" groups=["damageable", "player"]]
 mass = 1000.0
@@ -72,13 +71,12 @@ debug_fill = false
 [node name="CameraManagerComponent" parent="." node_paths=PackedStringArray("INTERIOR_CAMERA", "EXTERIOR_CAMERA", "BARREL_CAMERA", "TURRET_CONTROL") instance=ExtResource("2_npdwc")]
 INTERIOR_CAMERA = NodePath("../Interior/FirstPersonCamera")
 EXTERIOR_CAMERA = NodePath("../Exterior/OrbitCamera")
-BARREL_CAMERA = NodePath("../Exterior/SubViewport/CameraBarrel")
+BARREL_CAMERA = NodePath("../Exterior/AimingSubViewport/CameraBarrel")
 TURRET_CONTROL = NodePath("../TurretControlComponent")
 
 [node name="TurretControlComponent" parent="." node_paths=PackedStringArray("AXIS_HORIZONTAL", "AXIS_VERTICAL") instance=ExtResource("5_7eosh")]
 AXIS_HORIZONTAL = NodePath("../Exterior/Model/Body/Turret")
 AXIS_VERTICAL = NodePath("../Exterior/Model/Body/Turret/Barrel")
-ENABLE_USER_INPUT = true
 
 [node name="SimpleMovementComponent" parent="." node_paths=PackedStringArray("VEHICLE", "WHEELS_RIGHT", "WHEELS_LEFT") instance=ExtResource("6_0r3s0")]
 VEHICLE = NodePath("..")
@@ -91,6 +89,10 @@ MATERIAL_TRACK_LEFT = ExtResource("2_o7rri")
 enable_smoke_vfx = true
 death_smoke_position = NodePath("../Exterior/DeathSmokePosition")
 death_smoke = ExtResource("7_k8641")
+
+[node name="TurretFiringComponent" parent="." node_paths=PackedStringArray("tank_rigidbody", "muzzle") instance=ExtResource("7_kgy0p")]
+tank_rigidbody = NodePath("..")
+muzzle = NodePath("../Exterior/Model/Body/Turret/Barrel/Muzzle")
 
 [node name="Exterior" type="Node3D" parent="."]
 
@@ -105,31 +107,31 @@ bones/1/scale = Vector3(-1, -1, -1)
 bones/2/position = Vector3(0.982, 0.3419376, 1.4506458)
 bones/2/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/2/scale = Vector3(1, 0.9999999, 1)
-bones/3/position = Vector3(-2.682209e-05, 0.25100863, 2.4348497e-05)
+bones/3/position = Vector3(-2.682209e-05, 0.25100863, 2.5331974e-05)
 bones/3/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
 bones/3/scale = Vector3(-1, -1.0000001, -1)
 bones/4/position = Vector3(0.982, 0.34193635, 0.6986339)
 bones/4/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/4/scale = Vector3(1, 0.9999999, 1)
-bones/5/position = Vector3(-1.1086464e-05, 0.25093353, 2.631545e-05)
+bones/5/position = Vector3(-1.1086464e-05, 0.2509296, 2.7298927e-05)
 bones/5/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
 bones/5/scale = Vector3(-1, -1.0000001, -1)
 bones/6/position = Vector3(0.982, 0.34193608, -0.24305514)
 bones/6/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/6/scale = Vector3(1, 0.9999999, 1)
-bones/7/position = Vector3(3.1143427e-06, 0.2510084, 2.4348497e-05)
+bones/7/position = Vector3(3.1143427e-06, 0.2510084, 2.5331974e-05)
 bones/7/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
 bones/7/scale = Vector3(-1, -1.0000001, -1)
 bones/8/position = Vector3(0.982, 0.34193486, -1.0083922)
 bones/8/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/8/scale = Vector3(1, 0.9999999, 1)
-bones/9/position = Vector3(-2.682209e-05, 0.251014, 2.4348497e-05)
+bones/9/position = Vector3(-2.682209e-05, 0.251014, 2.5331974e-05)
 bones/9/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
 bones/9/scale = Vector3(-1, -1.0000001, -1)
 bones/10/position = Vector3(0.982, 0.34193462, -1.7237142)
 bones/10/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/10/scale = Vector3(1, 0.9999999, 1)
-bones/11/position = Vector3(-2.682209e-05, 0.2509395, 2.4288893e-05)
+bones/11/position = Vector3(-2.682209e-05, 0.25093555, 2.527237e-05)
 bones/11/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
 bones/11/scale = Vector3(-1, -1.0000001, -1)
 bones/12/rotation = Quaternion(0, 0, 0.70710677, 0.70710677)
@@ -140,37 +142,37 @@ bones/13/scale = Vector3(-1, -1, -1)
 bones/14/position = Vector3(-0.982, 0.34193778, 2.1388035)
 bones/14/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/14/scale = Vector3(1, 0.9999999, 1)
-bones/15/position = Vector3(0, 0.25101376, -2.5719404e-05)
+bones/15/position = Vector3(0, 0.25101376, -2.670288e-05)
 bones/15/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/15/scale = Vector3(-1, -1.0000001, -1)
 bones/16/position = Vector3(-0.982, 0.3419376, 1.4506458)
 bones/16/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/16/scale = Vector3(1, 0.9999999, 1)
-bones/17/position = Vector3(2.4437904e-05, 0.25092506, -3.015995e-05)
+bones/17/position = Vector3(2.4437904e-05, 0.25092113, -3.1143427e-05)
 bones/17/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/17/scale = Vector3(-1, -1.0000001, -1)
 bones/18/position = Vector3(-0.982, 0.34193635, 0.6986339)
 bones/18/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/18/scale = Vector3(1, 0.9999999, 1)
-bones/19/position = Vector3(4.529953e-06, 0.25102103, -2.5689602e-05)
+bones/19/position = Vector3(4.529953e-06, 0.25102103, -2.6673079e-05)
 bones/19/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/19/scale = Vector3(-1, -1.0000001, -1)
 bones/20/position = Vector3(-0.982, 0.34193608, -0.2430551)
 bones/20/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/20/scale = Vector3(1, 0.9999999, 1)
-bones/21/position = Vector3(-2.399087e-06, 0.2510152, -2.5689602e-05)
+bones/21/position = Vector3(-2.399087e-06, 0.2510152, -2.6673079e-05)
 bones/21/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/21/scale = Vector3(-1, -1.0000001, -1)
 bones/22/position = Vector3(-0.982, 0.34193486, -1.0083922)
 bones/22/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/22/scale = Vector3(1, 0.9999999, 1)
-bones/23/position = Vector3(2.4437904e-05, 0.25093663, -2.5689602e-05)
+bones/23/position = Vector3(2.4437904e-05, 0.2509327, -2.6673079e-05)
 bones/23/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/23/scale = Vector3(-1, -1.0000001, -1)
 bones/24/position = Vector3(-0.982, 0.34193462, -1.7237144)
 bones/24/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/24/scale = Vector3(1, 0.9999999, 1)
-bones/25/position = Vector3(2.4437904e-05, 0.25101995, -2.5719404e-05)
+bones/25/position = Vector3(2.4437904e-05, 0.25101995, -2.670288e-05)
 bones/25/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/25/scale = Vector3(-1, -1.0000001, -1)
 bones/26/rotation = Quaternion(0, 0, -0.70710677, 0.70710677)
@@ -178,9 +180,12 @@ bones/26/scale = Vector3(-1, -1, -1)
 bones/27/rotation = Quaternion(0, 0, -0.70710677, 0.70710677)
 bones/27/scale = Vector3(-1, -1, -1)
 
+[node name="Muzzle" type="Marker3D" parent="Exterior/Model/Body/Turret/Barrel" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 4.371139e-08, 0, -4.371139e-08, 1, 0.003970027, 0.013281584, 2.2408948)
+
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Exterior/Model/Body/Turret/Barrel" index="1"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.0039360225, 0.4400158, 0.20985055)
-remote_path = NodePath("../../../../../SubViewport/CameraBarrel")
+remote_path = NodePath("../../../../../AimingSubViewport/CameraBarrel")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Exterior/Model/Body/Turret/Barrel" index="2"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.0039360225, 0.4400158, 0.20985055)
@@ -190,17 +195,11 @@ spot_range = 100.0
 spot_angle = 30.0
 spot_angle_attenuation = 0.066986
 
-[node name="TurretFiringComponent" parent="Exterior/Model/Body/Turret/Barrel" index="3" node_paths=PackedStringArray("tank_rigidbody") instance=ExtResource("7_kgy0p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0045550168, 0.013665199, 2.2455225)
-tank_rigidbody = NodePath("../../../../../..")
-
-[node name="TurretFiringAudioPlayer" type="AudioStreamPlayer3D" parent="Exterior/Model/Body/Turret/Barrel" index="4" node_paths=PackedStringArray("FIRING_COMPONENT")]
+[node name="TurretFiringAudioPlayer" type="AudioStreamPlayer3D" parent="Exterior/Model/Body/Turret/Barrel" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.254597)
+stream = ExtResource("9_kvvnk")
 volume_db = -12.0
 pitch_scale = 0.5
-script = ExtResource("8_gtw5e")
-SHOOT_SOUND = ExtResource("9_kvvnk")
-FIRING_COMPONENT = NodePath("../TurretFiringComponent")
 
 [node name="SpringBoneSimulator3D" type="SpringBoneSimulator3D" parent="Exterior/Model/Body/Turret/TurretArmature/Skeleton3D" index="1" node_paths=PackedStringArray("VEHICLE")]
 setting_count = 2
@@ -274,7 +273,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentL2b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentL2a"]
-transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.2510087, 2.4348497e-05)
+transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.2510087, 2.5331974e-05)
 bone_name = "L2b"
 bone_idx = 3
 override_pose = true
@@ -290,7 +289,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentL3b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentL3a"]
-transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -1.1086464e-05, 0.2509336, 2.631545e-05)
+transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -1.1086464e-05, 0.25092965, 2.7298927e-05)
 bone_name = "L3b"
 bone_idx = 5
 override_pose = true
@@ -306,7 +305,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentL4b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentL4a"]
-transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, 3.0994415e-06, 0.2510084, 2.4348497e-05)
+transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, 3.0994415e-06, 0.2510084, 2.5331974e-05)
 bone_name = "L4b"
 bone_idx = 7
 override_pose = true
@@ -322,7 +321,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentL5b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentL5a"]
-transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.25101405, 2.4348497e-05)
+transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.25101405, 2.5331974e-05)
 bone_name = "L5b"
 bone_idx = 9
 override_pose = true
@@ -338,7 +337,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentL6b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentL6a"]
-transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.25093955, 2.4288893e-05)
+transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.2509356, 2.527237e-05)
 bone_name = "L6b"
 bone_idx = 11
 override_pose = true
@@ -354,7 +353,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR1b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentR1a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 0, 0.25101376, -2.5719404e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 0, 0.25101376, -2.670288e-05)
 bone_name = "R1b"
 bone_idx = 15
 override_pose = true
@@ -370,7 +369,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR2b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentR2a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.25092512, -3.015995e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.2509212, -3.1143427e-05)
 bone_name = "R2b"
 bone_idx = 17
 override_pose = true
@@ -386,7 +385,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR3b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentR3a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 4.529953e-06, 0.2510211, -2.5689602e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 4.529953e-06, 0.2510211, -2.6673079e-05)
 bone_name = "R3b"
 bone_idx = 19
 override_pose = true
@@ -402,7 +401,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR4b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentR4a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, -2.3841858e-06, 0.2510152, -2.5689602e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, -2.3841858e-06, 0.2510152, -2.6673079e-05)
 bone_name = "R4b"
 bone_idx = 21
 override_pose = true
@@ -418,7 +417,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR5b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentR5a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.2509367, -2.5689602e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.25093275, -2.6673079e-05)
 bone_name = "R5b"
 bone_idx = 23
 override_pose = true
@@ -434,7 +433,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR6b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentR6a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.25102, -2.5719404e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.25102, -2.670288e-05)
 bone_name = "R6b"
 bone_idx = 25
 override_pose = true
@@ -476,19 +475,19 @@ external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 [node name="OrbitCamera" parent="Exterior" instance=ExtResource("9_t1a07")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 2.7990654, 0)
 
-[node name="SubViewport" type="SubViewport" parent="Exterior"]
+[node name="AimingSubViewport" type="SubViewport" parent="Exterior"]
 canvas_item_default_texture_filter = 0
 oversampling = false
 size_2d_override_stretch = true
 
-[node name="CameraBarrel" type="Camera3D" parent="Exterior/SubViewport"]
+[node name="CameraBarrel" type="Camera3D" parent="Exterior/AimingSubViewport"]
 process_mode = 3
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.238172, 2.8727093, 0.5002878)
 cull_mask = 1
 near = 0.1
 far = 1000.0
 
-[node name="PostProcessNV" type="ColorRect" parent="Exterior/SubViewport/CameraBarrel"]
+[node name="PostProcessNV" type="ColorRect" parent="Exterior/AimingSubViewport/CameraBarrel"]
 visible = false
 light_mask = 2
 visibility_layer = 2
@@ -569,12 +568,13 @@ transform = Transform3D(-1.0927848e-09, 0, 0.025, 0, 0.025, 0, -0.025, 0, -1.092
 layers = 2
 texture = ExtResource("11_oar21")
 
-[node name="ControlPanel" type="Node3D" parent="Interior" node_paths=PackedStringArray("TURRET_CONTROL", "CAMERA_MANAGER", "MOVEMENT_COMPONENT", "POST_PROCESS_NV", "VEHICLE", "LIGHT")]
+[node name="ControlPanel" type="Node3D" parent="Interior" node_paths=PackedStringArray("TURRET_CONTROL", "CAMERA_MANAGER", "MOVEMENT_COMPONENT", "FIRING_COMPONENT", "POST_PROCESS_NV", "VEHICLE", "LIGHT")]
 script = ExtResource("12_dxwpv")
 TURRET_CONTROL = NodePath("../../TurretControlComponent")
 CAMERA_MANAGER = NodePath("../../CameraManagerComponent")
 MOVEMENT_COMPONENT = NodePath("../../SimpleMovementComponent")
-POST_PROCESS_NV = NodePath("../../Exterior/SubViewport/CameraBarrel/PostProcessNV")
+FIRING_COMPONENT = NodePath("../../TurretFiringComponent")
+POST_PROCESS_NV = NodePath("../../Exterior/AimingSubViewport/CameraBarrel/PostProcessNV")
 VEHICLE = NodePath("../..")
 LIGHT = NodePath("../../Exterior/Model/Body/Turret/Barrel/SpotLight3D")
 
@@ -1003,6 +1003,7 @@ suspension_travel = 0.0
 suspension_stiffness = 25.0
 suspension_max_force = 5000.0
 
+[connection signal="on_fired" from="TurretFiringComponent" to="Exterior/Model/Body/Turret/Barrel/TurretFiringAudioPlayer" method="play"]
 [connection signal="switch_off" from="Interior/ControlPanel/SwitchQuality" to="Interior/ControlPanel" method="quality" binds= [0]]
 [connection signal="switch_on" from="Interior/ControlPanel/SwitchQuality" to="Interior/ControlPanel" method="quality" binds= [1]]
 [connection signal="switch_off" from="Interior/ControlPanel/SwitchNV" to="Interior/ControlPanel" method="night_vision" binds= [false]]
@@ -1013,6 +1014,7 @@ suspension_max_force = 5000.0
 [connection signal="button_pressed" from="Interior/ControlPanel/ButtonNight" to="Interior/ControlPanel" method="environment" binds= [1]]
 [connection signal="button_pressed" from="Interior/ControlPanel/ButtonFog" to="Interior/ControlPanel" method="environment" binds= [2]]
 [connection signal="button_pressed" from="Interior/ControlPanel/ButtonFlip" to="Interior/ControlPanel" method="flip"]
+[connection signal="button_pressed" from="Interior/ControlPanel/ButtonFire" to="Interior/ControlPanel" method="fire"]
 [connection signal="button_pressed" from="Interior/ControlPanel/ButtonMoveForward" to="Interior/ControlPanel" method="move" binds= [Vector2(1, 0)]]
 [connection signal="button_released" from="Interior/ControlPanel/ButtonMoveForward" to="Interior/ControlPanel" method="move" binds= [Vector2(0, 0)]]
 [connection signal="button_pressed" from="Interior/ControlPanel/ButtonMoveReverse" to="Interior/ControlPanel" method="move" binds= [Vector2(-1, 0)]]

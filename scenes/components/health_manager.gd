@@ -1,3 +1,4 @@
+@icon("./health_manager.png")
 extends Node
 
 @export var health = 100

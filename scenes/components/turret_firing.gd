@@ -1,33 +1,45 @@
-extends Node3D
+@icon("./turret_firing.png")
+extends Node
+class_name TurretFiringComponent
 
-var impulse = 270
-var spawn_offset = 1.3
-var smoke_offset = 0.3
+@export var impulse = 270
+@export var spawn_offset = 1.3
+@export var smoke_offset = 0.3
 
+@export_group("References")
 @export var tank_rigidbody: RigidBody3D
-@export var cooldown_timer: Timer
-#var projectile := preload("res://scenes/entities/projectile/projectile.tscn")
+@export var muzzle: Node3D
 @export var projectile: PackedScene
-#var smoke := preload("res://scenes/entities/vfx/firing_smoke.tscn")
 @export var smoke: PackedScene
 
-signal fired
+@onready var cooldown_timer := $CooldownTimer
+signal on_fired
+signal on_cooldown_finished
 
 func _input(event: InputEvent) -> void:
 	if (event.is_action("fire")):
-		if (cooldown_timer.is_stopped()):
-			# stvaranje dima
-			var smoke_instance: Node3D = smoke.instantiate()
-			smoke_instance.position = self.position + Vector3(0, smoke_offset, 0)
-			self.add_sibling(smoke_instance)
+		trigger()
 			
-			# stvaranje projektila
-			var instance: RigidBody3D = projectile.instantiate()
-			get_tree().current_scene.add_child(instance)
-			var spawn_pos = self.global_transform.translated_local(Vector3(0, 0, spawn_offset))
-			instance.global_transform = spawn_pos
-			instance.linear_velocity = tank_rigidbody.linear_velocity
-			instance.apply_impulse(global_transform.basis.z * impulse)
-			
-			fired.emit()
-			cooldown_timer.start()
+func trigger() -> void:
+	if (cooldown_timer.is_stopped()):
+		fire()
+		cooldown_timer.start()
+		
+func fire() -> void:
+		# stvaranje dima
+		var smoke_instance: Node3D = smoke.instantiate()
+		smoke_instance.position = muzzle.position + Vector3(0, smoke_offset, 0)
+		muzzle.add_sibling(smoke_instance)
+		
+		# stvaranje projektila
+		var instance: RigidBody3D = projectile.instantiate()
+		get_tree().current_scene.add_child(instance)
+		var spawn_pos = muzzle.global_transform.translated_local(Vector3(0, 0, spawn_offset))
+		instance.global_transform = spawn_pos
+		instance.linear_velocity = tank_rigidbody.linear_velocity
+		instance.apply_impulse(muzzle.global_transform.basis.z * impulse)
+		
+		on_fired.emit()
+
+func cooldown_finish() -> void:
+	on_cooldown_finished.emit()
