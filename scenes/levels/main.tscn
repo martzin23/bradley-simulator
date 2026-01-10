@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ddcpw6g3ke7fo" path="res://models/foliage/grass.blend" id="6_dj21o"]
 [ext_resource type="Material" uid="uid://c4qr2ig2sdnxd" path="res://materials/foliage/spruce_billboard.tres" id="6_xgklb"]
 [ext_resource type="Material" uid="uid://bkplafpjesnxd" path="res://materials/foliage/grass.tres" id="7_6ui35"]
-[ext_resource type="PackedScene" uid="uid://biyqv287op1sf" path="res://scenes/entities/bradley/bradley.tscn" id="13_6ui35"]
+[ext_resource type="PackedScene" uid="uid://7k5egnlqk4pn" path="res://scenes/entities/bradley/Bradley.tscn" id="13_6ui35"]
 [ext_resource type="Material" uid="uid://degl554d1fjlr" path="res://materials/post_processing/filter_v2.tres" id="13_dj21o"]
 
 [sub_resource type="Gradient" id="Gradient_rssyh"]

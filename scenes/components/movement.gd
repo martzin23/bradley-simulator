@@ -13,7 +13,7 @@ func _input(event: InputEvent) -> void:
 		Input.get_axis("move_right", "move_left")
 	)
 
-	var brakes := event.is_action_pressed("brake")
+	var brakes := Input.is_action_pressed("brake")
 
 	var has_input := axis.length_squared() > 0.0001
 

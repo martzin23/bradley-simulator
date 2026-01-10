@@ -16,7 +16,7 @@ func _tank_started_moving():
 	if tween:
 		tween.kill()
 	tween = create_tween()
-	tween.tween_property(sprite, "modulate", Color(1, 1, 1, 1), start_time
+	tween.tween_property(sprite, "modulate", Color(1, 1, 1, .25), start_time
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	
 func _tank_stopped_moving():

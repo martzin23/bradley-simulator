@@ -20,13 +20,6 @@ func _process(delta: float) -> void:
 	MATERIAL_TRACK_RIGHT.uv1_offset.y -= WHEELS_RIGHT[4].get_rpm() * delta * TRACK_SPEED;
 		
 func move(axis: Vector2, brakes: bool) -> void:
-	var has_input := axis.length() > 0.0
-
-	if has_input and not _is_moving:
-		_is_moving = true
-	elif not has_input and _is_moving:
-		_is_moving = false
-
 	if axis.length() == 0.0:
 		VEHICLE.brake = AUTO_BRAKE
 	else:
