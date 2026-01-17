@@ -27,6 +27,7 @@ var max_health := 0.0;
 
 func _ready() -> void:
 	max_health = health
+	change.emit(health)
 	if (DEBUG_HEALTH_TEXT != null):
 		DEBUG_HEALTH_TEXT.text = str(health)
 
