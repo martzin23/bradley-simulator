@@ -356,6 +356,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
 > - General post processing shader (MIT License): https://github.com/ArseniyMirniy/Godot-4-Color-Correction-and-Screen-Effects
 > - Night vision shader (MIT License): https://github.com/robertcorponoi/godot-night-vision-screen-shaders
 > - VFX textures (CC0 1.0): https://unity.com/blog/engine-platform/free-vfx-image-sequences-flipbooks
+> - Font Special Elite (Apache License): https://fonts.google.com/specimen/Special+Elite?categoryFilters=Appearance:%2FTheme%2FDistressed
 </details>
 
 ---
