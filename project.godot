@@ -49,6 +49,10 @@ folder_colors={
 player=""
 damageable=""
 
+[gui]
+
+theme/custom_font="uid://nnh8bfrhhqv1"
+
 [input]
 
 move_forward={
