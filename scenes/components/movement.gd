@@ -7,7 +7,7 @@ signal move_stopped
 
 var _is_moving := false
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	var axis := Vector2(
 		Input.get_axis("move_backward", "move_forward"),
 		Input.get_axis("move_right", "move_left")

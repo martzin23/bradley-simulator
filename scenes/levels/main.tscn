@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d2sscmmxsebpd" path="res://scripts/exit_app.gd" id="1_vkq25"]
 [ext_resource type="PackedScene" uid="uid://dvredawh2u6cj" path="res://scenes/components/quality_manager.tscn" id="2_6ui35"]
-[ext_resource type="Script" uid="uid://bslx3btt43gik" path="res://scripts/environment_manager.gd" id="2_hwp66"]
+[ext_resource type="Script" uid="uid://bslx3btt43gik" path="res://scenes/entities/environment/environment_manager.gd" id="2_hwp66"]
 [ext_resource type="Material" uid="uid://do7rumqvjquey" path="res://materials/foliage/oak_billboard.tres" id="3_7exfm"]
 [ext_resource type="Environment" uid="uid://w57ajlshosdw" path="res://scenes/entities/environment/day.tres" id="3_dj21o"]
 [ext_resource type="Terrain3DAssets" uid="uid://die7rmv5qdbji" path="res://scenes/entities/terrain/terrain_assets.res" id="3_rssyh"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyr6km8v1vgfj"]
+
+[ext_resource type="Script" uid="uid://c523jqeu3w5c6" path="res://scenes/entities/enemy_spawner/enemy_spawner.gd" id="1_3nrl4"]
+[ext_resource type="PackedScene" uid="uid://bouhpyl4cr2gc" path="res://scenes/entities/targets/naughty_cube.tscn" id="2_chpjr"]
+
+[node name="EnemySpawner" type="Node"]
+script = ExtResource("1_3nrl4")
+num_of_enemies = 3
+enemy = ExtResource("2_chpjr")

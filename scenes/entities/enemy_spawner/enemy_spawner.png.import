@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcbko6imw36go"
-path="res://.godot/imported/health_manager.png-537b34e74df3f042ba3e26777d9cf4fb.ctex"
+uid="uid://nuy0qmjyfqtx"
+path="res://.godot/imported/enemy_spawner.png-d3202dca91e137cb722fc021f341d421.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/components/health_manager.png"
-dest_files=["res://.godot/imported/health_manager.png-537b34e74df3f042ba3e26777d9cf4fb.ctex"]
+source_file="res://scenes/entities/enemy_spawner/enemy_spawner.png"
+dest_files=["res://.godot/imported/enemy_spawner.png-d3202dca91e137cb722fc021f341d421.ctex"]
 
 [params]
 

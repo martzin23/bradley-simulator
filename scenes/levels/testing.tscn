@@ -4,8 +4,8 @@
 [ext_resource type="Material" uid="uid://cl4rjl8ttyplk" path="res://materials/placeholder.tres" id="1_ryjsw"]
 [ext_resource type="PackedScene" uid="uid://7k5egnlqk4pn" path="res://scenes/entities/bradley/Bradley.tscn" id="2_pcu7d"]
 [ext_resource type="PackedScene" uid="uid://y6oinm3gkfd2" path="res://scenes/entities/targets/evil_bradley/evil_bradley.tscn" id="4_x2n3b"]
+[ext_resource type="PackedScene" uid="uid://dyr6km8v1vgfj" path="res://scenes/entities/enemy_spawner/enemy_spawner.tscn" id="5_mouox"]
 [ext_resource type="PackedScene" uid="uid://bouhpyl4cr2gc" path="res://scenes/entities/targets/naughty_cube.tscn" id="6_0k28s"]
-[ext_resource type="Script" uid="uid://c523jqeu3w5c6" path="res://scripts/spawning_manager.gd" id="7_pka5m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pcu7d"]
 ground_bottom_color = Color(0.654902, 0.6901961, 0.74509805, 1)
@@ -170,37 +170,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.245686, 0.1895028, 22.661
 [node name="EvilBradley" parent="." instance=ExtResource("4_x2n3b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.474436, 1.2226678, -5.573921)
 
-[node name="Spawners" type="Node" parent="."]
-script = ExtResource("7_pka5m")
-num_of_enemies = 3
-enemy = ExtResource("6_0k28s")
+[node name="EnemySpawner" parent="." instance=ExtResource("5_mouox")]
+ENEMY_COUNT = 5
+ENEMY = ExtResource("6_0k28s")
 
-[node name="Spawn0" type="Marker3D" parent="Spawners"]
+[node name="Spawn0" type="Marker3D" parent="EnemySpawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4776, 0, 67.379684)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Spawners/Spawn0"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EnemySpawner/Spawn0"]
 mesh = SubResource("SphereMesh_pka5m")
 
-[node name="Spawn1" type="Marker3D" parent="Spawners"]
+[node name="Spawn1" type="Marker3D" parent="EnemySpawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.148056, 0, 76.57491)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Spawners/Spawn1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EnemySpawner/Spawn1"]
 mesh = SubResource("SphereMesh_pka5m")
 
-[node name="Spawn2" type="Marker3D" parent="Spawners"]
+[node name="Spawn2" type="Marker3D" parent="EnemySpawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.132675, 0, 63.67247)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Spawners/Spawn2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EnemySpawner/Spawn2"]
 mesh = SubResource("SphereMesh_pka5m")
 
-[node name="Spawn3" type="Marker3D" parent="Spawners"]
+[node name="Spawn3" type="Marker3D" parent="EnemySpawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.990597, 0, 45.66618)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Spawners/Spawn3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EnemySpawner/Spawn3"]
 mesh = SubResource("SphereMesh_pka5m")
 
-[node name="Spawn4" type="Marker3D" parent="Spawners"]
+[node name="Spawn4" type="Marker3D" parent="EnemySpawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.41789, 0, 21.527744)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Spawners/Spawn4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EnemySpawner/Spawn4"]
 mesh = SubResource("SphereMesh_pka5m")
