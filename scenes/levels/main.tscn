@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bodpq72qfhjm8"]
+[gd_scene load_steps=30 format=4 uid="uid://bodpq72qfhjm8"]
 
 [ext_resource type="Script" uid="uid://d2sscmmxsebpd" path="res://scripts/exit_app.gd" id="1_vkq25"]
 [ext_resource type="PackedScene" uid="uid://dvredawh2u6cj" path="res://scenes/components/quality_manager.tscn" id="2_6ui35"]
@@ -17,6 +17,8 @@
 [ext_resource type="Material" uid="uid://bkplafpjesnxd" path="res://materials/foliage/grass.tres" id="7_6ui35"]
 [ext_resource type="PackedScene" uid="uid://7k5egnlqk4pn" path="res://scenes/entities/bradley/Bradley.tscn" id="13_6ui35"]
 [ext_resource type="Material" uid="uid://degl554d1fjlr" path="res://materials/post_processing/filter_v2.tres" id="13_dj21o"]
+[ext_resource type="PackedScene" uid="uid://dyr6km8v1vgfj" path="res://scenes/entities/enemy_spawner/enemy_spawner.tscn" id="18_px1c8"]
+[ext_resource type="PackedScene" uid="uid://bouhpyl4cr2gc" path="res://scenes/entities/targets/naughty_cube.tscn" id="19_xgklb"]
 
 [sub_resource type="Gradient" id="Gradient_rssyh"]
 offsets = PackedFloat32Array(0.24242425, 1)
@@ -191,3 +193,67 @@ particle_count = 6400
 
 [node name="Bradley" parent="." instance=ExtResource("13_6ui35")]
 transform = Transform3D(0.77262276, 0, 0.6348654, 0, 1, 0, -0.6348654, 0, 0.77262276, -61.919277, -7.5270996, -168.84685)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("18_px1c8")]
+ENEMY_COUNT = 14
+ENEMY = ExtResource("19_xgklb")
+
+[node name="Marker3D" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(0.90208125, 0, 0.43156627, 0, 1, 0, -0.43156627, 0, 0.90208125, -279.59113, -36.337563, -213.41537)
+gizmo_extents = 5.0
+
+[node name="Marker3D14" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(0.8364201, 0, -0.5480889, 0, 1, 0, 0.5480889, 0, 0.8364201, -306.17456, -36.337563, -194.83063)
+gizmo_extents = 5.0
+
+[node name="Marker3D15" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(0.9872143, 0, -0.15939882, 0, 1, 0, 0.15939882, 0, 0.9872143, -282.67755, -36.337563, -223.38168)
+gizmo_extents = 5.0
+
+[node name="Marker3D2" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(0.25406188, 0, -0.96718794, 0, 1, 0, 0.96718794, 0, 0.25406188, -292.102, -36.337563, -221.8044)
+gizmo_extents = 5.0
+
+[node name="Marker3D3" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(-0.2540618, 0, 0.96718794, 0, 1, 0, -0.96718794, 0, -0.2540618, -286.68637, -45.521915, -23.520218)
+gizmo_extents = 5.0
+
+[node name="Marker3D12" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(0.5823642, 0, 0.81292796, 0, 1, 0, -0.81292796, 0, 0.5823642, -272.7542, -45.521915, 15.27298)
+gizmo_extents = 5.0
+
+[node name="Marker3D13" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(0.20005205, 0, 0.97978526, 0, 1, 0, -0.97978526, 0, 0.20005205, -253.13571, -45.521915, -16.423435)
+gizmo_extents = 5.0
+
+[node name="Marker3D4" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(0.38558406, 0, 0.92267275, 0, 1, 0, -0.92267275, 0, 0.38558406, 343.7468, -37.951004, 40.305862)
+gizmo_extents = 5.0
+
+[node name="Marker3D5" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(-0.035073936, 0, -0.99938464, 0, 1, 0, 0.99938464, 0, -0.035073936, 376.16837, -37.951004, 17.924358)
+gizmo_extents = 5.0
+
+[node name="Marker3D6" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(-0.9960052, 0, -0.089294165, 0, 1, 0, 0.089294165, 0, -0.9960052, 325.59906, -37.951004, 10.666346)
+gizmo_extents = 5.0
+
+[node name="Marker3D8" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(-0.9960052, 0, -0.089294165, 0, 1, 0, 0.089294165, 0, -0.9960052, 5.7928247, -42.155178, 0.2760725)
+gizmo_extents = 5.0
+
+[node name="Marker3D9" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(-0.625406, 0, 0.78029937, 0, 1, 0, -0.78029937, 0, -0.625406, 10.814141, -42.155178, -7.180661)
+gizmo_extents = 5.0
+
+[node name="Marker3D10" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(-0.625406, 0, 0.78029937, 0, 1, 0, -0.78029937, 0, -0.625406, 34.81041, -40.64503, 210.40356)
+gizmo_extents = 5.0
+
+[node name="Marker3D11" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(-0.625406, 0, 0.78029937, 0, 1, 0, -0.78029937, 0, -0.625406, -173.8668, -35.181583, 151.04668)
+gizmo_extents = 5.0
+
+[node name="Marker3D7" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(-0.080164105, 0, -0.9967816, 0, 1, 0, 0.9967816, 0, -0.080164105, 348.85205, -37.951004, 21.68984)
+gizmo_extents = 5.0
