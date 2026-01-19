@@ -54,6 +54,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
 	- [x] gun smoke/muzzle flash
 	- [x] bullet/shell explosion
 	- [x] vehicle explosion
+    - [ ] screen shake
 - Enemy specialist - `grga`, `vito`
 	- [ ] automatic target acquisition/aiming
 	- [ ] inaccurate aiming (spread)
@@ -62,7 +63,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
 - Projectiles & health system - `antonio`
 	- [x] projectile (spawning, trajectory, hit)
 	- [x] health (health points, death explosion)
-    - [ ] player death, death screen
+    - [x] player death, death screen
 - Advanced movement
     - [ ] vibe coding - `grga`
 - Documentation
