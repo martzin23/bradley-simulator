@@ -2,6 +2,7 @@
 extends Node
 class_name TurretFiringComponent
 
+@export var ENABLE_PLAYER_CONTROL: bool = true
 @export var impulse = 270
 @export var spawn_offset = 1.3
 @export var smoke_offset = 0.3
@@ -12,11 +13,17 @@ class_name TurretFiringComponent
 @export var projectile: PackedScene
 @export var smoke: PackedScene
 
+@export var cooldown := 0.3
 @onready var cooldown_timer := $CooldownTimer
 signal on_fired
 signal on_cooldown_finished
 
+func _ready() -> void:
+	cooldown_timer.wait_time = cooldown
+
 func _input(event: InputEvent) -> void:
+	if not ENABLE_PLAYER_CONTROL:
+		return
 	if (event.is_action("fire")):
 		trigger()
 			
