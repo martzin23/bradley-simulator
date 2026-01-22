@@ -56,8 +56,8 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
 	- [x] vehicle explosion
     - [ ] screen shake
 - Enemy specialist - `grga`, `vito`
-	- [ ] automatic target acquisition/aiming
-	- [ ] inaccurate aiming (spread)
+	- [x] automatic target acquisition/aiming
+	- [x] inaccurate aiming (spread)
 	- [ ] AI movement
     - [x] Enemy distribution - `antonio`
 - Projectiles & health system - `antonio`
