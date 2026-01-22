@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://y6oinm3gkfd2"]
+[gd_scene load_steps=8 format=3 uid="uid://y6oinm3gkfd2"]
 
 [ext_resource type="PackedScene" uid="uid://cnobhxwxotone" path="res://scenes/components/turret_control.tscn" id="2_f64po"]
+[ext_resource type="PackedScene" uid="uid://01tgbj5jwk6h" path="res://scenes/entities/vfx/death_smoke.tscn" id="2_t28ie"]
 [ext_resource type="Script" uid="uid://cl360xxjq0mxc" path="res://scenes/entities/targets/evil_bradley/ai_turret_aim_component.gd" id="3_b64e1"]
 [ext_resource type="PackedScene" uid="uid://b56h2oanfws00" path="res://scenes/components/turret_firing.tscn" id="4_f64po"]
 [ext_resource type="PackedScene" uid="uid://bpts8r4oomcjf" path="res://scenes/components/health.tscn" id="5_bduxo"]
@@ -16,8 +17,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1699784, 0.10050964)
 shape = SubResource("BoxShape3D_jwd8n")
 debug_fill = false
 
-[node name="HealthManagerComponent" parent="." instance=ExtResource("5_bduxo")]
+[node name="HealthManagerComponent" parent="." node_paths=PackedStringArray("DEATH_SMOKE_POSITION") instance=ExtResource("5_bduxo")]
 ENABLE_SMOKE_VFX = true
+DEATH_SMOKE_POSITION = NodePath("../Exterior/DeathSmokePosition")
+DEATH_SMOKE = ExtResource("2_t28ie")
 
 [node name="TurretControlComponent" parent="." node_paths=PackedStringArray("AXIS_HORIZONTAL", "AXIS_VERTICAL") instance=ExtResource("2_f64po")]
 AXIS_HORIZONTAL = NodePath("../Exterior/Model/Body/Turret")
@@ -27,8 +30,8 @@ AXIS_VERTICAL = NodePath("../Exterior/Model/Body/Turret/Barrel")
 script = ExtResource("3_b64e1")
 turret_control = NodePath("../TurretControlComponent")
 firing_component = NodePath("../TurretFiringComponent")
+aim_speed = 1.0
 max_fire_distance = 50.0
-enable_los_debug = true
 los_origin = NodePath("../Exterior/Model/Body/Turret/Barrel/Muzzle")
 metadata/_custom_type_script = "uid://cl360xxjq0mxc"
 
@@ -50,31 +53,31 @@ bones/1/scale = Vector3(-1, -1, -1)
 bones/2/position = Vector3(0.982, 0.3419376, 1.4506458)
 bones/2/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/2/scale = Vector3(1, 0.9999999, 1)
-bones/3/position = Vector3(-2.682209e-05, 0.25100863, 2.4825335e-05)
+bones/3/position = Vector3(-2.682209e-05, 0.25100863, 2.5093555e-05)
 bones/3/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
 bones/3/scale = Vector3(-1, -1.0000001, -1)
 bones/4/position = Vector3(0.982, 0.34193635, 0.6986339)
 bones/4/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/4/scale = Vector3(1, 0.9999999, 1)
-bones/5/position = Vector3(-1.1086464e-05, 0.25093162, 2.6792288e-05)
+bones/5/position = Vector3(-1.1086464e-05, 0.25093055, 2.7060509e-05)
 bones/5/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
 bones/5/scale = Vector3(-1, -1.0000001, -1)
 bones/6/position = Vector3(0.982, 0.34193608, -0.24305514)
 bones/6/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/6/scale = Vector3(1, 0.9999999, 1)
-bones/7/position = Vector3(3.1143427e-06, 0.2510084, 2.4825335e-05)
+bones/7/position = Vector3(3.1143427e-06, 0.2510084, 2.5093555e-05)
 bones/7/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
 bones/7/scale = Vector3(-1, -1.0000001, -1)
 bones/8/position = Vector3(0.982, 0.34193486, -1.0083922)
 bones/8/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/8/scale = Vector3(1, 0.9999999, 1)
-bones/9/position = Vector3(-2.682209e-05, 0.251014, 2.4825335e-05)
+bones/9/position = Vector3(-2.682209e-05, 0.251014, 2.5093555e-05)
 bones/9/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
 bones/9/scale = Vector3(-1, -1.0000001, -1)
 bones/10/position = Vector3(0.982, 0.34193462, -1.7237142)
 bones/10/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/10/scale = Vector3(1, 0.9999999, 1)
-bones/11/position = Vector3(-2.682209e-05, 0.25093758, 2.476573e-05)
+bones/11/position = Vector3(-2.682209e-05, 0.2509365, 2.503395e-05)
 bones/11/rotation = Quaternion(0.70710677, 3.7930754e-08, -0.70710677, 6.883938e-08)
 bones/11/scale = Vector3(-1, -1.0000001, -1)
 bones/12/rotation = Quaternion(0, 0, 0.70710677, 0.70710677)
@@ -85,37 +88,37 @@ bones/13/scale = Vector3(-1, -1, -1)
 bones/14/position = Vector3(-0.982, 0.34193778, 2.1388035)
 bones/14/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/14/scale = Vector3(1, 0.9999999, 1)
-bones/15/position = Vector3(0, 0.25101376, -2.6196241e-05)
+bones/15/position = Vector3(0, 0.25101376, -2.6464462e-05)
 bones/15/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/15/scale = Vector3(-1, -1.0000001, -1)
 bones/16/position = Vector3(-0.982, 0.3419376, 1.4506458)
 bones/16/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/16/scale = Vector3(1, 0.9999999, 1)
-bones/17/position = Vector3(2.4437904e-05, 0.25092316, -3.0636787e-05)
+bones/17/position = Vector3(2.4437904e-05, 0.25092208, -3.090501e-05)
 bones/17/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/17/scale = Vector3(-1, -1.0000001, -1)
 bones/18/position = Vector3(-0.982, 0.34193635, 0.6986339)
 bones/18/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/18/scale = Vector3(1, 0.9999999, 1)
-bones/19/position = Vector3(4.529953e-06, 0.25102103, -2.6166439e-05)
+bones/19/position = Vector3(4.529953e-06, 0.25102103, -2.643466e-05)
 bones/19/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/19/scale = Vector3(-1, -1.0000001, -1)
 bones/20/position = Vector3(-0.982, 0.34193608, -0.2430551)
 bones/20/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/20/scale = Vector3(1, 0.9999999, 1)
-bones/21/position = Vector3(-2.399087e-06, 0.2510152, -2.6166439e-05)
+bones/21/position = Vector3(-2.399087e-06, 0.2510152, -2.643466e-05)
 bones/21/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/21/scale = Vector3(-1, -1.0000001, -1)
 bones/22/position = Vector3(-0.982, 0.34193486, -1.0083922)
 bones/22/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/22/scale = Vector3(1, 0.9999999, 1)
-bones/23/position = Vector3(2.4437904e-05, 0.25093472, -2.6166439e-05)
+bones/23/position = Vector3(2.4437904e-05, 0.25093365, -2.643466e-05)
 bones/23/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/23/scale = Vector3(-1, -1.0000001, -1)
 bones/24/position = Vector3(-0.982, 0.34193462, -1.7237144)
 bones/24/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/24/scale = Vector3(1, 0.9999999, 1)
-bones/25/position = Vector3(2.4437904e-05, 0.25101995, -2.6196241e-05)
+bones/25/position = Vector3(2.4437904e-05, 0.25101995, -2.6464462e-05)
 bones/25/rotation = Quaternion(0.70710677, 1.545431e-08, 0.70710677, 1.545431e-08)
 bones/25/scale = Vector3(-1, -1.0000001, -1)
 bones/26/rotation = Quaternion(0, 0, -0.70710677, 0.70710677)
@@ -153,7 +156,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentL2b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentL2a"]
-transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.2510087, 2.4825335e-05)
+transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.2510087, 2.5093555e-05)
 bone_name = "L2b"
 bone_idx = 3
 override_pose = true
@@ -169,7 +172,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentL3b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentL3a"]
-transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -1.1086464e-05, 0.25093168, 2.6792288e-05)
+transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -1.1086464e-05, 0.2509306, 2.7060509e-05)
 bone_name = "L3b"
 bone_idx = 5
 override_pose = true
@@ -185,7 +188,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentL4b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentL4a"]
-transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, 3.0994415e-06, 0.2510084, 2.4825335e-05)
+transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, 3.0994415e-06, 0.2510084, 2.5093555e-05)
 bone_name = "L4b"
 bone_idx = 7
 override_pose = true
@@ -201,7 +204,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentL5b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentL5a"]
-transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.25101405, 2.4825335e-05)
+transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.25101405, 2.5093555e-05)
 bone_name = "L5b"
 bone_idx = 9
 override_pose = true
@@ -217,7 +220,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentL6b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentL6a"]
-transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.25093764, 2.476573e-05)
+transform = Transform3D(-8.510922e-15, -1.9470718e-07, 1, -2.8850552e-22, 1.0000001, 1.9470721e-07, 1, -2.885055e-22, 8.510922e-15, -2.682209e-05, 0.25093657, 2.503395e-05)
 bone_name = "L6b"
 bone_idx = 11
 override_pose = true
@@ -233,7 +236,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR1b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentR1a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 0, 0.25101376, -2.6196241e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 0, 0.25101376, -2.6464462e-05)
 bone_name = "R1b"
 bone_idx = 15
 override_pose = true
@@ -249,7 +252,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR2b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentR2a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.25092322, -3.0636787e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.25092214, -3.090501e-05)
 bone_name = "R2b"
 bone_idx = 17
 override_pose = true
@@ -265,7 +268,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR3b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentR3a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 4.529953e-06, 0.2510211, -2.6166439e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 4.529953e-06, 0.2510211, -2.643466e-05)
 bone_name = "R3b"
 bone_idx = 19
 override_pose = true
@@ -281,7 +284,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR4b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentR4a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, -2.3841858e-06, 0.2510152, -2.6166439e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, -2.3841858e-06, 0.2510152, -2.643466e-05)
 bone_name = "R4b"
 bone_idx = 21
 override_pose = true
@@ -297,7 +300,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR5b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentR5a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.25093478, -2.6166439e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.2509337, -2.643466e-05)
 bone_name = "R5b"
 bone_idx = 23
 override_pose = true
@@ -313,7 +316,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Model/Body/TracksArmature/Skeleton3D")
 
 [node name="BoneAttachmentR6b" type="BoneAttachment3D" parent="Exterior/BoneAttachments/BoneAttachmentR6a"]
-transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.25102, -2.6196241e-05)
+transform = Transform3D(-1.9106855e-15, 4.371139e-08, -1, -8.7422784e-08, 1.0000001, 4.3711392e-08, -1, -8.742278e-08, -1.9106855e-15, 2.4437904e-05, 0.25102, -2.6464462e-05)
 bone_name = "R6b"
 bone_idx = 25
 override_pose = true
@@ -682,5 +685,7 @@ wheel_friction_slip = 500.0
 suspension_travel = 0.0
 suspension_stiffness = 25.0
 suspension_max_force = 5000.0
+
+[connection signal="died" from="HealthManagerComponent" to="TankAimingComponent" method="set_enabled" binds= [false]]
 
 [editable path="Exterior/Model"]

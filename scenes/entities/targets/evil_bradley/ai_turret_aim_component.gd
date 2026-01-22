@@ -1,6 +1,8 @@
 extends Node
 class_name TankAimingAI
 
+@export var enabled := true
+
 @export_group("Components")
 @export var turret_control: TurretControlComponent
 @export var firing_component: TurretFiringComponent
@@ -25,10 +27,8 @@ class_name TankAimingAI
 @export var los_mask: int = 1    
 @export var los_max_distance := 200.0
 
-
 var _los_mesh_instance: MeshInstance3D
 var _los_mesh := ImmediateMesh.new()
-
 var target: Node3D = null
 
 func _ready() -> void:
@@ -56,8 +56,11 @@ func _draw_los_line(from: Vector3, to: Vector3, color: Color) -> void:
 	_los_mesh.surface_end()
 
 func _process(delta: float) -> void:	
-	_update_target()
+	if (!self.enabled):
+		_stop_aiming()
+		return
 	
+	_update_target()
 	if not target:
 		_stop_aiming()
 		return
@@ -68,7 +71,6 @@ func _process(delta: float) -> void:
 	
 	_apply_aiming(aim_data, delta)
 	_handle_auto_fire(aim_data)
-
 
 func _get_target_aim_position() -> Vector3:
 	return target.global_position + target_offset
@@ -83,7 +85,6 @@ func _update_target() -> void:
 
 func _stop_aiming() -> void:
 	turret_control.set_aim_velocity(Vector2.ZERO)
-
 
 func _calculate_aim_direction() -> Dictionary:
 	var horizontal_axis := turret_control.AXIS_HORIZONTAL
@@ -133,7 +134,6 @@ func _apply_aiming(aim_data: Dictionary, delta: float) -> void:
 		-aim_data.pitch_diff * aim_speed,
 		aim_data.horizontal_angle * aim_speed
 	)
-
 	
 	var current_velocity := turret_control.velocity
 	var smoothed_velocity := current_velocity.lerp(aim_velocity, aim_smoothing * delta)
@@ -188,3 +188,6 @@ func _should_fire(aim_data: Dictionary) -> bool:
 	var in_sight = _has_line_of_sight()
 	
 	return is_aimed and in_range and in_sight
+
+func set_enabled(value: bool) -> void:
+	self.enabled = value

@@ -1,7 +1,7 @@
 extends RigidBody3D
 
 @export var explosion: PackedScene
-@export var strength := 50.0
+@export var strength := 10.0
 
 var offset = 0.85
 
