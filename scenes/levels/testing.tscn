@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d2sscmmxsebpd" path="res://scripts/exit_app.gd" id="1_l6grw"]
 [ext_resource type="Material" uid="uid://cl4rjl8ttyplk" path="res://materials/placeholder.tres" id="1_ryjsw"]
-[ext_resource type="PackedScene" uid="uid://c7tfnnaojfjfe" path="res://scenes/entities/bradley/Bradley.tscn" id="2_pcu7d"]
+[ext_resource type="PackedScene" uid="uid://c7tfnnaojfjfe" path="res://scenes/entities/bradley/bradley.tscn" id="2_pcu7d"]
 [ext_resource type="PackedScene" uid="uid://y6oinm3gkfd2" path="res://scenes/entities/targets/evil_bradley/evil_bradley.tscn" id="4_x2n3b"]
 [ext_resource type="PackedScene" uid="uid://dyr6km8v1vgfj" path="res://scenes/entities/enemy_spawner/enemy_spawner.tscn" id="5_mouox"]
 [ext_resource type="PackedScene" uid="uid://bouhpyl4cr2gc" path="res://scenes/entities/targets/naughty_cube.tscn" id="6_0k28s"]

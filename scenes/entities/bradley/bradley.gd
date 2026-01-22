@@ -5,6 +5,7 @@ extends VehicleBody3D
 @export var HEALTH_LABEL: Label3D
 @export var TURRET_CONTROL: TurretControlComponent
 @export var TURRET_FIRING: TurretFiringComponent
+@export var CAMERA_MANAGER: CameraManagerComponent
 
 func _input(event: InputEvent) -> void:
 	if (event.is_action("look_down") or event.is_action("look_up") or event.is_action("look_left") or event.is_action("look_right")):
@@ -13,6 +14,9 @@ func _input(event: InputEvent) -> void:
 		TURRET_FIRING.trigger()
 	
 func open_death_screen():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	CAMERA_MANAGER.EXTERIOR_CAMERA.enabled = false
+	CAMERA_MANAGER.INTERIOR_CAMERA.enabled = false
 	DEATH_SCREEN.visible = true
 
 func update_health(health: float):
