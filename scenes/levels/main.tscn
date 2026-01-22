@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ddcpw6g3ke7fo" path="res://models/foliage/grass.blend" id="6_dj21o"]
 [ext_resource type="Material" uid="uid://c4qr2ig2sdnxd" path="res://materials/foliage/spruce_billboard.tres" id="6_xgklb"]
 [ext_resource type="Material" uid="uid://bkplafpjesnxd" path="res://materials/foliage/grass.tres" id="7_6ui35"]
-[ext_resource type="PackedScene" uid="uid://cotnwnlj2igfg" path="res://scenes/entities/bradley/bradley.tscn" id="13_6ui35"]
+[ext_resource type="PackedScene" uid="uid://c7tfnnaojfjfe" path="res://scenes/entities/bradley/Bradley.tscn" id="13_6ui35"]
 [ext_resource type="Material" uid="uid://degl554d1fjlr" path="res://materials/post_processing/filter_v2.tres" id="13_dj21o"]
 [ext_resource type="PackedScene" uid="uid://dyr6km8v1vgfj" path="res://scenes/entities/enemy_spawner/enemy_spawner.tscn" id="18_px1c8"]
 [ext_resource type="PackedScene" uid="uid://y6oinm3gkfd2" path="res://scenes/entities/targets/evil_bradley/evil_bradley.tscn" id="19_px1c8"]
@@ -174,6 +174,7 @@ grow_vertical = 2
 data_directory = "res://scenes/entities/terrain/regions"
 material = SubResource("Terrain3DMaterial_o6xl0")
 assets = ExtResource("3_rssyh")
+collision_mode = 4
 mesh_size = 32
 top_level = true
 metadata/_edit_lock_ = true
@@ -192,7 +193,7 @@ min_draw_distance = 80.0
 particle_count = 6400
 
 [node name="Bradley" parent="." instance=ExtResource("13_6ui35")]
-transform = Transform3D(0.77262276, 0, 0.6348654, 0, 1, 0, -0.6348654, 0, 0.77262276, -61.919277, -7.5270996, -168.84685)
+transform = Transform3D(0.77262276, 0, 0.6348654, 0, 1, 0, -0.6348654, 0, 0.77262276, 0.40498352, -46.06786, -9.796188)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("18_px1c8")]
 ENEMY_COUNT = 14
@@ -257,3 +258,5 @@ gizmo_extents = 5.0
 [node name="Marker3D7" type="Marker3D" parent="EnemySpawner"]
 transform = Transform3D(-0.080164105, 0, -0.9967816, 0, 1, 0, 0.9967816, 0, -0.080164105, 348.85205, -37.951004, 21.68984)
 gizmo_extents = 5.0
+
+[node name="RayCast3D" type="RayCast3D" parent="EnemySpawner"]

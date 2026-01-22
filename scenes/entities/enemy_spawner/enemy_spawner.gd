@@ -9,10 +9,13 @@ func _ready() -> void:
 	var spawns = self.get_children()
 	for i in range(ENEMY_COUNT):
 		var rand = randi_range(0, len(spawns)-1)
-		var instance: Node3D = ENEMY.instantiate()
-		get_tree().current_scene.call_deferred("add_child", instance)
-		instance.position = spawns[rand].position
+		spawn_enemy(spawns[rand].position)
 		spawns.remove_at(rand)
 		if len(spawns)==0:
 			break
 		
+func spawn_enemy(position: Vector3) -> void:
+	var instance: Node3D = ENEMY.instantiate()
+	get_tree().current_scene.call_deferred("add_child", instance)
+	instance.position = position
+	
