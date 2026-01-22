@@ -43,43 +43,43 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
 	- [x] day
 	- [x] night
 	- [x] fog
-- Audio effects - `vito`
+- Audio effects - `cuic`
     - [x] turret fire (near/far)
     - [x] explosion (near/far)
 	- [x] tank inside
  	- [x] tank buttons/switches
-  	- [ ] tank outside `[wont do]`
   	- [x] tank rep up
-- Visual effects - `antonio`
+- Visual effects - `zulim`
 	- [x] gun smoke/muzzle flash
 	- [x] bullet/shell explosion
 	- [x] vehicle explosion
-    - [ ] screen shake `[wont do]`
-- Enemy specialist - `grga`, `vito`
+- Enemy specialist - `grgecic`, `cuic`
 	- [x] automatic target acquisition/aiming
 	- [x] inaccurate aiming (spread)
-	- [ ] AI movement `[wont do]`
-    - [x] Enemy distribution - `antonio`
-- Projectiles & health system - `antonio`
+    - [x] Enemy distribution - `zulim`
+- Projectiles & health system - `zulim`
 	- [x] projectile (spawning, trajectory, hit)
 	- [x] health (health points, death explosion)
     - [x] player death, death screen
 - Documentation
-    - [ ] uvod, sažetak, zaključak `grga`
+    - [ ] uvod, sažetak, zaključak `grgecic`
     - [ ] literatura `cuic`
     - [x] simulacija `golub`
-    - [ ] alternativna simulacija `grga`
+    - [ ] simulacija (detaljnije) `grgecic`
     - [x] kontrolna ploča `golub`
-    - [ ] projektili `anotnio`
-    - [ ] health `anotnio`
+    - [ ] projektili `zulim`
+    - [ ] health `zulim`
     - [x] teren `golub`
     - [x] weather `golub`
-    - [ ] audio efekti `vito`
-    - [ ] vizualni efekti `anotnio`
-    - [ ] neprijatelji ai `grga` 
-    - [ ] spawnanje`anotnio`
+    - [ ] audio efekti `cuic`
+    - [ ] vizualni efekti `zulim`
+    - [ ] neprijatelji ai `grgecic` 
+    - [ ] spawnanje `zulim`
 - Presentation
-    - [ ] power point `antonio`
+    - [ ] power point `zulim`
+    - [ ] printanje dokumentacije `zulim`
+    - [ ] release version `golub`
+    - [ ] add controls to readme  `golub`
 </details>
 
 ---
@@ -139,7 +139,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
                 <em>(other armored vehicles/tanks)</em>
             </td>
             <td><kbd>c)</kbd></td>
-            <td>cuic, grga</td>
+            <td>cuic, grgecic</td>
             <td><kbd>Done</kbd></td>
         </tr>
         <tr>
@@ -161,7 +161,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
                 <em>(any one of a, b, … + mandatory d)</em>
             </td>
             <td><kbd>b)</kbd><br/><kbd>d)</kbd></td>
-            <td>golub <br/>grga</td>
+            <td>golub <br/>grgecic</td>
             <td><kbd>Done</kbd> <br/> <kbd>Done</kbd></td>
         </tr>
         <tr>
@@ -174,7 +174,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
                 </ol>
             </td>
             <td><kbd>a)</kbd></td>
-            <td>cuic, grga</td>
+            <td>cuic, grgecic</td>
             <td><kbd>Done</kbd></td>
         </tr>
         <tr>
@@ -218,7 +218,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
                 <em>(first, regular situations (targets that don’t return fire), then emergency/stressful situations (targets that return fire))</em>
             </td>
             <td><kbd>d)</kbd></td>
-            <td>cuic, grga</td>
+            <td>cuic, grgecic</td>
             <td><kbd>Done</kbd></td>
         </tr>
         <tr>
@@ -232,7 +232,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
                 </ol>
             </td>
             <td><kbd>d)</kbd></td>
-            <td>cuic, grga</td>
+            <td>cuic, grgecic</td>
             <td><kbd>Done</kbd></td>
         </tr>
         <tr>
