@@ -48,24 +48,22 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
     - [x] explosion (near/far)
 	- [x] tank inside
  	- [x] tank buttons/switches
-  	- [ ] tank outside
+  	- [ ] tank outside `[wont do]`
   	- [x] tank rep up
 - Visual effects - `antonio`
 	- [x] gun smoke/muzzle flash
 	- [x] bullet/shell explosion
 	- [x] vehicle explosion
-    - [ ] screen shake
+    - [ ] screen shake `[wont do]`
 - Enemy specialist - `grga`, `vito`
 	- [x] automatic target acquisition/aiming
 	- [x] inaccurate aiming (spread)
-	- [ ] AI movement
+	- [ ] AI movement `[wont do]`
     - [x] Enemy distribution - `antonio`
 - Projectiles & health system - `antonio`
 	- [x] projectile (spawning, trajectory, hit)
 	- [x] health (health points, death explosion)
     - [x] player death, death screen
-- Advanced movement
-    - [ ] vibe coding - `grga`
 - Documentation
     - [ ] uvod, sažetak, zaključak `grga`
     - [ ] literatura `cuic`
@@ -142,7 +140,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
             </td>
             <td><kbd>c)</kbd></td>
             <td>cuic, grga</td>
-            <td><kbd>Unfinished</kbd></td>
+            <td><kbd>Done</kbd></td>
         </tr>
         <tr>
             <td>4. Armored vehicle/tank simulation on the terrain</td>
@@ -164,7 +162,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
             </td>
             <td><kbd>b)</kbd><br/><kbd>d)</kbd></td>
             <td>golub <br/>grga</td>
-            <td><kbd>Done</kbd> <br/> <kbd>Unfinished</kbd></td>
+            <td><kbd>Done</kbd> <br/> <kbd>Done</kbd></td>
         </tr>
         <tr>
             <td>5. Target motion simulation</td>
@@ -175,9 +173,9 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
                     <li>...</li>
                 </ol>
             </td>
-            <td><kbd>c)</kbd></td>
+            <td><kbd>a)</kbd></td>
             <td>cuic, grga</td>
-            <td><kbd>Unfinished</kbd></td>
+            <td><kbd>Done</kbd></td>
         </tr>
         <tr>
             <td>6. Simulation of Basic Vehicle Dashboard Instruments</td>
@@ -206,7 +204,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
             </td>
             <td><kbd>b)</kbd></td>
             <td>zulim</td>
-            <td><kbd>Unfinished</kbd></td>
+            <td><kbd>Done</kbd></td>
         </tr>
         <tr>
             <td>8. Design of a scenario in line with the requirements of the topic as presented on the slides during introduction of seminar topics</td>
@@ -221,7 +219,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
             </td>
             <td><kbd>d)</kbd></td>
             <td>cuic, grga</td>
-            <td><kbd>Unfinished</kbd></td>
+            <td><kbd>Done</kbd></td>
         </tr>
         <tr>
             <td>9. Reaction of the targets to being hit</td>
@@ -235,7 +233,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
             </td>
             <td><kbd>d)</kbd></td>
             <td>cuic, grga</td>
-            <td><kbd>Unfinished</kbd></td>
+            <td><kbd>Done</kbd></td>
         </tr>
         <tr>
             <td>10. Tank gun round on-firing and on-impact visual effects</td>
@@ -249,7 +247,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
             </td>
             <td><kbd>c)</kbd></td>
             <td>zulim</td>
-            <td><kbd>Unfinished</kbd></td>
+            <td><kbd>Done</kbd></td>
         </tr>
         <tr>
             <td>11. Audio simulation</td>
@@ -262,7 +260,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
             </td>
             <td><kbd>b)</kbd></td>
             <td>cuic</td>
-            <td><kbd>Unfinished</kbd></td>
+            <td><kbd>Done</kbd></td>
         </tr>
         <tr>
             <td>12. Weather conditions</td>
