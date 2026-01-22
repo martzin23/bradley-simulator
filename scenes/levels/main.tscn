@@ -194,7 +194,7 @@ min_draw_distance = 80.0
 particle_count = 6400
 
 [node name="Bradley" parent="." instance=ExtResource("13_6ui35")]
-transform = Transform3D(0.77262276, 0, 0.6348654, 0, 1, 0, -0.6348654, 0, 0.77262276, 0.40498352, -46.06786, -9.796188)
+transform = Transform3D(-0.17160234, 0, -0.9851663, 0, 1, 0, 0.9851663, 0, -0.17160234, 2.0943244, -46.06786, -1.5737343)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("18_px1c8")]
 ENEMY_COUNT = 14
@@ -202,6 +202,10 @@ ENEMY = ExtResource("19_px1c8")
 
 [node name="Marker3D" type="Marker3D" parent="EnemySpawner"]
 transform = Transform3D(0.90208125, 0, 0.43156627, 0, 1, 0, -0.43156627, 0, 0.90208125, -279.59113, -36.337563, -213.41537)
+gizmo_extents = 5.0
+
+[node name="Marker3D8" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(0.11443427, 0, 0.99343085, 0, 1, 0, -0.99343085, 0, 0.11443427, -135.73466, -36.337563, -47.909424)
 gizmo_extents = 5.0
 
 [node name="Marker3D14" type="Marker3D" parent="EnemySpawner"]
@@ -240,24 +244,26 @@ gizmo_extents = 5.0
 transform = Transform3D(-0.9960052, 0, -0.089294165, 0, 1, 0, 0.089294165, 0, -0.9960052, 325.59906, -37.951004, 10.666346)
 gizmo_extents = 5.0
 
-[node name="Marker3D8" type="Marker3D" parent="EnemySpawner"]
-transform = Transform3D(-0.9960052, 0, -0.089294165, 0, 1, 0, 0.089294165, 0, -0.9960052, 5.7928247, -42.155178, 0.2760725)
-gizmo_extents = 5.0
-
-[node name="Marker3D9" type="Marker3D" parent="EnemySpawner"]
-transform = Transform3D(-0.625406, 0, 0.78029937, 0, 1, 0, -0.78029937, 0, -0.625406, 10.814141, -42.155178, -7.180661)
-gizmo_extents = 5.0
-
 [node name="Marker3D10" type="Marker3D" parent="EnemySpawner"]
-transform = Transform3D(-0.625406, 0, 0.78029937, 0, 1, 0, -0.78029937, 0, -0.625406, 34.81041, -40.64503, 210.40356)
+transform = Transform3D(-0.625406, 0, 0.78029937, 0, 1, 0, -0.78029937, 0, -0.625406, 40.2007, -40.64503, 199.01923)
+gizmo_extents = 5.0
+
+[node name="Marker3D16" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(0.60212153, 0, 0.7984043, 0, 1, 0, -0.7984043, 0, 0.60212153, 147.26657, -40.645023, -122.39159)
+gizmo_extents = 5.0
+
+[node name="Marker3D17" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(-0.3000732, 0, 0.9539161, 0, 1, 0, -0.9539161, 0, -0.3000732, 189.45587, -40.64502, -107.26542)
 gizmo_extents = 5.0
 
 [node name="Marker3D11" type="Marker3D" parent="EnemySpawner"]
 transform = Transform3D(-0.625406, 0, 0.78029937, 0, 1, 0, -0.78029937, 0, -0.625406, -173.8668, -35.181583, 151.04668)
 gizmo_extents = 5.0
 
+[node name="Marker3D18" type="Marker3D" parent="EnemySpawner"]
+transform = Transform3D(-0.96228445, 0, 0.27204508, 0, 1, 0, -0.27204508, 0, -0.96228445, -64.846596, -35.181583, 103.13387)
+gizmo_extents = 5.0
+
 [node name="Marker3D7" type="Marker3D" parent="EnemySpawner"]
 transform = Transform3D(-0.080164105, 0, -0.9967816, 0, 1, 0, 0.9967816, 0, -0.080164105, 348.85205, -37.951004, 21.68984)
 gizmo_extents = 5.0
-
-[node name="RayCast3D" type="RayCast3D" parent="EnemySpawner"]

@@ -9,6 +9,7 @@ sprite = NodePath("Sprite3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 1
+shaded = true
 texture = ExtResource("2_8bq85")
 hframes = 8
 vframes = 8

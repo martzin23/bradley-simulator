@@ -3,7 +3,7 @@ class_name SimpleMovementComponent
 
 @export_group("General")
 @export var VEHICLE: VehicleBody3D
-@export var ENGINE_POWER = 200
+@export var ENGINE_POWER = 300
 @export var STEERING_STRENGTH = 3
 @export var AUTO_BRAKE = 5
 @export var BRAKE_POWER = 20
