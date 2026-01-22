@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ddcpw6g3ke7fo" path="res://models/foliage/grass.blend" id="6_dj21o"]
 [ext_resource type="Material" uid="uid://c4qr2ig2sdnxd" path="res://materials/foliage/spruce_billboard.tres" id="6_xgklb"]
 [ext_resource type="Material" uid="uid://bkplafpjesnxd" path="res://materials/foliage/grass.tres" id="7_6ui35"]
-[ext_resource type="PackedScene" uid="uid://c7tfnnaojfjfe" path="res://scenes/entities/bradley/Bradley.tscn" id="13_6ui35"]
+[ext_resource type="PackedScene" uid="uid://c7tfnnaojfjfe" path="res://scenes/entities/bradley/bradley.tscn" id="13_6ui35"]
 [ext_resource type="Material" uid="uid://degl554d1fjlr" path="res://materials/post_processing/filter_v2.tres" id="13_dj21o"]
 [ext_resource type="PackedScene" uid="uid://dyr6km8v1vgfj" path="res://scenes/entities/enemy_spawner/enemy_spawner.tscn" id="18_px1c8"]
 [ext_resource type="PackedScene" uid="uid://y6oinm3gkfd2" path="res://scenes/entities/targets/evil_bradley/evil_bradley.tscn" id="19_px1c8"]
@@ -161,6 +161,7 @@ size = Vector3(1536, 50, 1024)
 material = SubResource("FogMaterial_85g3d")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Environment"]
+layer = 0
 
 [node name="ColorRect" type="ColorRect" parent="Environment/CanvasLayer"]
 material = ExtResource("13_dj21o")

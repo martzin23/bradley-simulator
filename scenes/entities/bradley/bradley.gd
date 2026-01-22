@@ -14,13 +14,10 @@ func _input(event: InputEvent) -> void:
 		TURRET_FIRING.trigger()
 	
 func open_death_screen():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	CAMERA_MANAGER.EXTERIOR_CAMERA.enabled = false
-	CAMERA_MANAGER.INTERIOR_CAMERA.enabled = false
+	CAMERA_MANAGER.INTERIOR_CAMERA.enabled = true
+	CAMERA_MANAGER.INTERIOR_CAMERA.captured = false
 	DEATH_SCREEN.visible = true
-
-func update_health(health: float):
-	HEALTH_LABEL.text = str(health)
 
 func reset_scene():
 	get_tree().reload_current_scene()
