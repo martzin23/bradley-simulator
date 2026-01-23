@@ -22,6 +22,22 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
 <details open>
 <summary>
 
+### Keyboard controls
+</summary>
+
+<p><kbd>Tab</kbd> - toggle third/first person</p>
+<p><kbd>Alt</kbd> - toggle locked/unlocked looking mode</p>
+<p><kbd>W/S</kbd> - move forward/backwards</p>
+<p><kbd>A/D</kbd> - move left/right</p>
+<p><kbd>Ctrl</kbd> - brakes</p>
+<p><kbd>Space</kbd> - fire</p>
+</details>
+
+---
+
+<details open>
+<summary>
+
 ### Team roles
 </summary>
     <table>
