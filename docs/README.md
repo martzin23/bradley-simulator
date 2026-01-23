@@ -25,12 +25,28 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
 ### Keyboard controls
 </summary>
 
-<p><kbd>Tab</kbd> - toggle third/first person</p>
-<p><kbd>Alt</kbd> - toggle locked/unlocked looking mode</p>
-<p><kbd>W/S</kbd> - move forward/backwards</p>
-<p><kbd>A/D</kbd> - move left/right</p>
-<p><kbd>Ctrl</kbd> - brakes</p>
-<p><kbd>Space</kbd> - fire</p>
+<table>
+    <tr>
+        <th>Interaction</th>
+        <th>Vehicle control</th>
+    </tr>
+    <tr>
+        <td>
+            <p><kbd>Mouse</kbd> - Look around</p>
+            <p><kbd>Click</kbd> - interact with buttons</p>
+            <p><kbd>Tab</kbd> - toggle third/first person</p>
+            <p><kbd>Alt</kbd> - toggle locked/unlocked looking mode</p>
+            <p><kbd>Esc</kbd> - quit</p>
+        </td>
+        <td>
+            <p><kbd>W/S</kbd> - move forward/backwards</p>
+            <p><kbd>A/D</kbd> - rotate left/right</p>
+            <p><kbd>Ctrl</kbd> - brakes</p>
+            <p><kbd>Space</kbd> - fire</p>
+            <p><kbd>Arrows</kbd> - rotate turret</p>
+        </td>
+    </tr>
+</table>
 </details>
 
 ---
@@ -263,18 +279,7 @@ A simplified simulator of a military vehicle M2A2 'Bradley' created for a univer
             </td>
             <td><kbd>-</kbd></td>
             <td>all</td>
-            <td><kbd>Unfinished</kbd></td>
-        </tr>
-        <tr>
-            <td>16. Presentation</td>
-            <td>
-                <ul>
-                    <li>power point</li>
-                </ul>
-            </td>
-            <td><kbd>-</kbd></td>
-            <td>zulim</td>
-            <td><kbd>Unfinished</kbd></td>
+            <td><kbd>Done</kbd></td>
         </tr>
     </table>
 </details>

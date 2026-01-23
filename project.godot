@@ -21,6 +21,7 @@ Global="*res://scripts/global.gd"
 
 [display]
 
+window/size/mode=3
 window/size/resizable=false
 window/size/borderless=true
 
@@ -36,6 +37,7 @@ enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
 
 folder_colors={
 "res://addons/": "purple",
+"res://builds/": "gray",
 "res://materials/": "yellow",
 "res://models/": "orange",
 "res://scenes/": "red",
